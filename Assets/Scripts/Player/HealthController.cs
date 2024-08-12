@@ -1,0 +1,42 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class HealthController : MonoBehaviour {
+
+  //public HealthBarUI healthBarUI;
+
+  public float health = 100;
+  public float maxHealth = 100;
+
+  public bool sliceable = false;
+
+  private float hp1 = 0;
+  private float hp2 = 0;
+
+  private float speed1 = 10f;
+  private float speed2 = 5f;
+
+  public Ray2D hitRay;
+
+  // Start is called before the first frame update
+  void Start() {
+  }
+
+  // Update is called once per frame
+  void Update() {
+    hp1 += (health - hp1) * speed1 * Time.deltaTime;
+    hp2 += (health - hp2) * speed2 * Time.deltaTime;
+    //healthBarUI.SetHealth(hp1, hp2);
+  }
+
+
+  public void TakeDamage(float damage) {
+    health -= damage;
+  }
+
+  public void TakeDamage(float damage, Ray2D ray) {
+    TakeDamage(damage);
+    hitRay = ray;
+  }
+}
