@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HealthController : MonoBehaviour {
 
-  //public HealthBarUI healthBarUI;
+  public HealthBarUI healthBarUI;
 
   public float health = 100;
   public float maxHealth = 100;
@@ -21,6 +21,7 @@ public class HealthController : MonoBehaviour {
 
   // Start is called before the first frame update
   void Start() {
+    healthBarUI.Init(health, maxHealth);
   }
 
   // Update is called once per frame
@@ -28,6 +29,7 @@ public class HealthController : MonoBehaviour {
     hp1 += (health - hp1) * speed1 * Time.deltaTime;
     hp2 += (health - hp2) * speed2 * Time.deltaTime;
     //healthBarUI.SetHealth(hp1, hp2);
+    healthBarUI.health = health;
   }
 
 
