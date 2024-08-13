@@ -11,8 +11,7 @@ public class GrapplingGun : MonoBehaviour
     [SerializeField] private bool grappleToAll = false;
     [SerializeField] private int grappableLayerNumber = 9;
 
-    [Header("Main Camera:")]
-    public Camera m_camera;
+    private Camera m_camera;
 
     [Header("Transform Ref:")]
     public Transform gunHolder;
@@ -56,6 +55,7 @@ public class GrapplingGun : MonoBehaviour
     {
         grappleRope.enabled = false;
         m_springJoint2D.enabled = false;
+        m_camera = Camera.main;
 
     }
 
