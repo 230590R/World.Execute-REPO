@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour {
   public Animator m_Animator;
   public SwordController m_SwordController;
   public Rigidbody2D m_Rigidbody2D;
-  public GrapplingGun m_GrapplingGunController;
+  private GrapplingGun m_GrapplingGunController;
 
   private SpriteRenderer m_SpriteRenderer;
 

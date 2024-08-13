@@ -386,7 +386,6 @@ MonoBehaviour:
   hasMaxDistance: 1
   maxDistnace: 20
   launchToPoint: 1
-  launchType: 1
   launchSpeed: 1.16
   autoConfigureDistance: 0
   targetDistance: 3
@@ -848,7 +847,9 @@ MonoBehaviour:
   m_SpriteRenderer: {fileID: 4156544820445282374}
   movementSpeed: 10
   _dashSpeed: {x: 10, y: 0}
+  _wallJumpSpeed: {x: 50, y: 50}
   groundRayDist: 1
+  wallJumpRayDist: 0
   _grounded: 0
   jump: 0
   dash: 0
