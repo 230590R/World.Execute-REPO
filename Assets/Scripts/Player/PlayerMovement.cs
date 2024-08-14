@@ -88,6 +88,8 @@ public class PlayerMovement : MonoBehaviour {
       jump = false;
     }
 
+
+        //Debug.Log(canWallJump);
   }
 
   int GetPlayerFacingDirection(bool flipX) {

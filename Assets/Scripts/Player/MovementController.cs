@@ -27,7 +27,7 @@ public class MovementController : MonoBehaviour {
   private float spriteAngle;
   private Vector2 _dashVectorVelocity = Vector3.zero;
   private Vector2 _wallJumpVelocity = Vector3.zero;
-  private bool _wallJump;
+    [SerializeField] private bool _wallJump;
 
 
   

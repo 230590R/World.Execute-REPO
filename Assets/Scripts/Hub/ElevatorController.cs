@@ -1,16 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ElevatorController : MonoBehaviour
 {
-    public float height = 5f;  
-    public float speed = 2f;  
-    public string playerTag = "Player";  
-    public KeyCode InputKey = KeyCode.E;  
+    public float height = 5f;
+    public float speed = 2f;
+    public string playerTag = "Player";
+    public KeyCode InputKey = KeyCode.E;
 
     private bool isMoving = false;
     private bool movingUp = true;
+    private bool returnDown = false;
 
     private Vector3 startPosition;
     private Vector3 topPosition;
@@ -29,6 +31,7 @@ public class ElevatorController : MonoBehaviour
         if (playerInTrigger && Input.GetKeyDown(InputKey) && !isMoving)
         {
             isMoving = true;
+            returnDown = false; 
         }
 
         if (isMoving)
@@ -36,12 +39,13 @@ public class ElevatorController : MonoBehaviour
             MoveElevator();
             if (playerInTrigger && playerTransform != null)
             {
-                playerTransform.SetParent(transform); 
+                playerTransform.SetParent(transform);
             }
-            else if (!playerInTrigger && playerTransform != null)
-            {
-                playerTransform.SetParent(null); 
-            }
+        }
+        else if (!movingUp && !playerInTrigger && !returnDown)
+        {
+            returnDown = true;
+            isMoving = true;
         }
     }
 
@@ -56,9 +60,18 @@ public class ElevatorController : MonoBehaviour
             isMoving = false;
             movingUp = !movingUp;
 
-            if (playerTransform != null)
+            if (!movingUp && !playerInTrigger)
             {
-                playerTransform.SetParent(null); 
+                // Start return down trip after reaching the top and the player has exited
+                returnDown = true;
+            }
+            else
+            {
+                returnDown = false;
+                if (playerTransform != null)
+                {
+                    playerTransform.SetParent(null);
+                }
             }
         }
     }
@@ -69,7 +82,7 @@ public class ElevatorController : MonoBehaviour
         {
             playerInTrigger = true;
             playerTransform = other.transform;
-            playerTransform.SetParent(transform); 
+            playerTransform.SetParent(transform);
         }
     }
 
@@ -80,8 +93,18 @@ public class ElevatorController : MonoBehaviour
             playerInTrigger = false;
             if (playerTransform != null)
             {
-                playerTransform.SetParent(null); 
+                playerTransform.SetParent(null);
                 playerTransform = null;
+            }
+
+            if (!movingUp)
+            {
+                isMoving = true;
+            }
+            if (isMoving && movingUp)
+            {
+                movingUp = false;
+                isMoving = true;
             }
         }
     }
