@@ -10,12 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c22fb22975c10dd43a046c0e51dfa870, type: 3}
-  m_Name: FlyerChase
+  m_Name: AttackDummy
   m_EditorClassIdentifier: 
   stateName: 
   actions:
-  - {fileID: 11400000, guid: b7331d66c6444da4e965aabe5b01cc71, type: 2}
-  - {fileID: 11400000, guid: 2ae35f94ed7d44b4abfaea77d9173d3b, type: 2}
+  - {fileID: 11400000, guid: 0d31624c27e6cc346a4d3363c6703e79, type: 2}
   transitions: []
-  stateExitTime: 2
+  stateExitTime: 1
   timeoutState: {fileID: 11400000, guid: 9a233c1cd51d248489b09aa48ce57581, type: 2}

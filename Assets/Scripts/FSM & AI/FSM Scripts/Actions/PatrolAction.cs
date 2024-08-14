@@ -15,18 +15,13 @@ public class PatrolAction : IAction {
     //controller.UpdatePath();
     if (controller.waypoints.Length <= 0) return;
 
-
     if (controller.wp < 0) controller.wp = controller.waypoints.Length - 1;
     if (controller.wp >= controller.waypoints.Length) controller.wp = 0;
-
-
 
     if (controller.pathDone) {
       controller.pathDone = false;
       controller.Target = controller.waypoints[controller.wp];
       controller.wp++;
-
-      //controller.UpdatePath();
     }
   }
 
@@ -38,4 +33,7 @@ public class PatrolAction : IAction {
   public override void Exit(StateMachine controller) {
 
   }
+
+
+
 }

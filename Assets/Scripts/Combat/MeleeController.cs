@@ -12,9 +12,19 @@ public class MeleeController : IAttackController {
   public float maxAttackCD;
   public float attackCD;
 
+  public Collider ParryCollider;
+
+  private bool parryableState;
+
   public Vector2 AttackPoint {
     get { return _attackPoint; }
     set { _attackPoint = value; }
+  }
+
+  public override void ChargeUp(Vector2 direction) {
+    if (ParryCollider == null) return;
+    // activate the parry collider
+    parryableState = true;
   }
 
   public override Collider2D Attack(Vector2 direction) {
@@ -22,6 +32,11 @@ public class MeleeController : IAttackController {
     _attackPoint = point;
     return AttackEnter(damage, radius, point);
   }
+
+
+
+
+
 
 
   public Collider2D AttackEnter(float dmg, float r, Vector2 point) {

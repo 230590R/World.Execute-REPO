@@ -8,8 +8,6 @@ public class ChasePlayerScript : IAction {
 
   public override void Act(StateMachine controller) {
 
-
-
     ChasePlayer(controller);
   }
 
@@ -23,9 +21,4 @@ public class ChasePlayerScript : IAction {
   public override void Exit(StateMachine controller) {
 
   }
-
-  private void UpdatePlayerPath(StateMachine controller) {
-
-  }
-
 }

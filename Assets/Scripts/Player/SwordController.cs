@@ -38,7 +38,6 @@ public class SwordController : MonoBehaviour {
     if (_slashBuffer) {
       RotateSlashSprite();
       m_SlashAnimator.SetTrigger("Slash");
-      Debug.Log("asdasd");
 
       //m_MeleeController.TargetDir = _slashDir;
       //m_MeleeController.AttackEnter();

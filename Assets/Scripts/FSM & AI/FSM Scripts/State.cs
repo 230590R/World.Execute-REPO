@@ -8,7 +8,8 @@ public class State : ScriptableObject {
   public IAction[] actions;
   public Transition[] transitions;
 
-
+  public float stateExitTime = -1;
+  public State timeoutState;
 
 
   public void UpdateState(StateMachine controller) {
@@ -35,6 +36,12 @@ public class State : ScriptableObject {
         controller.TransitionToState(transitions[i].falseState);
       }
 
+    }
+
+    // check for timeout
+    if (stateExitTime < 0) return; // negative means you dont check
+    if (controller.elapsedTime > stateExitTime) {
+      controller.TransitionToState(timeoutState);
     }
   }
 
