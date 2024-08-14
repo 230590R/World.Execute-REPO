@@ -38,12 +38,14 @@ public class StateMachine : MonoBehaviour {
   public float pathWaypointThreshold = 0.5f;
   public int wp = 0;
 
+    public float movementMultiplier;
 
 
   public Stats stats;
   private void Start() {
     m_Seeker = GetComponent<Seeker>();
     m_Rigidbody2D = GetComponent<Rigidbody2D>();
+        m_SpriteRenderer = m_Animator.GetComponent<SpriteRenderer>();
 
     foreach (var KVP in attackDict) {
       m_Attacks.Add(KVP.key, KVP.value);

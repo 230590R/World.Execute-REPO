@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c22fb22975c10dd43a046c0e51dfa870, type: 3}
+  m_Name: PolicePatrol
+  m_EditorClassIdentifier: 
+  stateName: Patrol
+  actions:
+  - {fileID: 11400000, guid: 21880bb2dcd76e845b7caeb9eb680604, type: 2}
+  - {fileID: 11400000, guid: 46797e7b54acaba4ba9c57b934c522ff, type: 2}
+  transitions:
+  - decision: {fileID: 11400000, guid: 6b2af9313ac6d2e4db841b9d085005a1, type: 2}
+    trueState: {fileID: 11400000, guid: 8e2f79935addc8f4fb116e1e435aeafa, type: 2}
+    falseState: {fileID: 11400000, guid: 2ba8e919aca54054aa55e7d1d4380702, type: 2}
+  stateExitTime: -1
+  timeoutState: {fileID: 11400000, guid: 8e2f79935addc8f4fb116e1e435aeafa, type: 2}
