@@ -62,7 +62,6 @@ public class ElevatorController : MonoBehaviour
 
             if (!movingUp && !playerInTrigger)
             {
-                // Start return down trip after reaching the top and the player has exited
                 returnDown = true;
             }
             else
