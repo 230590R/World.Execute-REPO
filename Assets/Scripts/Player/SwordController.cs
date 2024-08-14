@@ -40,8 +40,9 @@ public class SwordController : MonoBehaviour {
       m_SlashAnimator.SetTrigger("Slash");
       Debug.Log("asdasd");
 
-      m_MeleeController.TargetDir = _slashDir;
-      m_MeleeController.AttackEnter();
+      //m_MeleeController.TargetDir = _slashDir;
+      //m_MeleeController.AttackEnter();
+      m_MeleeController.Attack(_slashDir);
 
       _slashBuffer = false;
     }

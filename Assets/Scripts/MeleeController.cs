@@ -3,12 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class MeleeController : MonoBehaviour {
+public class MeleeController : IAttackController {
   private Vector2 _attackPoint;
-  private Vector2 _targetDir;
-  public float damage;
-
-  public string layerName;
 
   public float distance;
   public float radius;
@@ -20,30 +16,11 @@ public class MeleeController : MonoBehaviour {
     get { return _attackPoint; }
     set { _attackPoint = value; }
   }
-  public Vector2 TargetDir {
-    get { return _targetDir; }
-    set { _targetDir = value; }
-  }
 
-  public Collider2D AttackEnter() {
-    Debug.Log("hitattempt");
-    Collider2D hit = CheckHit();
-
-    if (hit == null) {
-      return null;
-    }
-
-    //CinemachineShake.Instance.ShakeCamera(3.5f, 0.5f);
-    HealthController health = hit.GetComponent<HealthController>();
-
-    // calculate ray
-    Vector2 dir = (hit.transform.position - transform.position).normalized;
-    Ray2D hitRay = new Ray2D(transform.position, dir);
-    
-
-    health.TakeDamage(damage, hitRay);
-    attackCD = maxAttackCD;
-    return hit;
+  public override Collider2D Attack(Vector2 direction) {
+    Vector2 point = (Vector2)transform.position + (direction * distance);
+    _attackPoint = point;
+    return AttackEnter(damage, radius, point);
   }
 
 
@@ -68,9 +45,6 @@ public class MeleeController : MonoBehaviour {
   }
 
 
-  public void AttackExit() {
-  }
-
   // Start is called before the first frame update
   void Start() {
     if (_attackPoint == null) {
@@ -81,7 +55,6 @@ public class MeleeController : MonoBehaviour {
 
   // Update is called once per frame
   void Update() {
-    _attackPoint = new Vector2(transform.position.x, transform.position.y) + _targetDir.normalized * distance;
     attackCD -= Time.deltaTime;
     if (attackCD < 0) attackCD = 0; 
   }
@@ -94,11 +67,5 @@ public class MeleeController : MonoBehaviour {
     Gizmos.DrawWireSphere(AttackPoint, radius);
   }
 
-  public Collider2D CheckHit() {
-    return Physics2D.OverlapCircle(_attackPoint, radius, LayerMask.GetMask(layerName));
-  }
 
-  public void UpdateEquipment(float dmg, float spd) {
-    damage = dmg;
-  }
 }
