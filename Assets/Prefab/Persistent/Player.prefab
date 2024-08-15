@@ -729,6 +729,7 @@ GameObject:
   - component: {fileID: 186774856983801599}
   - component: {fileID: 1353785236642576968}
   - component: {fileID: 4371133625798426234}
+  - component: {fileID: 7579206879273938479}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -942,6 +943,21 @@ MonoBehaviour:
   flipX: 0
   horizontalAxis: 0
   prevXVel: 0
+--- !u!114 &7579206879273938479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8785274042503888061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e74a3268d004844b1aff49f4e42d46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneToSwitchTo: Sandbox ZB 1
+  hubSceneName: SceneHub
+  switchKey: 102
 --- !u!1 &8988019200053934278
 GameObject:
   m_ObjectHideFlags: 0
