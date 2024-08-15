@@ -890,8 +890,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8a427a99038aae46895cb4c281a6812, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layerName: Enemy
+  m_Animator: {fileID: 0}
+  layer:
+    serializedVersion: 2
+    m_Bits: 0
   damage: 0
+  atkTriggerName: 
   distance: 0
   radius: 1
   maxAttackCD: 0
@@ -951,7 +955,7 @@ MonoBehaviour:
   _gravityClamp: -10
   _dashSpeed: {x: 15, y: 0}
   _wallJumpSpeed: {x: 15, y: 15}
-  _jumpStrength: 10
+  _jumpStrength: 11
   groundRayDist: 1
   wallJumpRayDist: 0.5
   _grounded: 0
