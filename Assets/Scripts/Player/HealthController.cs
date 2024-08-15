@@ -32,7 +32,6 @@ public class HealthController : MonoBehaviour {
     healthBarUI.health = health;
   }
 
-
   public void TakeDamage(float damage) {
     health -= damage;
   }
