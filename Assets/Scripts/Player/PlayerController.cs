@@ -14,8 +14,6 @@ public class PlayerController : MonoBehaviour {
 
   private SpriteRenderer m_SpriteRenderer;
 
-
-
   // Start is called before the first frame update
   private void Start() {
     m_MovementController = GetComponent<PlayerMovement>();
