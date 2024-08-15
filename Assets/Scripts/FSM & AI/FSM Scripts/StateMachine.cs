@@ -38,6 +38,8 @@ public class StateMachine : MonoBehaviour {
   public float pathWaypointThreshold = 0.5f;
   public int wp = 0;
 
+  public int atkIndex;
+  public bool atkBuffer;
 
 
   public Stats stats;

@@ -9,12 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c22fb22975c10dd43a046c0e51dfa870, type: 3}
-  m_Name: AttackDummy
+  m_Script: {fileID: 11500000, guid: 13c77c1d8e31d5b4496b0fe39ceb944d, type: 3}
+  m_Name: ChainAttack
   m_EditorClassIdentifier: 
-  stateName: 
-  actions:
-  - {fileID: 11400000, guid: 0d31624c27e6cc346a4d3363c6703e79, type: 2}
-  transitions: []
-  stateExitTime: -1
-  timeoutState: {fileID: 11400000}
+  ChainAttacks:
+  - atkName: Melee
+    atkDuration: 1
+  - atkName: Melee
+    atkDuration: 2
