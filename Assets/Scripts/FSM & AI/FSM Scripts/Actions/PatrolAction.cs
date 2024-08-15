@@ -23,6 +23,9 @@ public class PatrolAction : IAction {
       controller.Target = controller.waypoints[controller.wp];
       controller.wp++;
     }
+
+
+
   }
 
 

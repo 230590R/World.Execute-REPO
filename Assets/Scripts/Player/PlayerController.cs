@@ -6,7 +6,7 @@ using ExtensionMethods;
 [RequireComponent(typeof(MovementController))]
 public class PlayerController : MonoBehaviour {
 
-  private PlayerMovement m_MovementController;
+  private MovementController m_MovementController;
   public Animator m_Animator;
   public SwordController m_SwordController;
   public Rigidbody2D m_Rigidbody2D;
@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour {
 
   // Start is called before the first frame update
   private void Start() {
-    m_MovementController = GetComponent<PlayerMovement>();
+    m_MovementController = GetComponent<MovementController>();
     m_SpriteRenderer = m_Animator.GetComponent<SpriteRenderer>();
     m_SwordController = GetComponent<SwordController>();
     m_GrapplingGunController = GetComponentInChildren<GrapplingGun>();

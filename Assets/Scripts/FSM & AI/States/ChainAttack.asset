@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: ChainAttack
   m_EditorClassIdentifier: 
   ChainAttacks:
-  - atkName: Melee
-    atkDuration: 1
-  - atkName: Melee
-    atkDuration: 2
+  - atkName: Punch
+    atkLeadupTime: 1
+    parriableDuration: 0.25
+  - atkName: Punch
+    atkLeadupTime: 1
+    parriableDuration: 0.25
