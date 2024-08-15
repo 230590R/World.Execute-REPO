@@ -9,9 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
-    path: Assets/Scenes/Sandbox ZB.unity
+    path: Assets/Scenes/Sandbox/Sandbox ZB.unity
     guid: 2d153c6eb8bef764286d9c1a0846db89
   - enabled: 1
-    path: Assets/Scenes/Sandbox ZB 1.unity
+    path: Assets/Scenes/Sandbox/Sandbox ZB 1.unity
     guid: c963efebb67dfc84896ece38f9e9c7b1
+  - enabled: 1
+    path: Assets/Scenes/Sandbox ZY.unity
+    guid: 65fe946af49937940a6657782ffa0322
   m_configObjects: {}

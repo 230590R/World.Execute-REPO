@@ -19,6 +19,7 @@ public class ElevatorController : MonoBehaviour
     private bool playerInTrigger = false;
 
     private Transform playerTransform;
+    private bool shouldResetParent = false;
 
     void Start()
     {
@@ -46,6 +47,16 @@ public class ElevatorController : MonoBehaviour
         {
             returnDown = true;
             isMoving = true;
+        }
+
+        if (shouldResetParent)
+        {
+            if (playerTransform != null)
+            {
+                playerTransform.SetParent(null);
+                playerTransform = null;
+            }
+            shouldResetParent = false; 
         }
     }
 
@@ -90,11 +101,8 @@ public class ElevatorController : MonoBehaviour
         if (other.CompareTag(playerTag))
         {
             playerInTrigger = false;
-            if (playerTransform != null)
-            {
-                playerTransform.SetParent(null);
-                playerTransform = null;
-            }
+
+            shouldResetParent = true;
 
             if (!movingUp)
             {

@@ -30,6 +30,7 @@ public class MeleeController : IAttackController {
   public override Collider2D Attack(Vector2 direction) {
     Vector2 point = (Vector2)transform.position + (direction * distance);
     _attackPoint = point;
+        if (atkTriggerName != "") m_Animator.SetTrigger(atkTriggerName);
     return AttackEnter(damage, radius, point);
   }
 
@@ -40,7 +41,7 @@ public class MeleeController : IAttackController {
 
 
   public Collider2D AttackEnter(float dmg, float r, Vector2 point) {
-    Collider2D hit = Physics2D.OverlapCircle(point, r, LayerMask.GetMask(layerName));
+    Collider2D hit = Physics2D.OverlapCircle(point, r, layer);
     _attackPoint = point;
     if (hit == null) {
       return null;

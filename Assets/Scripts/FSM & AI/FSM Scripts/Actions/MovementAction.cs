@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "PluggableAI/Actions/Movement")]
@@ -10,24 +11,25 @@ public class MovementAction : IAction {
   public TYPE type; 
 
   public override void Act(StateMachine controller) {
-    switch (type) {
+        float speed = controller.stats.movementSpeed * controller.movementMultiplier;
+        switch (type) {
       case TYPE.FLYING:
         //if (controller.usingWaypoints) FlyToWaypoint(controller);
         //else FlyToTarget(controller);\
 
-        FlyToWaypoint(controller);
+        FlyToWaypoint(controller, speed);
         break;
 
       default:
       case TYPE.WALKING:
-        WalkToTarget(controller);
+        WalkToTarget(controller, speed);
         break;
     }
 
 
   }
 
-  private void FlyToWaypoint(StateMachine controller) {
+  private void FlyToWaypoint(StateMachine controller, float speed) {
     // apply
     if (controller.path == null) return;
 
@@ -39,27 +41,31 @@ public class MovementAction : IAction {
 
     int currentWaypoint = controller.nextPathWaypoint;
     Vector2 dir = (controller.path.vectorPath[currentWaypoint] - controller.transform.position).normalized;
-    Vector2 force = dir * controller.stats.movementSpeed;
+    
+
+
+        Vector2 force = dir * speed;
     controller.m_Rigidbody2D.AddForce(force, ForceMode2D.Force);
 
     float distance = Vector2.Distance(controller.m_Rigidbody2D.position, controller.path.vectorPath[currentWaypoint]);
-    if (distance < controller.pathWaypointThreshold) {
+        FlipSprite(controller, distance);
+        if (distance < controller.pathWaypointThreshold) {
       controller.nextPathWaypoint++;
     }
   }
 
-  private void FlyToTarget(StateMachine controller) {
+  private void FlyToTarget(StateMachine controller, float speed) {
     // apply
     controller.pathDone = true;
 
     Vector2 dir = (controller.Target.position - controller.transform.position).normalized;
-    Vector2 force = dir * controller.stats.movementSpeed;
+    Vector2 force = dir * speed;
     controller.m_Rigidbody2D.AddForce(force, ForceMode2D.Force);
 
   }
 
 
-  private void WalkToTarget(StateMachine controller) {
+  private void WalkToTarget(StateMachine controller, float speed) {
     // apply
     if (controller.path == null) return;
 
@@ -71,13 +77,19 @@ public class MovementAction : IAction {
     }
     else controller.pathDone = false;
 
-
-    float xVel = (distance > 0 ? 1f : -1f) * controller.stats.movementSpeed;
+        FlipSprite(controller, distance);
+    float xVel = (distance > 0 ? 1f : -1f) * speed;
     controller.m_Rigidbody2D.velocity = new Vector2(xVel, controller.m_Rigidbody2D.velocity.y);
   }
 
 
-
+    private void FlipSprite(StateMachine controller, float distance)
+    {
+        if (controller.m_Animator != null)
+        {
+            controller.m_SpriteRenderer.flipX = (distance > 0 ? false : true);
+        }
+    }
 
   public override void Enter(StateMachine controller) {
 

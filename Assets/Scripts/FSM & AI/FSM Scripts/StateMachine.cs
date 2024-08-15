@@ -40,12 +40,13 @@ public class StateMachine : MonoBehaviour {
 
   public int atkIndex;
   public bool atkBuffer;
-
+    public float movementMultiplier;
 
   public Stats stats;
   private void Start() {
     m_Seeker = GetComponent<Seeker>();
     m_Rigidbody2D = GetComponent<Rigidbody2D>();
+        m_SpriteRenderer = m_Animator.GetComponent<SpriteRenderer>();
 
     foreach (var KVP in attackDict) {
       m_Attacks.Add(KVP.key, KVP.value);
