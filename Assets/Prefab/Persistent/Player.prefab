@@ -724,12 +724,11 @@ GameObject:
   - component: {fileID: 7626655579203368821}
   - component: {fileID: 8749583360534587837}
   - component: {fileID: 991670752912938496}
-  - component: {fileID: 4816424807470521621}
   - component: {fileID: 3751180630032210970}
   - component: {fileID: 6891637755233407980}
   - component: {fileID: 186774856983801599}
   - component: {fileID: 1353785236642576968}
-  - component: {fileID: 3589927801057489093}
+  - component: {fileID: 4371133625798426234}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -833,31 +832,6 @@ MonoBehaviour:
   m_Animator: {fileID: 4227300352148580469}
   m_SwordController: {fileID: 3751180630032210970}
   m_Rigidbody2D: {fileID: 8749583360534587837}
-  m_GrapplingGunController: {fileID: 0}
---- !u!114 &4816424807470521621
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8785274042503888061}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bbae2cba4cc7fc489f89410b8eaf56a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SpriteRenderer: {fileID: 4156544820445282374}
-  movementSpeed: 10
-  _dashSpeed: {x: 10, y: 0}
-  _wallJumpSpeed: {x: 50, y: 50}
-  groundRayDist: 1
-  wallJumpRayDist: 0
-  _grounded: 0
-  jump: 0
-  dash: 0
-  flipX: 0
-  horizontalAxis: 0
-  _wallJump: 0
 --- !u!114 &3751180630032210970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -896,11 +870,15 @@ MonoBehaviour:
     m_Bits: 0
   damage: 0
   atkTriggerName: 
+  delay: 0
+  lastHit: {fileID: 0}
   distance: 0
   radius: 1
   maxAttackCD: 0
   attackCD: 0
   ParryCollider: {fileID: 0}
+  m_ParryController: {fileID: 0}
+  ParryIndicator: {fileID: 0}
 --- !u!231 &186774856983801599
 SpringJoint2D:
   m_ObjectHideFlags: 0
@@ -919,7 +897,7 @@ SpringJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 2.8238864
+  m_Distance: 11.525749
   m_DampingRatio: 0
   m_Frequency: 1
 --- !u!114 &1353785236642576968
@@ -938,7 +916,7 @@ MonoBehaviour:
   health: 100
   maxHealth: 100
   sliceable: 0
---- !u!114 &3589927801057489093
+--- !u!114 &4371133625798426234
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -947,7 +925,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8785274042503888061}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08034fec7a78db246a625092f4138321, type: 3}
+  m_Script: {fileID: 11500000, guid: 0bbae2cba4cc7fc489f89410b8eaf56a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_SpriteRenderer: {fileID: 4156544820445282374}
@@ -963,6 +941,7 @@ MonoBehaviour:
   dash: 0
   flipX: 0
   horizontalAxis: 0
+  prevXVel: 0
 --- !u!1 &8988019200053934278
 GameObject:
   m_ObjectHideFlags: 0
