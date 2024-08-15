@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c22fb22975c10dd43a046c0e51dfa870, type: 3}
-  m_Name: PoliceAttack
+  m_Name: PoliceAttackCDState
   m_EditorClassIdentifier: 
-  stateName: Attack
+  stateName: 
   actions:
-  - {fileID: 11400000, guid: 9405909f8695b494498feae60bb40a98, type: 2}
+  - {fileID: 11400000, guid: b7331d66c6444da4e965aabe5b01cc71, type: 2}
+  - {fileID: 11400000, guid: 46797e7b54acaba4ba9c57b934c522ff, type: 2}
   transitions:
   - decision: {fileID: 11400000, guid: b4cd278b68828a147abadb4ca1e34697, type: 2}
     trueState: {fileID: 11400000, guid: 19fba9890a2aed348803f5eb7fe0d7dc, type: 2}
     falseState: {fileID: 11400000, guid: 2ba8e919aca54054aa55e7d1d4380702, type: 2}
   stateExitTime: 0.5
-  timeoutState: {fileID: 11400000, guid: 09f6da309ba7e0448a593668b2bb4370, type: 2}
+  timeoutState: {fileID: 11400000, guid: 8e2f79935addc8f4fb116e1e435aeafa, type: 2}

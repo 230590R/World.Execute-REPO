@@ -28,5 +28,25 @@ public class SceneHandler : MonoBehaviour
         {
             Debug.Log("no doorID found");
         }
+
+
+        string targetDoorID = SceneGameManager.Instance.SceneSwitcherToEnableID;
+
+        if (!string.IsNullOrEmpty(targetDoorID))
+        {
+            foreach (GameObject sceneSwitcherObject in SceneSwitchers)
+            {
+                SceneSwitcherV2 sceneSwitcher = sceneSwitcherObject.GetComponent<SceneSwitcherV2>();
+
+                if (sceneSwitcher != null && sceneSwitcher.DoorID == targetDoorID)
+                {
+                    sceneSwitcher.enabled = true;
+                    Debug.Log($"Enable SceneSwitcher: {targetDoorID}");
+                    break;
+                }
+            }
+        }
     }
+
+
 }
