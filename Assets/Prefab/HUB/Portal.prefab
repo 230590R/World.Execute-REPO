@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3270759776506350666}
   - component: {fileID: 2370927500140526586}
   - component: {fileID: 7451422848820099937}
-  - component: {fileID: 2168292710083195368}
+  - component: {fileID: 6910694578020068063}
   m_Layer: 0
   m_Name: Portal
   m_TagString: Untagged
@@ -131,7 +131,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &2168292710083195368
+--- !u!114 &6910694578020068063
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,9 +140,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 9078040801506004902}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a54e774e8ad4e14ca4b2543575da128, type: 3}
+  m_Script: {fileID: 11500000, guid: 42175cc18da90f346898fec922c594a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneName: Sandbox ZB 1
+  SceneName: 
   PlayerTag: Player
   InputKey: 101
+  DoorID: 
