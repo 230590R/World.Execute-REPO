@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stateName: 
   actions:
-  - {fileID: 11400000, guid: b7331d66c6444da4e965aabe5b01cc71, type: 2}
-  - {fileID: 11400000, guid: 2ae35f94ed7d44b4abfaea77d9173d3b, type: 2}
+  - {fileID: 11400000, guid: 21880bb2dcd76e845b7caeb9eb680604, type: 2}
+  - {fileID: 11400000, guid: 46797e7b54acaba4ba9c57b934c522ff, type: 2}
   transitions: []
-  stateExitTime: 2
+  stateExitTime: -1
   timeoutState: {fileID: 11400000, guid: 9a233c1cd51d248489b09aa48ce57581, type: 2}
