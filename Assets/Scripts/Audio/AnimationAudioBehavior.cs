@@ -18,7 +18,7 @@ public class AnimationAudioBehaviorV2 : StateMachineBehaviour
 
         if (audioHandler != null && !string.IsNullOrEmpty(categoryName))
         {
-            audioHandler.PlaySFX(categoryName, audioIndex);
+            //audioHandler.PlaySFX(categoryName, audioIndex, );
         }
     }
 
