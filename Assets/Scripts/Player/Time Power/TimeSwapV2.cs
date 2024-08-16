@@ -34,43 +34,78 @@ public class TimeSwapV2 : MonoBehaviour
         }
     }
 
-    void Update()
+    public void TimeSwap()
     {
         if (string.IsNullOrEmpty(Scene1) && string.IsNullOrEmpty(Scene2)) return;
 
-        if (Input.GetKeyDown(switchKey))
+        stateManager.savedPosition = player.transform.position;
+
+        string sceneToSwitchTo = (stateManager.currentScene == Scene1) ? Scene2 : Scene1;
+
+        if (sceneToSwitchTo == stateManager.previousScene)
         {
-            stateManager.savedPosition = player.transform.position;
+            DeactivateScene(stateManager.currentScene);
 
-            string sceneToSwitchTo = (stateManager.currentScene == Scene1) ? Scene2 : Scene1;
+            string temp = stateManager.currentScene;
+            stateManager.currentScene = stateManager.previousScene;
+            stateManager.previousScene = temp;
 
-            if (sceneToSwitchTo == stateManager.previousScene)
+            ActivateScene(stateManager.currentScene);
+
+            SceneManager.SetActiveScene(SceneManager.GetSceneByName(stateManager.currentScene));
+
+            player.transform.position = stateManager.savedPosition;
+        }
+        else
+        {
+            stateManager.previousScene = stateManager.currentScene;
+            stateManager.currentScene = Scene2;
+            if (!SceneManager.GetSceneByName(sceneToSwitchTo).isLoaded)
             {
-                DeactivateScene(stateManager.currentScene);
-
-                string temp = stateManager.currentScene;
-                stateManager.currentScene = stateManager.previousScene;
-                stateManager.previousScene = temp;
-
-                ActivateScene(stateManager.currentScene);
-
-                SceneManager.SetActiveScene(SceneManager.GetSceneByName(stateManager.currentScene));
-
-                player.transform.position = stateManager.savedPosition;
+                SceneManager.LoadScene(sceneToSwitchTo, LoadSceneMode.Additive);
             }
-            else
-            {
-                stateManager.previousScene = stateManager.currentScene;
-                stateManager.currentScene = Scene2;
-                if (!SceneManager.GetSceneByName(sceneToSwitchTo).isLoaded)
-                {
-                    SceneManager.LoadScene(sceneToSwitchTo, LoadSceneMode.Additive);
-                }
 
-                SceneManager.sceneLoaded += OnSceneLoaded;
-            }
+            SceneManager.sceneLoaded += OnSceneLoaded;
         }
     }
+
+    //void Update()
+    //{
+    //    if (string.IsNullOrEmpty(Scene1) && string.IsNullOrEmpty(Scene2)) return;
+
+    //    if (Input.GetKeyDown(switchKey))
+    //    {
+    //        stateManager.savedPosition = player.transform.position;
+
+    //        string sceneToSwitchTo = (stateManager.currentScene == Scene1) ? Scene2 : Scene1;
+
+    //        if (sceneToSwitchTo == stateManager.previousScene)
+    //        {
+    //            DeactivateScene(stateManager.currentScene);
+
+    //            string temp = stateManager.currentScene;
+    //            stateManager.currentScene = stateManager.previousScene;
+    //            stateManager.previousScene = temp;
+
+    //            ActivateScene(stateManager.currentScene);
+
+    //            SceneManager.SetActiveScene(SceneManager.GetSceneByName(stateManager.currentScene));
+
+    //            player.transform.position = stateManager.savedPosition;
+    //        }
+    //        else
+    //        {
+    //            stateManager.previousScene = stateManager.currentScene;
+    //            stateManager.currentScene = Scene2;
+    //            if (!SceneManager.GetSceneByName(sceneToSwitchTo).isLoaded)
+    //            {
+    //                SceneManager.LoadScene(sceneToSwitchTo, LoadSceneMode.Additive);
+    //            }
+
+    //            SceneManager.sceneLoaded += OnSceneLoaded;
+    //        }
+    //    }
+    //}
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
