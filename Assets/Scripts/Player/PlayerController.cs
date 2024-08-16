@@ -27,7 +27,6 @@ public class PlayerController : MonoBehaviour {
   private void Update() {
     Vector2 mouse_pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-
     // read inputs
     float horizontalAxis = Input.GetAxis("Horizontal");
     m_MovementController.horizontalAxis = Input.GetAxis("Horizontal");
@@ -80,5 +79,4 @@ public class PlayerController : MonoBehaviour {
       //m_Rigidbody2D.velocity = dir * 1.1f;
     }
   }
-
 }
