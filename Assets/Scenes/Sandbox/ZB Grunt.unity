@@ -158,11 +158,15 @@ MonoBehaviour:
     m_Bits: 0
   damage: 10
   atkTriggerName: 
+  delay: 0
+  lastHit: {fileID: 0}
   distance: 0.5
   radius: 1
   maxAttackCD: 0
   attackCD: 0
   ParryCollider: {fileID: 0}
+  m_ParryController: {fileID: 0}
+  ParryIndicator: {fileID: 0}
 --- !u!4 &99277085
 Transform:
   m_ObjectHideFlags: 0
@@ -364,8 +368,6 @@ GameObject:
   - component: {fileID: 579032580}
   - component: {fileID: 579032582}
   - component: {fileID: 579032581}
-  - component: {fileID: 579032583}
-  - component: {fileID: 579032584}
   m_Layer: 0
   m_Name: PoliceMan
   m_TagString: Untagged
@@ -407,6 +409,9 @@ MonoBehaviour:
   usingWaypoints: 1
   pathWaypointThreshold: 0.5
   wp: 0
+  atkIndex: 0
+  atkBuffer: 0
+  atkSwitchBuffer: 0
   movementMultiplier: 0
   stats: {fileID: 11400000, guid: b75eac7a3a802924b9f7eac39ba8ac52, type: 2}
 --- !u!114 &579032578
@@ -529,65 +534,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &579032583
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 579032576}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04083c9c99304a544a6a81f8be91445f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  categoryName: Testing
-  audioIndex: 0
---- !u!61 &579032584
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 579032576}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.16011226, y: 0.34023845}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.3202245, y: 1.6804769}
-  m_EdgeRadius: 0
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -938,11 +884,15 @@ MonoBehaviour:
     m_Bits: 64
   damage: 15
   atkTriggerName: attack
+  delay: 0
+  lastHit: {fileID: 0}
   distance: 1
   radius: 0.5
   maxAttackCD: 0
   attackCD: 0
   ParryCollider: {fileID: 0}
+  m_ParryController: {fileID: 0}
+  ParryIndicator: {fileID: 0}
 --- !u!4 &1203375917
 Transform:
   m_ObjectHideFlags: 0
@@ -1515,6 +1465,9 @@ MonoBehaviour:
   usingWaypoints: 1
   pathWaypointThreshold: 0.5
   wp: 0
+  atkIndex: 0
+  atkBuffer: 0
+  atkSwitchBuffer: 0
   movementMultiplier: 0
   stats: {fileID: 11400000, guid: bef5e3380bf161c4f907c1d4f689fb84, type: 2}
 --- !u!4 &1799746471
