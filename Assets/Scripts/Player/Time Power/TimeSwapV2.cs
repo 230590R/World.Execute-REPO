@@ -34,6 +34,14 @@ public class TimeSwapV2 : MonoBehaviour
         }
     }
 
+    public void Update()
+    {
+        if (Input.GetKeyDown(switchKey))
+        {
+            TimeSwap();
+        }
+    }
+
     public void TimeSwap()
     {
         if (string.IsNullOrEmpty(Scene1) && string.IsNullOrEmpty(Scene2)) return;
