@@ -9,6 +9,8 @@ public class NPCDialougeTrigger : MonoBehaviour
 
     DialogueTrigger dialogueTrigger;
 
+    [HideInInspector] public bool wasInDialogue = false;
+
     private void Awake()
     {
         dialogueTrigger = transform.parent.GetComponent<DialogueTrigger>();
