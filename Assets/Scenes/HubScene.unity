@@ -258,6 +258,55 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3270759776506350666, guid: 6ab7a1ce6ea29744e9a5ccc3ba01cc8b, type: 3}
   m_PrefabInstance: {fileID: 349914532}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &175171455
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 175171457}
+  - component: {fileID: 175171456}
+  m_Layer: 0
+  m_Name: Merchant Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &175171456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175171455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d9435ba37c415a4dba71342ceb75a9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  merchantItemImageUI: {fileID: 1745314787007903998}
+  merchantItemTextUI:
+  - {fileID: 4461917287312667899}
+  - {fileID: 4389261225263176805}
+  - {fileID: 4185944055125256689}
+--- !u!4 &175171457
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175171455}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 960, y: 540, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &238395831
 GameObject:
   m_ObjectHideFlags: 0
@@ -355,6 +404,52 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &309345729
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 309345731}
+  - component: {fileID: 309345730}
+  m_Layer: 0
+  m_Name: Inventory Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &309345730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 309345729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f0fa832f19cacb49b94ce56217f5c1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 2956831961271097255}
+  inventoryItemPrefab: {fileID: 6024636335825320858, guid: af2891642840cd5498fc8bc5ce142b24, type: 3}
+--- !u!4 &309345731
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 309345729}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 960, y: 540, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &349914532
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -659,6 +754,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueManager: {fileID: 1880091885}
+  merchantShop: {fileID: 3225367622642762595}
 --- !u!1 &468880941 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9078040801506004902, guid: 6ab7a1ce6ea29744e9a5ccc3ba01cc8b, type: 3}
@@ -14335,7 +14431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b082180bdeaea744f8f7670d614ecf38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryManager: {fileID: 0}
+  inventoryManager: {fileID: 309345730}
   itemsToBuy:
   - {fileID: 11400000, guid: 163d1d989a791ca4e86ee359afb11547, type: 2}
   - {fileID: 11400000, guid: 938b4ee0f3bd1dc4ba5500fad4857fe9, type: 2}
@@ -23667,3 +23763,5 @@ SceneRoots:
   - {fileID: 1475720319}
   - {fileID: 6095251830455359432}
   - {fileID: 3685248580708365434}
+  - {fileID: 309345731}
+  - {fileID: 175171457}
