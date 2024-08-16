@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c22fb22975c10dd43a046c0e51dfa870, type: 3}
   m_Name: AttackDummy
   m_EditorClassIdentifier: 
-  stateName: 
+  stateName: DummyAttack
   actions:
-  - {fileID: 11400000, guid: 0d31624c27e6cc346a4d3363c6703e79, type: 2}
+  - {fileID: 11400000, guid: 91035fb475ecc54439675689a50edcc5, type: 2}
   transitions: []
-  stateExitTime: 1
-  timeoutState: {fileID: 11400000, guid: 9a233c1cd51d248489b09aa48ce57581, type: 2}
+  stateExitTime: 5
+  timeoutState: {fileID: 11400000, guid: 07d891e8446523e46961e8180b9e76a5, type: 2}

@@ -5,10 +5,12 @@ using UnityEngine;
 public class PoliceController : IEnemy
 {
     // Start is called before the first frame update
+    private AudioHandlerV2 audioHandler;
+    private string categoryName = "Testing";
     void Start()
     {
         Init();
-
+        audioHandler = FindObjectOfType<AudioHandlerV2>();
     }
 
     // Update is called once per frame
@@ -20,6 +22,7 @@ public class PoliceController : IEnemy
         if (currentState == "Patrol")
         {
             m_Animator.SetBool("isWalking", true);
+            audioHandler.PlaySFXIfNotPlaying(categoryName, 0, transform);
         }
         else
         {
@@ -30,10 +33,15 @@ public class PoliceController : IEnemy
         {
             m_Animator.SetBool("isRunning", true);
             m_StateMachine.movementMultiplier = stats.runMultiplier;
+            audioHandler.PlaySFXIfNotPlaying(categoryName, 1, transform);
         }
         else
         {
             m_Animator.SetBool("isRunning", false);
+        }
+
+        if(currentState == "Idle"){
+            audioHandler.StopPlayingSFX(transform);
         }
     }
 }

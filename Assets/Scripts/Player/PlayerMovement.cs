@@ -29,6 +29,10 @@ public class PlayerMovement : MonoBehaviour {
   // velocity vectors
   private Vector2 _dashVelocity = Vector3.zero;
   private Vector2 _wallJumpVelocity = Vector3.zero;
+  private Vector2 _knockBackVelocity = Vector3.zero;
+
+
+  public float prevXVel = 0;
 
   private void Start() {
     m_Rigidbody2D = GetComponent<Rigidbody2D>();
@@ -62,13 +66,15 @@ public class PlayerMovement : MonoBehaviour {
     // decelerate the velocities
     _dashVelocity += (-_dashVelocity) * Time.deltaTime * 5f;
     _wallJumpVelocity += (-_wallJumpVelocity) * Time.deltaTime * 5f;
+    _knockBackVelocity += (-_knockBackVelocity) * Time.deltaTime * 5f;
 
     // override the movement velocity
     Vector2 movementVel = new Vector2(horizontalAxis * movementSpeed, 0) * (_grounded ? 1 : 0.75f);
     if (canWallJump) movementVel = Vector2.zero;
-    float gravityY = Mathf.Max(m_Rigidbody2D.velocity.y, _gravityClamp);
-    float velX = movementVel.x + _dashVelocity.x + _wallJumpVelocity.x;
-    m_Rigidbody2D.velocity = new Vector2(velX, gravityY);
+    float velY = Mathf.Max(m_Rigidbody2D.velocity.y, _gravityClamp);
+    float velX = movementVel.x + _dashVelocity.x + _wallJumpVelocity.x + _knockBackVelocity.x;
+
+    m_Rigidbody2D.velocity = new Vector2(velX, velY);
 
     // read the dash input buffer
     if (dash) {
@@ -89,10 +95,18 @@ public class PlayerMovement : MonoBehaviour {
     }
 
 
-        //Debug.Log(canWallJump);
+    if (Input.GetKeyDown(KeyCode.F)) {
+      KnockBack(new Vector2(15,15));
+    }
+
   }
 
   int GetPlayerFacingDirection(bool flipX) {
     return (flipX) ? -1 : 1;
+  }
+
+  public void KnockBack(Vector2 knockback) {
+    _wallJumpVelocity = knockback;
+    m_Rigidbody2D.velocity = new Vector3(m_Rigidbody2D.velocity.x, knockback.y);
   }
 }

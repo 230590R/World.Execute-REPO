@@ -1,5 +1,5 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -12,7 +12,9 @@ public class MeleeController : IAttackController {
   public float maxAttackCD;
   public float attackCD;
 
-  public Collider ParryCollider;
+  public Collider2D ParryCollider;
+  public ParryController m_ParryController;
+  public SpriteRenderer ParryIndicator;
 
   private bool parryableState;
 
@@ -21,26 +23,32 @@ public class MeleeController : IAttackController {
     set { _attackPoint = value; }
   }
 
+
+  public override void Inactive() {
+    parryableState = false;
+  }
+
   public override void ChargeUp(Vector2 direction) {
-    if (ParryCollider == null) return;
-    // activate the parry collider
     parryableState = true;
   }
 
-  public override Collider2D Attack(Vector2 direction) {
+  public override void Attack(Vector2 direction) {
     Vector2 point = (Vector2)transform.position + (direction * distance);
     _attackPoint = point;
-        if (atkTriggerName != "") m_Animator.SetTrigger(atkTriggerName);
-    return AttackEnter(damage, radius, point);
+    if (atkTriggerName != "") m_Animator.SetTrigger(atkTriggerName);
+    Invoke("AttackEnter", delay);
   }
 
 
 
 
 
-
+  public Collider2D AttackEnter() {
+    return AttackEnter(damage, radius, _attackPoint);
+  }
 
   public Collider2D AttackEnter(float dmg, float r, Vector2 point) {
+    Parry(r, point);
     Collider2D hit = Physics2D.OverlapCircle(point, r, layer);
     _attackPoint = point;
     if (hit == null) {
@@ -72,8 +80,15 @@ public class MeleeController : IAttackController {
   // Update is called once per frame
   void Update() {
     attackCD -= Time.deltaTime;
-    if (attackCD < 0) attackCD = 0; 
+    if (attackCD < 0) attackCD = 0;
+
+    if (ParryCollider != null) {
+      ParryCollider.enabled = parryableState;
+      ParryIndicator.enabled = parryableState;
+    }
   }
+
+
 
   private void OnDrawGizmos() {
     // Set the gizmos color
@@ -83,5 +98,16 @@ public class MeleeController : IAttackController {
     Gizmos.DrawWireSphere(AttackPoint, radius);
   }
 
+  private void Parry(float r, Vector2 point) {
+    //Collider2D hit = Physics2D.OverlapCircle(point, r, LayerMask.GetMask("Parry"));
+    //if (hit == null) {
+    //  return;
+    //}
+
+    //Debug.Log("PARRY");
+    if (m_ParryController != null) {
+      m_ParryController.Parry(r, point);
+    }
+  }
 
 }

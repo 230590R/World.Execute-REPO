@@ -23,12 +23,19 @@ public class PatrolAction : IAction {
       controller.Target = controller.waypoints[controller.wp];
       controller.wp++;
     }
+
+
+
   }
 
 
   public override void Enter(StateMachine controller) {
+        if (controller.wp < 0) controller.wp = controller.waypoints.Length - 1;
+        if (controller.wp >= controller.waypoints.Length) controller.wp = 0;
 
-  }
+        controller.pathDone = false;
+        controller.Target = controller.waypoints[controller.wp];
+    }
 
   public override void Exit(StateMachine controller) {
 

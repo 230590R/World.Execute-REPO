@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc806b64886c08c4d8c1e51029d54c2d, type: 3}
   m_Name: AttackAction
   m_EditorClassIdentifier: 
-  atkName: Melee
+  atkName: Punch

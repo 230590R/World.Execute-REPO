@@ -13,10 +13,10 @@ public class TimeSwap : MonoBehaviour
 
     void Start()
     {
-        //stateManager = TimeSwapManager.Instance;
+        stateManager = TimeSwapManager.Instance;
 
 
-       //stateManager.currentScene = SceneManager.GetActiveScene().name;
+       stateManager.currentScene = SceneManager.GetActiveScene().name;
         
     }
 
