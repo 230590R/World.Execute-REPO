@@ -45,7 +45,7 @@ public class StateMachine : MonoBehaviour {
   private void Start() {
     m_Seeker = GetComponent<Seeker>();
     m_Rigidbody2D = GetComponent<Rigidbody2D>();
-        m_SpriteRenderer = m_Animator.GetComponent<SpriteRenderer>();
+    m_SpriteRenderer = m_Animator.GetComponent<SpriteRenderer>();
 
     foreach (var KVP in attackDict) {
       m_Attacks.Add(KVP.key, KVP.value);

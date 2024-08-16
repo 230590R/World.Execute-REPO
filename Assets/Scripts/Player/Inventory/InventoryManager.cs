@@ -13,6 +13,14 @@ public class InventoryManager : MonoBehaviour
         inventorySlots = inventory.GetComponentsInChildren<InventorySlot>();
     }
 
+    private void Start()
+    {
+        for (int i = 0; i < inventorySlots.Length; i++)
+        {
+            inventorySlots[i].slotIndex = i;
+        }
+    }
+
     public bool AddItem(ItemSO item)
     {
         for (int i = 0; i < inventorySlots.Length; i++)
@@ -45,5 +53,6 @@ public class InventoryManager : MonoBehaviour
     {
         GameObject newItemGameObject = Instantiate(inventoryItemPrefab, slot.transform);
         InventoryItem inventoryItem = newItemGameObject.GetComponent<InventoryItem>();
+        inventoryItem.InitialiseItem(item);
     }
 }
