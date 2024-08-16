@@ -22,6 +22,7 @@ public class NPCDialougeTrigger : MonoBehaviour
         if (controller.dialougeTriggers.Contains(parent) && Input.GetKeyDown(KeyCode.E))
         {
             dialogueTrigger.TriggerDialogue();
+            wasInDialogue = true;
         }
     }
 
