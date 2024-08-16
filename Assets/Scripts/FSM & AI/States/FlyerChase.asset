@@ -17,5 +17,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 21880bb2dcd76e845b7caeb9eb680604, type: 2}
   - {fileID: 11400000, guid: 46797e7b54acaba4ba9c57b934c522ff, type: 2}
   transitions: []
-  stateExitTime: -1
-  timeoutState: {fileID: 11400000, guid: 9a233c1cd51d248489b09aa48ce57581, type: 2}
+  stateExitTime: 3
+  timeoutState: {fileID: 11400000, guid: 87bf958e6d0051f4388a7208fb8181e7, type: 2}

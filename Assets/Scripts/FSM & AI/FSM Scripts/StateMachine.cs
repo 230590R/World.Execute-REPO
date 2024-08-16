@@ -38,8 +38,10 @@ public class StateMachine : MonoBehaviour {
   public float pathWaypointThreshold = 0.5f;
   public int wp = 0;
 
+  public int atkIndex;
+  public bool atkBuffer;
+  public bool atkSwitchBuffer;
     public float movementMultiplier;
-
 
   public Stats stats;
   private void Start() {
@@ -50,13 +52,19 @@ public class StateMachine : MonoBehaviour {
     foreach (var KVP in attackDict) {
       m_Attacks.Add(KVP.key, KVP.value);
     }
-    Debug.Log("done");
 
     InvokeRepeating("UpdatePath", 0f, 0.2f);
+
+    currentState.Enter(this);
   }
 
   public void Update() {
     elapsedTime += Time.deltaTime;
+
+    foreach (var KVP in attackDict) {
+      var atkController = KVP.value;
+      atkController.Inactive();
+    }
     currentState.UpdateState(this); 
   }
 

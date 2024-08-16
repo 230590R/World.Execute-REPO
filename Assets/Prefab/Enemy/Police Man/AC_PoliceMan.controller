@@ -90,7 +90,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: isGounded
+    m_ConditionEvent: isGrounded
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 0}
@@ -145,7 +145,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: isGounded
+    m_ConditionEvent: isGrounded
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 7859736398801781560}
   m_DstState: {fileID: 0}
@@ -265,7 +265,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: isGounded
+    m_ConditionEvent: isGrounded
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 0}
@@ -385,7 +385,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: isGounded
+    m_ConditionEvent: isGrounded
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 0}
@@ -455,7 +455,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: isGounded
+    m_ConditionEvent: isGrounded
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 7530527609076685693}
   m_DstState: {fileID: 0}
@@ -510,7 +510,7 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
-  - m_Name: isGounded
+  - m_Name: isGrounded
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -800,7 +800,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: isGounded
+    m_ConditionEvent: isGrounded
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 0}
@@ -847,7 +847,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: isGounded
+    m_ConditionEvent: isGrounded
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 0}
@@ -985,7 +985,7 @@ AnimatorTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: isGounded
+    m_ConditionEvent: isGrounded
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 7859736398801781560}
   m_DstState: {fileID: 0}
@@ -1027,7 +1027,7 @@ AnimatorTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: isGounded
+    m_ConditionEvent: isGrounded
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 7530527609076685693}
   m_DstState: {fileID: 0}
@@ -1151,18 +1151,18 @@ AnimatorStateMachine:
   - {fileID: 2034332003179319964}
   m_EntryTransitions: []
   m_StateMachineTransitions:
-  - first: {fileID: 7530527609076685693}
-    second:
-    - {fileID: 7320670728052197349}
-    - {fileID: 5449905455429071045}
-  - first: {fileID: 7859736398801781560}
-    second:
-    - {fileID: -301440009677278521}
-    - {fileID: 7696863221300499777}
   - first: {fileID: 9112015778141951617}
     second:
     - {fileID: 2848024575179533618}
     - {fileID: -4701626899706180546}
+  - first: {fileID: 7859736398801781560}
+    second:
+    - {fileID: -301440009677278521}
+    - {fileID: 7696863221300499777}
+  - first: {fileID: 7530527609076685693}
+    second:
+    - {fileID: 7320670728052197349}
+    - {fileID: 5449905455429071045}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 340, y: 100, z: 0}
   m_EntryPosition: {x: 60, y: 0, z: 0}
