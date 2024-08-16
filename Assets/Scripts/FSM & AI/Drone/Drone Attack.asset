@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c22fb22975c10dd43a046c0e51dfa870, type: 3}
+  m_Name: Drone Attack
+  m_EditorClassIdentifier: 
+  stateName: Drone Attack
+  actions:
+  - {fileID: 11400000, guid: cc80edc9ab9ed3f48aa392370bc5a0fe, type: 2}
+  transitions:
+  - decision: {fileID: 11400000, guid: 2ad56aa518553c1418b9e9991493caa7, type: 2}
+    trueState: {fileID: 11400000, guid: 4ffaa057eac8cd049b172611bfa9fc02, type: 2}
+    falseState: {fileID: 11400000, guid: 2ba8e919aca54054aa55e7d1d4380702, type: 2}
+  stateExitTime: 5
+  timeoutState: {fileID: 11400000, guid: e9773fa0bdcf0cc4bbcaa0d396d288e6, type: 2}

@@ -34,10 +34,11 @@ public class PlayerController : MonoBehaviour {
 
     float axisX = Input.GetAxis("Horizontal");
     m_Animator.SetFloat("inputX", Mathf.Abs(axisX));
-    if (!axisX.IsZero()) {
-      m_SpriteRenderer.flipX = (axisX < 0) ? true : false;
 
-    }
+
+    if (!axisX.IsZero()) m_SpriteRenderer.flipX = (axisX < 0);
+
+
     m_MovementController.flipX = m_SpriteRenderer.flipX;
 
     m_GrapplingGunController.GrappleControls(KeyCode.Mouse2);

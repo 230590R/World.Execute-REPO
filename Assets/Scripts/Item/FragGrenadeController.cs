@@ -17,20 +17,13 @@ public class FragGrenadeController : MonoBehaviour
         explosionTimer = explosionTime;
     }
 
-    private void Update()
+    private void Start()
     {
-        if (explosionTimer > 0.0f)
-        {
-            explosionTimer -= Time.deltaTime;
-        }
-        else
-        {
-            Destroy(gameObject);
+        Destroy(gameObject, 5.0f);
+    }
 
-            // check radius for enemy
-            // deal damage to enemy in the radius
-
-            // create particle system
-        }
+    private void OnDestroy()
+    {
+        
     }
 }

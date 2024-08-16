@@ -5,6 +5,14 @@ using UnityEngine.EventSystems;
 
 public class InventorySlot : MonoBehaviour, IDropHandler
 {
+    [HideInInspector] public int slotIndex;
+    [SerializeField] EquipController equipController;
+
+    public void SetSelectedSlotIndex()
+    {
+        equipController.ChangeEquipImage(slotIndex);
+    }
+
     public void OnDrop(PointerEventData eventData)
     {
         if (transform.childCount == 0)

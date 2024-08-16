@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/HubScene.unity
     guid: 7835c28ec0efcb94f8e5493a79777470
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/Sandbox ZB 2.unity
+    guid: 08bcdde3aacf26e419c12e2da2a3370b
   m_configObjects: {}

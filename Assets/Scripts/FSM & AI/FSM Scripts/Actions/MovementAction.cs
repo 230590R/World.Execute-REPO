@@ -46,7 +46,7 @@ public class MovementAction : IAction {
 
         Vector2 force = dir * speed;
     controller.m_Rigidbody2D.AddForce(force, ForceMode2D.Force);
-
+            
     float distance = Vector2.Distance(controller.m_Rigidbody2D.position, controller.path.vectorPath[currentWaypoint]);
         FlipSprite(controller, distance);
         if (distance < controller.pathWaypointThreshold) {

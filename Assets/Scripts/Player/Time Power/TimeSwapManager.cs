@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TimeSwapManager : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class TimeSwapManager : MonoBehaviour
     public string previousScene;
     public Vector3 savedPosition;
     public string hubSceneName = "SceneHub";
+    private TimeSwapV2 timeSwapV2;
 
     void Awake()
     {
@@ -24,12 +26,18 @@ public class TimeSwapManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        timeSwapV2 = GetComponent<TimeSwapV2>();
+    }
+
     private void Update()
     {
-        if (currentScene == hubSceneName)
+        if (SceneManager.GetActiveScene().name == hubSceneName)
         {
             savedPosition = Vector3.zero;
-            currentScene = previousScene = "";
+            currentScene = previousScene = timeSwapV2.Scene1 = timeSwapV2.Scene2 = "";
+            timeSwapV2.player = null;
         }
     }
 }

@@ -15,7 +15,7 @@ MonoBehaviour:
   ChainAttacks:
   - atkName: Punch
     atkLeadupTime: 1
-    parriableDuration: 0.25
+    parriableDuration: 0.5
   - atkName: Punch
     atkLeadupTime: 1
-    parriableDuration: 0.25
+    parriableDuration: 0.5
