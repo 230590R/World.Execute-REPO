@@ -719,7 +719,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.27450982, g: 0.27450982, b: 0.27450982, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -889,6 +889,52 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &1928332102
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1928332104}
+  - component: {fileID: 1928332103}
+  m_Layer: 0
+  m_Name: Start
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1928332103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1928332102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdea7340182721147a8a75490a6d2744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Scene1: Sandbox ZB 1
+  Scene2: Sandbox ZB 2
+--- !u!4 &1928332104
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1928332102}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.4871259, y: -0.69766366, z: -3.7427433}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2067932376
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -970,7 +1016,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42175cc18da90f346898fec922c594a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneName: Sandbox ZB
+  SceneName: HubScene
   PlayerTag: Player
   InputKey: 101
   DoorID: 1
@@ -1054,31 +1100,8 @@ PrefabInstance:
     - {fileID: 7579206879273938479, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8785274042503888061, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4385264467096388844}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
---- !u!1 &4385264467096388843 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8785274042503888061, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
-  m_PrefabInstance: {fileID: 4385264467096388842}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &4385264467096388844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4385264467096388843}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8e74a3268d004844b1aff49f4e42d46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneToSwitchTo: Sandbox ZB
-  hubSceneName: SceneHub
-  switchKey: 103
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1089,3 +1112,4 @@ SceneRoots:
   - {fileID: 2067932376}
   - {fileID: 106831601}
   - {fileID: 1799415790}
+  - {fileID: 1928332104}

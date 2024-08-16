@@ -752,7 +752,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1378681695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -960,6 +960,52 @@ Transform:
   - {fileID: 619394802}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1611749058
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1611749060}
+  - component: {fileID: 1611749059}
+  m_Layer: 0
+  m_Name: Start
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1611749059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1611749058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdea7340182721147a8a75490a6d2744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Scene1: Sandbox ZB
+  Scene2: Sandbox ZB 2
+--- !u!4 &1611749060
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1611749058}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.4871259, y: -0.69766366, z: -3.7427433}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1693388340
 GameObject:
   m_ObjectHideFlags: 0
@@ -1098,6 +1144,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1701308078}
   - component: {fileID: 1701308077}
+  - component: {fileID: 1701308079}
   m_Layer: 0
   m_Name: TimeSwapManager
   m_TagString: Untagged
@@ -1136,6 +1183,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1701308079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701308076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53c30161d03787448b3c212b632aff56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Scene1: Sandbox ZB
+  Scene2: Sandbox ZB 2
+  switchKey: 103
+  PlayerTag: Player
+  objectNamesToKeepActive:
+  - Game Manager
+  player: {fileID: 0}
 --- !u!1 &1786959687
 GameObject:
   m_ObjectHideFlags: 0
@@ -1651,6 +1717,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7579206879273938479, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7579206879273938479, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
       propertyPath: switchKey
       value: 103
       objectReference: {fileID: 0}
@@ -1658,7 +1728,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7579206879273938479, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1755,7 +1826,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5100966857569293758, guid: fc1feb9aabf4bb24cb762576bcce56cb, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6798230469724329127, guid: fc1feb9aabf4bb24cb762576bcce56cb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2044,3 +2115,4 @@ SceneRoots:
   - {fileID: 1230115256}
   - {fileID: 8259978392656989024}
   - {fileID: 1480845492}
+  - {fileID: 1611749060}
