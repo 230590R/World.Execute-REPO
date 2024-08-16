@@ -16,9 +16,13 @@ public class SceneSwitcherV2 : MonoBehaviour
     {
         if (isPlayerInTrigger && Input.GetKeyDown(InputKey))
         {
-            PlayerPrefs.SetString("LastUsedDoorID", DoorID);
-            PlayerPrefs.Save();
-            SceneManager.LoadScene(SceneName);
+            if (!string.IsNullOrEmpty(SceneName))
+            {
+                PlayerPrefs.SetString("LastUsedDoorID", DoorID);
+                PlayerPrefs.Save();
+
+                SceneManager.LoadScene(SceneName);
+            }
         }
     }
 

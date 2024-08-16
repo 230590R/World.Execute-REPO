@@ -40,4 +40,11 @@ public class HealthController : MonoBehaviour {
     TakeDamage(damage);
     hitRay = ray;
   }
+
+  public void Heal(float healingPercentage)
+  {
+    health += (health * (healingPercentage / 100));
+    if (health > maxHealth)
+        health = maxHealth;
+  }
 }
