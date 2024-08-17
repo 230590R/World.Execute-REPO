@@ -8,7 +8,8 @@ public class GatesManager : MonoBehaviour
     public class Gate
     {
         public List<GameObject> objectsToCheck; 
-        public GameObject objectToDeactivate;   
+        public GameObject objectToDeactivate;
+        public float fadeDuration = 1f;
     }
 
     public List<Gate> Gates; 
@@ -30,8 +31,32 @@ public class GatesManager : MonoBehaviour
 
             if (allDestroyed)
             {
-                group.objectToDeactivate.SetActive(false);
+                StartCoroutine(FadeOutAndDeactivate(group.objectToDeactivate, group.fadeDuration));
             }
         }
+    }
+
+    IEnumerator FadeOutAndDeactivate(GameObject obj, float duration)
+    {
+        Renderer renderer = obj.GetComponent<Renderer>();
+        if (renderer == null)
+        {
+            obj.SetActive(false);
+            yield break;
+        }
+
+        Material material = renderer.material;
+        Color originalColor = material.color;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            float alpha = Mathf.Lerp(1f, 0f, elapsedTime / duration);
+            material.color = new Color(originalColor.r, originalColor.g, originalColor.b, alpha);
+            yield return null;
+        }
+
+        obj.SetActive(false);
     }
 }
