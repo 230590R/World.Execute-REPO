@@ -5,8 +5,6 @@ using UnityEngine;
 [RequireComponent(typeof(PolygonCollider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
 public class SliceableV2 : MonoBehaviour {
-  public SliceableV2 Prefab;
-
   // the slice force applied after a slice
   [SerializeField] private float sliceforceParallel = 5f;
   [SerializeField] private float sliceforcePerpendicular = 2f;
@@ -17,16 +15,9 @@ public class SliceableV2 : MonoBehaviour {
   private PolygonCollider2D m_Collider;
   private Rigidbody2D m_Rigidbody2D;
 
-  // variables for fade out
-  [SerializeField] private float _cullAreaThreshold = 0.01f;
-  private float area;
-  [SerializeField] private float _lifetime = 995f;
-  private float _life;
-
-  private float originalMass;
+  public Material dissolveMat;
 
   private void Awake() {
-    _life = _lifetime;
     m_Collider = GetComponent<PolygonCollider2D>();
     m_Rigidbody2D = GetComponent<Rigidbody2D>();
 
@@ -35,22 +26,12 @@ public class SliceableV2 : MonoBehaviour {
     Sprite originalSprite = m_SpriteRenderer.sprite;
     Texture2D originalTex = originalSprite.texture; // original
 
-
-    var test = originalTex.height;
-    var test2 = originalSprite.pixelsPerUnit;
-
-    //m_SpriteRenderer.sprite = Sprite.Create(originalTex, new Rect(0, 0, originalTex.width, originalTex.height), new Vector2(0.5f, 0.5f), originalTex.height, 0, SpriteMeshType.Tight);
-    
     m_SpriteRenderer.sprite = Sprite.Create(originalTex, originalSprite.rect, new Vector2(0.5f, 0.5f), originalSprite.pixelsPerUnit, 0, SpriteMeshType.Tight);
 
     m_Sprite = m_SpriteRenderer.sprite;
-
-
-
   }
 
   private void Start() {
-    originalMass = m_Rigidbody2D.mass;
     Vector2[] originalVerts = m_Sprite.vertices;
     for (int i = 0; i < originalVerts.Length; i++) {
       originalVerts[i] += new Vector2(0.5f, 0.5f);
@@ -62,28 +43,9 @@ public class SliceableV2 : MonoBehaviour {
       colliderverts[i] = originalVerts[i] - new Vector2(0.5f, 0.5f);
     }
     m_Collider.points = colliderverts;
-    area = GetArea();
   }
 
   private void Update() {
-
-    // despawn object
-    if (_life > 0 && area <= _cullAreaThreshold) {
-      float opacity = _life / _lifetime;
-      _life -= Time.deltaTime;
-
-      Color oldcolour = m_SpriteRenderer.material.color;
-      m_SpriteRenderer.material.color = new Color(oldcolour.r, oldcolour.g, oldcolour.b, opacity);
-      m_SpriteRenderer.color = new Color(oldcolour.r, oldcolour.g, oldcolour.b, opacity);
-    }
-
-    if (_life <= 0) {
-      Destroy(gameObject);
-    }
-  }
-
-  private void OnEnable() {
-    area = GetArea();
   }
 
   private float GetArea() {
@@ -110,7 +72,6 @@ public class SliceableV2 : MonoBehaviour {
 
   public void Slice(Ray2D slice) {
     Debug.Log("SLICE");
-    if (area < _cullAreaThreshold) return;
 
     // convert the ray into local space
     slice.origin = (Vector2)transform.InverseTransformPoint(slice.origin) + new Vector2(0.5f, 0.5f);
@@ -123,78 +84,36 @@ public class SliceableV2 : MonoBehaviour {
     Vector2[] positive, negative = { };
     if (!InternalSlice(slice, out positive, out negative)) return;
 
-    CreateSlicedObject(positive);
-    CreateSlicedObject(negative);
+    CreateSlicedObject(positive, new Vector2(5f, 5f));
+    CreateSlicedObject(negative, new Vector2(3f, 5f));
 
-    //// edit self
-    //Vector2 normal = new Vector2(slice.direction.y, -slice.direction.x);
-    //GenerateSprite(positive);
-    //m_Rigidbody2D.mass = area * originalMass;
-    //m_Rigidbody2D.AddForce((-normal * sliceforcePerpendicular * m_Rigidbody2D.mass) + (slice.direction * sliceforceParallel * m_Rigidbody2D.mass), ForceMode2D.Impulse);
-
-
-    ////// create new child
-    //GameObject child = Instantiate(Prefab.gameObject, transform.position, transform.rotation);
-
-    //SliceableV2 childSliceable = child.GetComponent<SliceableV2>();
-    //Rigidbody2D childRB = child.GetComponent<Rigidbody2D>();
-    //childSliceable.GenerateSprite(negative);
-    //childRB.mass = childSliceable.area * originalMass;
-    //childRB.AddForce((normal * sliceforcePerpendicular * childRB.mass) + (-slice.direction * sliceforceParallel * 0.5f * childRB.mass), ForceMode2D.Impulse);
+    Destroy(gameObject);
   }
 
-  private void CreateSlicedObject(Vector2[] verts) {
+  private void CreateSlicedObject(Vector2[] verts, Vector2 force) {
     GameObject newObj = new GameObject();
+    newObj.transform.position = transform.position;
+    newObj.transform.rotation = transform.rotation;
+
     var sprRenderer = newObj.AddComponent<SpriteRenderer>();
     sprRenderer.sprite = m_Sprite;
     newObj.AddComponent<Rigidbody2D>();
     var objSliceable = newObj.AddComponent<SliceableV2>();
     objSliceable.GenerateSprite(verts);
     Destroy(objSliceable);
-  }
+    var rb = newObj.GetComponent<Rigidbody2D>();
 
-  public void NoPrefabSlice(Ray2D slice) {
-    if (area < _cullAreaThreshold) return;
+    rb.velocity = force;
 
-    // convert the ray into local space
-    slice.origin = (Vector2)transform.InverseTransformPoint(slice.origin) + new Vector2(0.5f, 0.5f);
+    var collider = newObj.GetComponent<Collider2D>(); 
+    //Destroy(collider);
 
-    // rotate the ray 
-    float angle = transform.rotation.eulerAngles.z;
-    slice.direction = Quaternion.Euler(0, 0, -angle) * slice.direction;
-
-    // slice and create the sliced half
-    Vector2[] positive, negative = { };
-    if (InternalSlice(slice, out positive, out negative)) {
-      // edit self
-      Vector2 normal = new Vector2(slice.direction.y, -slice.direction.x);
-      GenerateSprite(positive);
-      m_Rigidbody2D.mass = area * originalMass;
-      m_Rigidbody2D.AddForce((-normal * sliceforcePerpendicular * m_Rigidbody2D.mass) + (slice.direction * sliceforceParallel * m_Rigidbody2D.mass), ForceMode2D.Impulse);
-
-
-
-
-      GameObject child = new GameObject();
-      SliceableV2 childSliceable = child.AddComponent<SliceableV2>();
-      Rigidbody2D childRB = child.AddComponent<Rigidbody2D>();
-      SpriteRenderer childSpriteRenderer = child.AddComponent<SpriteRenderer>();
-      childSpriteRenderer.sprite = m_SpriteRenderer.sprite;
-      childSliceable.m_SpriteRenderer = childSpriteRenderer;
-
-      childSliceable.GenerateSprite(negative);
-      childRB.mass = childSliceable.area * originalMass;
-      childRB.AddForce((normal * sliceforcePerpendicular * childRB.mass) + (-slice.direction * sliceforceParallel * 0.5f * childRB.mass), ForceMode2D.Impulse);
-
-      //GameObject child = Instantiate(Prefab.gameObject, transform.position, transform.rotation);
-
-      //Sliceable childSliceable = child.GetComponent<Sliceable>();
-      //Rigidbody2D childRB = child.GetComponent<Rigidbody2D>();
-      //childSliceable.GenerateSprite(negative);
-      //childRB.mass = childSliceable.area * originalMass;
-      //childRB.AddForce((normal * sliceforcePerpendicular * childRB.mass) + (-slice.direction * sliceforceParallel * 0.5f * childRB.mass), ForceMode2D.Impulse);
-    }
-
+    // add the dissolve and destroy component
+    var dissolve = newObj.AddComponent<Dissolve>();
+    dissolve.duration = 3;
+    dissolve.dissolveMat = dissolveMat;
+    var destroy = newObj.AddComponent<DestroyAfterSeconds>();
+    destroy.StartDestroy(3.1f);
   }
 
 
@@ -356,8 +275,6 @@ public class SliceableV2 : MonoBehaviour {
       colliderverts[i] = verts[i] - new Vector2(0.5f, 0.5f);
     }
     collider.points = colliderverts;
-
-    area = GetArea();
   }
 
   protected static class ClockwiseSort {
