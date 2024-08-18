@@ -570,7 +570,7 @@ GameObject:
   - component: {fileID: 579032580}
   - component: {fileID: 579032582}
   - component: {fileID: 579032581}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PoliceMan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -875,7 +875,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -897,7 +897,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.0627451}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -918,7 +918,7 @@ GameObject:
   - component: {fileID: 1203375917}
   - component: {fileID: 1203375916}
   - component: {fileID: 1203375918}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: FistWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1764,6 +1764,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 991670752912938496, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
+      propertyPath: m_Stats
+      value: 
+      objectReference: {fileID: 2113202746}
+    - target: {fileID: 991670752912938496, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
+      propertyPath: m_Collider
+      value: 
+      objectReference: {fileID: 2113202745}
     - target: {fileID: 1094915339876651094, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
       propertyPath: m_Layer
       value: 10
@@ -1818,7 +1826,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2549310828256093515, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2807900521419761363, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1830,7 +1838,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2920827914407196501, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2935629923008770581, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
       propertyPath: m_Layer
@@ -1862,7 +1870,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4450641865451951013, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4816424807470521621, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
       propertyPath: m_Enabled
@@ -1894,7 +1902,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6363169188154241898, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6441494664911637871, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
       propertyPath: m_Sprite
@@ -1908,13 +1916,25 @@ PrefabInstance:
       propertyPath: m_ParryController
       value: 
       objectReference: {fileID: 2113202737}
+    - target: {fileID: 7626655579203368821, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7626655579203368821, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7626655579203368821, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7641359054973586060, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7700671664804048872, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8749583360534587837, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
       propertyPath: m_Material
@@ -1930,11 +1950,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8785274042503888061, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8988019200053934278, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3589927801057489093, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
@@ -1945,6 +1965,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8785274042503888061, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2113202737}
+    - targetCorrespondingSourceObject: {fileID: 8785274042503888061, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2113202746}
   m_SourcePrefab: {fileID: 100100000, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
 --- !u!1 &1944540385
 GameObject:
@@ -2219,6 +2242,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bbae2cba4cc7fc489f89410b8eaf56a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!70 &2113202745 stripped
+CapsuleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 7626655579203368821, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
+  m_PrefabInstance: {fileID: 1832564301}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2113202746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 672109465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 511fac184803749448172872a7ae416e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debuffs:
+  - {fileID: 11400000, guid: 8c829597492194240a912e2a323381dd, type: 2}
+  base_maxHealth: 100
+  base_movementSpeed: 7.5
+  base_dashSpeed: {x: 15, y: 0}
+  base_wallJumpSpeed: {x: 15, y: 15}
+  base_attackDamage: 10
+  base_attackCooldown: 0.5
+  base_rollCooldown: 0.75
+  base_regen: 0
+  maxHealth: 0
+  movementSpeed: 0
+  dashSpeed: {x: 0, y: 0}
+  wallJumpSpeed: {x: 0, y: 0}
+  attackDamage: 0
+  attackCooldown: 0
+  rollCooldown: 0
+  regen: 0
 --- !u!1 &2118165606
 GameObject:
   m_ObjectHideFlags: 0

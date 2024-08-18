@@ -6,13 +6,21 @@ using ExtensionMethods;
 [RequireComponent(typeof(MovementController))]
 public class PlayerController : MonoBehaviour {
 
+  public PlayerStats m_Stats;
+
   private MovementController m_MovementController;
   public Animator m_Animator;
   public SwordController m_SwordController;
   public Rigidbody2D m_Rigidbody2D;
   private GrapplingGun m_GrapplingGunController;
+  private HealthController m_HealtController;
 
   private SpriteRenderer m_SpriteRenderer;
+  public Collider2D m_Collider;
+
+
+  private float atkCD;
+  private float rollCD;
 
   // Start is called before the first frame update
   private void Start() {
@@ -21,12 +29,18 @@ public class PlayerController : MonoBehaviour {
     m_SwordController = GetComponent<SwordController>();
     m_GrapplingGunController = GetComponentInChildren<GrapplingGun>();
     m_Rigidbody2D = GetComponent<Rigidbody2D>();
+    m_HealtController = GetComponent<HealthController>();
+    InvokeRepeating("Regen", 0, 0.5f);
   }
 
   // Update is called once per frame
   private void Update() {
-    Vector2 mouse_pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    UpdateStats();
 
+    atkCD = Mathf.Max(0, atkCD - Time.deltaTime);
+    rollCD = Mathf.Max(0, rollCD - Time.deltaTime);
+
+    Vector2 mouse_pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
     // read inputs
     float horizontalAxis = Input.GetAxis("Horizontal");
@@ -36,16 +50,18 @@ public class PlayerController : MonoBehaviour {
     m_Animator.SetFloat("inputX", Mathf.Abs(axisX));
 
 
-    if (!axisX.IsZero()) m_SpriteRenderer.flipX = (axisX < 0);
+    if (!axisX.IsZero()) 
+      m_SpriteRenderer.flipX = (axisX < 0);
 
 
     m_MovementController.flipX = m_SpriteRenderer.flipX;
 
     m_GrapplingGunController.GrappleControls(KeyCode.Mouse2);
 
-    if (Input.GetKeyDown(KeyCode.Mouse0)) {
+    if (Input.GetKeyDown(KeyCode.Mouse0) && atkCD <= 0) {
       m_SwordController.Slashing = true;
       m_Animator.SetTrigger("attack");
+      atkCD = m_Stats.attackCooldown;
     }
 
     if (Input.GetKeyDown(KeyCode.Space)) {
@@ -61,11 +77,20 @@ public class PlayerController : MonoBehaviour {
 
     m_Animator.SetBool("crouch", crouch);
 
-    if (Input.GetKeyDown(KeyCode.LeftShift)) {
+    if (Input.GetKeyDown(KeyCode.LeftShift) && rollCD <= 0) {
       m_MovementController.dash = true;
       m_Animator.SetTrigger("roll");
+      rollCD = m_Stats.rollCooldown;
     }
 
+    if (m_MovementController.dashing) {
+      m_Collider.excludeLayers = LayerMask.GetMask("Enemy");
+      Debug.Log("DASHING");
+    }
+    else {
+      m_Collider.excludeLayers = LayerMask.GetMask("Nothing");
+
+    }
 
     m_Animator.SetBool("grounded", m_MovementController._grounded);
     m_Animator.SetFloat("yVel", m_Rigidbody2D.velocity.y);
@@ -78,8 +103,17 @@ public class PlayerController : MonoBehaviour {
     if (Input.GetMouseButtonUp(1)) {
       m_SwordController.ReleaseSlice();
       transform.position = m_SwordController.ProjectedSprite.position;
-      //m_Rigidbody2D.velocity = dir * 1.1f;
     }
   }
 
+
+  private void UpdateStats() {
+    m_MovementController.movementSpeed = m_Stats.movementSpeed;
+    m_HealtController.maxHealth = m_Stats.maxHealth;
+  }
+
+
+  private void Regen() {
+    m_HealtController.health += m_Stats.regen;
+  }
 }
