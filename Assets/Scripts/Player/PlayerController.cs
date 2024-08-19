@@ -106,7 +106,6 @@ public class PlayerController : MonoBehaviour {
     }
   }
 
-
   private void UpdateStats() {
     m_MovementController.movementSpeed = m_Stats.movementSpeed;
     m_HealtController.maxHealth = m_Stats.maxHealth;

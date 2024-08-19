@@ -13,6 +13,7 @@ public class AudioHandlerV2 : MonoBehaviour
         public List<AudioClip> audioClips;
     }
 
+  public static AudioHandlerV2 Instance;
 
     [Header("---------- Audio Source ----------")]
     [SerializeField] AudioSource BGMSource;
@@ -35,8 +36,14 @@ public class AudioHandlerV2 : MonoBehaviour
         }
 
 
-        DontDestroyOnLoad(gameObject);
+    if (Instance == null) {
+      Instance = this;
+      DontDestroyOnLoad(gameObject);
     }
+    else {
+      Destroy(gameObject);
+    }
+  }
 
     //private void Start()
     //{
