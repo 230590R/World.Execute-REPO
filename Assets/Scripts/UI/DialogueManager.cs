@@ -11,6 +11,19 @@ public class DialogueManager : MonoBehaviour
 
     public Animator animator;
 
+
+
+
+
+
+
+
+
+
+
+
+
+
     private Queue<string> sentences;
 
     // Start is called before the first frame update
@@ -46,6 +59,26 @@ public class DialogueManager : MonoBehaviour
         string sentence = sentences.Dequeue();
         dialogueText.text = sentence;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     void EndDialogue()
     {
