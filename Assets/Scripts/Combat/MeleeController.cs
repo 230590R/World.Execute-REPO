@@ -9,9 +9,6 @@ public class MeleeController : IAttackController {
   public float distance;
   public float radius;
 
-  public float maxAttackCD;
-  public float attackCD;
-
   public Collider2D ParryCollider;
   public ParryController m_ParryController;
   public SpriteRenderer ParryIndicator;
@@ -64,7 +61,6 @@ public class MeleeController : IAttackController {
 
 
     health.TakeDamage(dmg, hitRay);
-    attackCD = maxAttackCD;
     return hit;
   }
 
@@ -79,9 +75,6 @@ public class MeleeController : IAttackController {
 
   // Update is called once per frame
   void Update() {
-    attackCD -= Time.deltaTime;
-    if (attackCD < 0) attackCD = 0;
-
     if (ParryCollider != null) {
       ParryCollider.enabled = parryableState;
       ParryIndicator.enabled = parryableState;
