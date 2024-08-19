@@ -494,7 +494,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4095
+    m_Bits: 1023
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -833,7 +833,7 @@ GameObject:
   m_Component:
   - component: {fileID: 872807364}
   - component: {fileID: 872807365}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1703,19 +1703,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 613156260834361242, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
       propertyPath: m_Layer
-      value: 12
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 699990779468559649, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
       propertyPath: m_Layer
-      value: 12
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1094915339876651094, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
       propertyPath: m_Layer
-      value: 12
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1609362050545322712, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
       propertyPath: m_Layer
-      value: 12
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2119779507055666280, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
       propertyPath: m_LocalScale.x
@@ -1779,15 +1779,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2935629923008770581, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
       propertyPath: m_Layer
-      value: 12
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3077154221975852242, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
       propertyPath: m_Layer
-      value: 12
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3317965104537717439, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
       propertyPath: m_Layer
-      value: 12
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3589927801057489093, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
       propertyPath: m_Enabled
@@ -1795,12 +1795,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4095837761598067126, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
       propertyPath: m_Layer
-      value: 12
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4156544820445282374, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
     - target: {fileID: 4450641865451951013, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -1837,10 +1833,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6441494664911637871, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
     - target: {fileID: 6891637755233407980, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
       propertyPath: m_ParryController
       value: 
@@ -2000,7 +1992,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4096
+    m_Bits: 1024
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -2285,18 +2277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_RigidBody2D: {fileID: 2113202729}
-  m_MovementController: {fileID: 2113202740}
---- !u!114 &2113202740 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4371133625798426234, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
-  m_PrefabInstance: {fileID: 1832564301}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 672109465}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bbae2cba4cc7fc489f89410b8eaf56a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_MovementController: {fileID: 0}
 --- !u!1 &2118165606
 GameObject:
   m_ObjectHideFlags: 0
