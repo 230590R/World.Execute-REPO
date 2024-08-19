@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour {
   private SpriteRenderer m_SpriteRenderer;
   public Collider2D m_Collider;
 
+  public PlayerSaveable m_Saveable;
+  public bool readData = true;
 
   private float atkCD;
   private float rollCD;
@@ -30,11 +32,16 @@ public class PlayerController : MonoBehaviour {
     m_GrapplingGunController = GetComponentInChildren<GrapplingGun>();
     m_Rigidbody2D = GetComponent<Rigidbody2D>();
     m_HealthController = GetComponent<HealthController>();
+
+    if (readData) {
+      m_Saveable.Load(this);
+    }
     InvokeRepeating("Regen", 0, 0.5f);
   }
 
   // Update is called once per frame
   private void Update() {
+    m_Saveable.Save(this);
     UpdateStats();
 
     atkCD = Mathf.Max(0, atkCD - Time.deltaTime);

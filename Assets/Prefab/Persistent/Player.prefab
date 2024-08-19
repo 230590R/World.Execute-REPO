@@ -252,7 +252,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4952116784086046684}
-  m_Layer: 12
+  m_Layer: 6
   m_Name: Grapple Fire Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -286,7 +286,7 @@ GameObject:
   - component: {fileID: 215666472405755376}
   - component: {fileID: 4139740597490207684}
   - component: {fileID: 3187310044216713867}
-  m_Layer: 12
+  m_Layer: 6
   m_Name: Grapple Indicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -404,7 +404,7 @@ GameObject:
   - component: {fileID: 2865356752441898459}
   - component: {fileID: 5679472738001295137}
   - component: {fileID: 988837954635472032}
-  m_Layer: 12
+  m_Layer: 6
   m_Name: Rope
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -617,7 +617,7 @@ GameObject:
   - component: {fileID: 7051034307563009940}
   - component: {fileID: 6441494664911637871}
   - component: {fileID: 6898096452593005657}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Slash Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -837,6 +837,8 @@ MonoBehaviour:
   m_SwordController: {fileID: 3751180630032210970}
   m_Rigidbody2D: {fileID: 8749583360534587837}
   m_Collider: {fileID: 7626655579203368821}
+  m_Saveable: {fileID: 11400000, guid: b0af169df4788d94cb373d42ab97d898, type: 2}
+  readData: 1
 --- !u!114 &3751180630032210970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -879,8 +881,6 @@ MonoBehaviour:
   lastHit: {fileID: 0}
   distance: 0
   radius: 1
-  maxAttackCD: 0
-  attackCD: 0
   ParryCollider: {fileID: 0}
   m_ParryController: {fileID: 5867774584732553044}
   ParryIndicator: {fileID: 0}
