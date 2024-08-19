@@ -3,17 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerStats : MonoBehaviour {
+  public PlayerStatSO baseStats;
   public IDebuff[] debuffs;
-
-  [Header("Default Stats")]
-  public float base_maxHealth;
-  public float base_movementSpeed;
-  public Vector2 base_dashSpeed;
-  public Vector2 base_wallJumpSpeed;
-  public float base_attackDamage;
-  public float base_attackCooldown;
-  public float base_rollCooldown;
-  public float base_regen;
 
   [Header("Current Stats")]
   public float maxHealth;
@@ -27,14 +18,14 @@ public class PlayerStats : MonoBehaviour {
 
 
   private void Update() {
-    maxHealth = base_maxHealth;
-    movementSpeed = base_movementSpeed;
-    dashSpeed = base_dashSpeed;
-    wallJumpSpeed = base_wallJumpSpeed;
-    attackDamage = base_attackDamage;
-    attackCooldown = base_attackCooldown;
-    rollCooldown = base_rollCooldown;
-    regen = base_regen;
+    maxHealth = baseStats.maxHealth;
+    movementSpeed = baseStats.movementSpeed;
+    dashSpeed = baseStats.dashSpeed;
+    wallJumpSpeed = baseStats.wallJumpSpeed;
+    attackDamage = baseStats.attackDamage;
+    attackCooldown = baseStats.attackCooldown;
+    rollCooldown = baseStats.rollCooldown;
+    regen = baseStats.regen;
 
     for (int i = 0; i < debuffs.Length; i++) {
       debuffs[i].InflictDebuff(this);
