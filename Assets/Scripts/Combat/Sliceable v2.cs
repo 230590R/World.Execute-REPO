@@ -94,6 +94,7 @@ public class SliceableV2 : MonoBehaviour {
     GameObject newObj = new GameObject();
     newObj.transform.position = transform.position;
     newObj.transform.rotation = transform.rotation;
+    newObj.transform.localScale = transform.localScale;
 
     var sprRenderer = newObj.AddComponent<SpriteRenderer>();
     sprRenderer.sprite = m_Sprite;
