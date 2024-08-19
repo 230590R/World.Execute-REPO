@@ -39,10 +39,7 @@ public class SwordController : MonoBehaviour {
       RotateSlashSprite();
       m_SlashAnimator.SetTrigger("Slash");
 
-      //m_MeleeController.TargetDir = _slashDir;
-      //m_MeleeController.AttackEnter();
       m_MeleeController.Attack(_slashDir);
-
       _slashBuffer = false;
     }
 
@@ -104,9 +101,9 @@ public class SwordController : MonoBehaviour {
     bool hasHit = false;
     foreach (RaycastHit2D hit in RayHits) {
       if (hit.collider == null) continue;
-      //if (hit.collider.gameObject.GetComponent<Sliceable>() == null) continue; // only if it is sliceable
+      if (hit.collider.gameObject.GetComponent<SliceableV2>() == null) continue; // only if it is sliceable
 
-      //hit.collider.gameObject.GetComponent<Sliceable>().Slice(new Ray2D(hit.point, _raydir));
+      hit.collider.gameObject.GetComponent<SliceableV2>().Slice(new Ray2D(hit.point, _raydir));
 
       hasHit = true;
     }

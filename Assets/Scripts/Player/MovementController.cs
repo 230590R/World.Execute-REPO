@@ -8,10 +8,10 @@ using UnityEngine;
 public class MovementController : MonoBehaviour {
   // variables for the inspector
   public SpriteRenderer m_SpriteRenderer;
-  [SerializeField] private float movementSpeed;
+  public float movementSpeed;
   [SerializeField] private float _gravityClamp = 10;
-  [SerializeField] private Vector2 _dashSpeed = new Vector2(15, 0);
-  [SerializeField] private Vector2 _wallJumpSpeed = new Vector2(15, 15);
+  public Vector2 _dashSpeed = new Vector2(15, 0);
+  public Vector2 _wallJumpSpeed = new Vector2(15, 15);
   [SerializeField] private float _jumpStrength = 10;
   [SerializeField] private float groundRayDist;
   [SerializeField] private float wallJumpRayDist;
@@ -34,6 +34,7 @@ public class MovementController : MonoBehaviour {
   private Vector2 _wallJumpVelocity = Vector3.zero;
   private Vector2 _knockBackVelocity = Vector3.zero;
 
+  public bool dashing;
 
   public float prevXVel = 0;
 
@@ -98,10 +99,7 @@ public class MovementController : MonoBehaviour {
     }
 
 
-    if (Input.GetKeyDown(KeyCode.F)) {
-      KnockBack(new Vector2(15, 15));
-    }
-
+    dashing = (_dashVelocity.magnitude >= 3);
   }
 
   int GetPlayerFacingDirection(bool flipX) {

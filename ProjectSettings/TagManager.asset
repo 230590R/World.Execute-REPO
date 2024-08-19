@@ -18,9 +18,7 @@ TagManager:
   - NPC
   - Player
   - No Post Process
-  - 
-  - 
-  - 
+  - Enemy
   - 
   - 
   - 
@@ -42,4 +40,25 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Parallax1
+    uniqueID: 790843457
+    locked: 0
+  - name: Parallax2
+    uniqueID: 2664513469
+    locked: 0
+  - name: Parallax3
+    uniqueID: 1435931357
+    locked: 0
+  - name: Parallax4
+    uniqueID: 3329296703
+    locked: 0
+  - name: Parallax5
+    uniqueID: 2676239279
+    locked: 0
+  - name: Scene
+    uniqueID: 1729814127
+    locked: 0
+  - name: No Post Process
+    uniqueID: 435144153
     locked: 0

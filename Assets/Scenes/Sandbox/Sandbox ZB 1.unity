@@ -1019,7 +1019,7 @@ MonoBehaviour:
   SceneName: HubScene
   PlayerTag: Player
   InputKey: 101
-  DoorID: 1
+  DoorID: Sandbox
 --- !u!1001 &4385264467096388842
 PrefabInstance:
   m_ObjectHideFlags: 0
