@@ -41,10 +41,9 @@ public class ChainAttackAction : IAction {
     //ChargeUpAttack(controller, ChainAttacks[index].atkName);
     // attack
     if (controller.atkBuffer) {
-      //Debug.Log(string.Format("Attacking {0}, {1}", index, ChainAttacks[index].atkName));
       Attack(controller, ChainAttacks[index].atkName);
       controller.atkBuffer = false;
-      Debug.Log(string.Format("atk: {0}, elapsed: {1}", atkTimestamp, controller.elapsedTime));
+      //Debug.Log(string.Format("atk: {0}, elapsed: {1}", atkTimestamp, controller.elapsedTime));
     }
 
     if (controller.elapsedTime > atkTimestamp && controller.atkSwitchBuffer) {

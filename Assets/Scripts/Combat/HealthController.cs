@@ -31,7 +31,6 @@ public class HealthController : MonoBehaviour {
     //healthBarUI.SetHealth(hp1, hp2);
     healthBarUI.health = health;
   }
-
   public void TakeDamage(float damage) {
     health -= damage;
   }
@@ -41,10 +40,9 @@ public class HealthController : MonoBehaviour {
     hitRay = ray;
   }
 
-  public void Heal(float healingPercentage)
-  {
+  public void Heal(float healingPercentage) {
     health += (health * (healingPercentage / 100));
     if (health > maxHealth)
-        health = maxHealth;
+      health = maxHealth;
   }
 }
