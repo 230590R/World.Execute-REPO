@@ -1,18 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Quest : MonoBehaviour
+public class Task : QuestManager
 {
-    // Start is called before the first frame update
-    void Start()
+    [TextArea(2, 10)]
+    public string[] sentences;
+    public Animation animator;
+
+    public Color _isActive;
+    public Color _isComplete;
+
+    protected override void QuestActive()
     {
-        
+        throw new System.NotImplementedException();
     }
 
-    // Update is called once per frame
-    void Update()
+    protected override void QuestCompleted()
     {
-        
+        throw new System.NotImplementedException();
+    }
+
+    public void taskComplete()
+    {
+        QuestCompleted();
+
+    }
+
+    public void taskActive()
+    {
+        QuestActive();
     }
 }
