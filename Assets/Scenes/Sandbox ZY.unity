@@ -37502,6 +37502,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6690286308430352660, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
+      propertyPath: debuffs.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7348096818323848640, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
       propertyPath: inventoryManager
       value: 
