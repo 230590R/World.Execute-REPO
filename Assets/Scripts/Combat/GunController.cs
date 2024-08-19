@@ -17,8 +17,15 @@ public class GunController : IAttackController
 
         float angle = Mathf.Atan2(directionToTarget.y, directionToTarget.x) * Mathf.Rad2Deg;
 
-        Rigidbody2D rb = Instantiate(bulletPrefab, transform.position, Quaternion.Euler(0.0f, 0.0f, angle + bulletAngleOffset)).GetComponent<Rigidbody2D>();
-        rb.AddForce(directionToTarget * fireForce, ForceMode2D.Impulse);
+        GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.Euler(0.0f, 0.0f, angle + bulletAngleOffset));
+
+        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+        if (rb != null)
+            rb.AddForce(directionToTarget * fireForce, ForceMode2D.Impulse);
+
+        BulletController bulletController = bullet.GetComponent<BulletController>();
+        if (bulletController != null)
+            bulletController.bulletDmg = damage;
 
         if (atkTriggerName != "") m_Animator.SetTrigger(atkTriggerName);
         Invoke("AttackEnter", delay);
