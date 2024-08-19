@@ -1910,12 +1910,14 @@ MonoBehaviour:
     - {fileID: 2030974784}
     - {fileID: 260962990}
     objectToDeactivate: {fileID: 1631914995}
+    fadeDuration: 1
   - objectsToCheck:
     - {fileID: 1581457665}
     - {fileID: 1673135081}
     - {fileID: 811444267}
     - {fileID: 768011533}
     objectToDeactivate: {fileID: 1955163352}
+    fadeDuration: 1
 --- !u!4 &1709792725
 Transform:
   m_ObjectHideFlags: 0
@@ -2557,13 +2559,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3104252519912029970, guid: 22018a19bd947134caddb4b7a47bc214, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -300271163, guid: ba1c0b3c7dd67ab4190a66a549c3f581, type: 3}
     - target: {fileID: 3230785514317242741, guid: 22018a19bd947134caddb4b7a47bc214, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.9
+      value: 1.835
       objectReference: {fileID: 0}
     - target: {fileID: 3230785514317242741, guid: 22018a19bd947134caddb4b7a47bc214, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.81
+      value: -2.963
       objectReference: {fileID: 0}
     - target: {fileID: 3230785514317242741, guid: 22018a19bd947134caddb4b7a47bc214, type: 3}
       propertyPath: m_LocalPosition.z
