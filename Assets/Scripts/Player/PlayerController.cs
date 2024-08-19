@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour {
   public SwordController m_SwordController;
   public Rigidbody2D m_Rigidbody2D;
   private GrapplingGun m_GrapplingGunController;
-  private HealthController m_HealtController;
+  private HealthController m_HealthController;
 
   private SpriteRenderer m_SpriteRenderer;
   public Collider2D m_Collider;
@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour {
     m_SwordController = GetComponent<SwordController>();
     m_GrapplingGunController = GetComponentInChildren<GrapplingGun>();
     m_Rigidbody2D = GetComponent<Rigidbody2D>();
-    m_HealtController = GetComponent<HealthController>();
+    m_HealthController = GetComponent<HealthController>();
     InvokeRepeating("Regen", 0, 0.5f);
   }
 
@@ -108,11 +108,13 @@ public class PlayerController : MonoBehaviour {
 
   private void UpdateStats() {
     m_MovementController.movementSpeed = m_Stats.movementSpeed;
-    m_HealtController.maxHealth = m_Stats.maxHealth;
+    m_MovementController.dashSpeed = m_Stats.dashSpeed;
+    m_MovementController.wallJumpSpeed = m_Stats.wallJumpSpeed;
+    m_HealthController.maxHealth = m_Stats.maxHealth;
   }
 
 
   private void Regen() {
-    m_HealtController.health += m_Stats.regen;
+    m_HealthController.health += m_Stats.regen;
   }
 }

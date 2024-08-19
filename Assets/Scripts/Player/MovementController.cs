@@ -10,8 +10,8 @@ public class MovementController : MonoBehaviour {
   public SpriteRenderer m_SpriteRenderer;
   public float movementSpeed;
   [SerializeField] private float _gravityClamp = 10;
-  public Vector2 _dashSpeed = new Vector2(15, 0);
-  public Vector2 _wallJumpSpeed = new Vector2(15, 15);
+  public Vector2 dashSpeed = new Vector2(15, 0);
+  public Vector2 wallJumpSpeed = new Vector2(15, 15);
   [SerializeField] private float _jumpStrength = 10;
   [SerializeField] private float groundRayDist;
   [SerializeField] private float wallJumpRayDist;
@@ -82,7 +82,7 @@ public class MovementController : MonoBehaviour {
 
     // read the dash input buffer
     if (dash) {
-      _dashVelocity = _dashSpeed * GetPlayerFacingDirection(flipX);
+      _dashVelocity = dashSpeed * GetPlayerFacingDirection(flipX);
       dash = false;
     }
 
@@ -92,7 +92,7 @@ public class MovementController : MonoBehaviour {
         m_Rigidbody2D.velocity = new Vector3(m_Rigidbody2D.velocity.x, _jumpStrength);
       }
       else if (canWallJump) {
-        _wallJumpVelocity = new Vector2(_wallJumpSpeed.x * -GetPlayerFacingDirection(flipX), _wallJumpSpeed.y);
+        _wallJumpVelocity = new Vector2(wallJumpSpeed.x * -GetPlayerFacingDirection(flipX), wallJumpSpeed.y);
         m_Rigidbody2D.velocity = new Vector2(0, _wallJumpVelocity.y);
       }
       jump = false;

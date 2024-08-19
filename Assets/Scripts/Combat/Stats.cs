@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Stats")]
+[CreateAssetMenu(menuName = "Stats/Enemy Stats")]
 public class Stats : ScriptableObject {
   public float movementSpeed = 5;
 
