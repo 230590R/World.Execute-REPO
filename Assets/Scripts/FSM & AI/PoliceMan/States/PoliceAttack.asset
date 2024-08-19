@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c22fb22975c10dd43a046c0e51dfa870, type: 3}
+  m_Name: PoliceAttack
+  m_EditorClassIdentifier: 
+  stateName: Attack
+  actions:
+  - {fileID: 11400000, guid: 70948c68ffd13404bb57d1498b692c2b, type: 2}
+  transitions:
+  - decision: {fileID: 11400000, guid: b4cd278b68828a147abadb4ca1e34697, type: 2}
+    trueState: {fileID: 11400000, guid: 19fba9890a2aed348803f5eb7fe0d7dc, type: 2}
+    falseState: {fileID: 11400000, guid: 2ba8e919aca54054aa55e7d1d4380702, type: 2}
+  stateExitTime: 5
+  timeoutState: {fileID: 11400000, guid: 09f6da309ba7e0448a593668b2bb4370, type: 2}
