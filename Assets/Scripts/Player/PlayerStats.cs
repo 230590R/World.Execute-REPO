@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour {
   public PlayerStatSO baseStats;
-  public IDebuff[] debuffs;
+  public List<IDebuff> debuffs = new List<IDebuff>();
 
   [Header("Current Stats")]
   public float maxHealth;
@@ -27,7 +27,7 @@ public class PlayerStats : MonoBehaviour {
     rollCooldown = baseStats.rollCooldown;
     regen = baseStats.regen;
 
-    for (int i = 0; i < debuffs.Length; i++) {
+    for (int i = 0; i < debuffs.Count; i++) {
       debuffs[i].InflictDebuff(this);
     }
 
