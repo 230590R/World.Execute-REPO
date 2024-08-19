@@ -45,4 +45,11 @@ public class HealthController : MonoBehaviour {
     if (health > maxHealth)
       health = maxHealth;
   }
+
+    public void SetMaxHealth(float maxhp)
+    {
+        
+        healthBarUI.SetMaxHealth(maxhp);
+        maxHealth = maxhp;
+    }
 }

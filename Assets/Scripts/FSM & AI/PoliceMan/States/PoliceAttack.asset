@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stateName: Attack
   actions:
-  - {fileID: 11400000, guid: 9405909f8695b494498feae60bb40a98, type: 2}
+  - {fileID: 11400000, guid: 70948c68ffd13404bb57d1498b692c2b, type: 2}
   transitions:
   - decision: {fileID: 11400000, guid: b4cd278b68828a147abadb4ca1e34697, type: 2}
     trueState: {fileID: 11400000, guid: 19fba9890a2aed348803f5eb7fe0d7dc, type: 2}
     falseState: {fileID: 11400000, guid: 2ba8e919aca54054aa55e7d1d4380702, type: 2}
-  stateExitTime: 0.5
+  stateExitTime: 5
   timeoutState: {fileID: 11400000, guid: 09f6da309ba7e0448a593668b2bb4370, type: 2}

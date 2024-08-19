@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3601066184416948011}
   - component: {fileID: 1703514618098490581}
   - component: {fileID: 8935976193478226204}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 1467702600016533862}
   - component: {fileID: 4048951493554131450}
   - component: {fileID: 4049195929522712695}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: EnemyHealthbar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -240,7 +240,7 @@ GameObject:
   - component: {fileID: 2850177058614786246}
   - component: {fileID: 6906203919912922990}
   - component: {fileID: 3022545641265943887}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Health1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -314,7 +314,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3410529240572663530}
   - component: {fileID: 8117917864107139725}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Slider2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -402,7 +402,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2248614352533907416}
   - component: {fileID: 2839732228155100340}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Slider1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -491,7 +491,7 @@ GameObject:
   - component: {fileID: 2658902312628186670}
   - component: {fileID: 6480311595989968744}
   - component: {fileID: 7975596984385887062}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -566,7 +566,7 @@ GameObject:
   - component: {fileID: 5651449031567088313}
   - component: {fileID: 2487938449418730998}
   - component: {fileID: 3294511718566051375}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Health2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -640,7 +640,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5477327871495049879}
   - component: {fileID: 5967548438749644990}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Enemy Healthbar
   m_TagString: Untagged
   m_Icon: {fileID: 0}

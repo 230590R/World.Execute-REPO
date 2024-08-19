@@ -26,6 +26,8 @@ public abstract class IEnemy : MonoBehaviour {
     Target = m_StateMachine.Target;
     m_Animator = m_StateMachine.m_Animator;
     m_SpriteRenderer = m_StateMachine.m_SpriteRenderer;
+        m_HealthController.SetMaxHealth(stats.maxHp);
+        m_HealthController.health = stats.maxHp;
   }
 
 }
