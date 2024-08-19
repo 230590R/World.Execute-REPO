@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Final/HubScene.unity
     guid: e27a804854511ad4e821d853f0358de5
+  - enabled: 1
+    path: Assets/Scenes/Final/Energy/Energy Intro.unity
+    guid: ec1bc4c97858df4438e28df03787a392
   m_configObjects: {}
