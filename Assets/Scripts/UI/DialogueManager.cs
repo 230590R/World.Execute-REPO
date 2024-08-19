@@ -29,7 +29,7 @@ public class DialogueManager : MonoBehaviour
 
         foreach (string sentence in dialogue.sentences)
         {
-        sentences.Enqueue(sentence); 
+            sentences.Enqueue(sentence); 
         }
 
         DisplayeNextSentence();
