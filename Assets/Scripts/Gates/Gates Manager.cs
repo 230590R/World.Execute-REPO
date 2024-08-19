@@ -7,17 +7,23 @@ public class GatesManager : MonoBehaviour
     [System.Serializable]
     public class Gate
     {
-        public List<GameObject> objectsToCheck; 
+        public List<GameObject> objectsToCheck;
         public GameObject objectToDeactivate;
         public float fadeDuration = 1f;
+        public bool isDeactivated = false;
     }
 
-    public List<Gate> Gates; 
+    public List<Gate> Gates;
 
     void Update()
     {
         foreach (Gate group in Gates)
         {
+            if (group.isDeactivated)
+            {
+                continue;
+            }
+
             bool allDestroyed = true;
 
             foreach (GameObject obj in group.objectsToCheck)
@@ -32,6 +38,7 @@ public class GatesManager : MonoBehaviour
             if (allDestroyed)
             {
                 StartCoroutine(FadeOutAndDeactivate(group.objectToDeactivate, group.fadeDuration));
+                group.isDeactivated = true; 
             }
         }
     }
@@ -58,5 +65,7 @@ public class GatesManager : MonoBehaviour
         }
 
         obj.SetActive(false);
+
+        material.color = new Color(originalColor.r, originalColor.g, originalColor.b, originalColor.a);
     }
 }

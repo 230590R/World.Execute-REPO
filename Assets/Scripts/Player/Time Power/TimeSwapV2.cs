@@ -5,13 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class TimeSwapV2 : MonoBehaviour
 {
-    public string Scene1;  
-    public string Scene2;  
+    public string Scene1;
+    public string Scene2;
     public KeyCode switchKey = KeyCode.F;
     public string PlayerTag = "Player";
     private TimeSwapManager stateManager;
-    public List<string> objectNamesToKeepActive; 
+    public List<string> objectNamesToKeepActive;
     public GameObject player;
+
+    private bool isInTrigger; 
 
     void Start()
     {
@@ -36,7 +38,7 @@ public class TimeSwapV2 : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKeyDown(switchKey))
+        if (Input.GetKeyDown(switchKey) && !isInTrigger)
         {
             TimeSwap();
         }
@@ -77,43 +79,10 @@ public class TimeSwapV2 : MonoBehaviour
         }
     }
 
-    //void Update()
-    //{
-    //    if (string.IsNullOrEmpty(Scene1) && string.IsNullOrEmpty(Scene2)) return;
-
-    //    if (Input.GetKeyDown(switchKey))
-    //    {
-    //        stateManager.savedPosition = player.transform.position;
-
-    //        string sceneToSwitchTo = (stateManager.currentScene == Scene1) ? Scene2 : Scene1;
-
-    //        if (sceneToSwitchTo == stateManager.previousScene)
-    //        {
-    //            DeactivateScene(stateManager.currentScene);
-
-    //            string temp = stateManager.currentScene;
-    //            stateManager.currentScene = stateManager.previousScene;
-    //            stateManager.previousScene = temp;
-
-    //            ActivateScene(stateManager.currentScene);
-
-    //            SceneManager.SetActiveScene(SceneManager.GetSceneByName(stateManager.currentScene));
-
-    //            player.transform.position = stateManager.savedPosition;
-    //        }
-    //        else
-    //        {
-    //            stateManager.previousScene = stateManager.currentScene;
-    //            stateManager.currentScene = Scene2;
-    //            if (!SceneManager.GetSceneByName(sceneToSwitchTo).isLoaded)
-    //            {
-    //                SceneManager.LoadScene(sceneToSwitchTo, LoadSceneMode.Additive);
-    //            }
-
-    //            SceneManager.sceneLoaded += OnSceneLoaded;
-    //        }
-    //    }
-    //}
+    public void SetInTrigger(bool value)
+    {
+        isInTrigger = value;
+    }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
@@ -134,7 +103,6 @@ public class TimeSwapV2 : MonoBehaviour
             GameObject[] rootObjects = scene.GetRootGameObjects();
             foreach (GameObject obj in rootObjects)
             {
-                // Check if the object's name is not in the list of names to keep active
                 if (!objectNamesToKeepActive.Contains(obj.name))
                 {
                     obj.SetActive(false);

@@ -332,7 +332,7 @@ MonoBehaviour:
   switchKey: 103
   PlayerTag: Player
   objectNamesToKeepActive:
-  - Game Manager
+  - Cameras
   player: {fileID: 0}
 --- !u!114 &41920800
 MonoBehaviour:
