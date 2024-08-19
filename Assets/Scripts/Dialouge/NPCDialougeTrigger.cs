@@ -11,6 +11,19 @@ public class NPCDialougeTrigger : MonoBehaviour
 
     [HideInInspector] public bool wasInDialogue = false;
 
+    [SerializeField] DialougeSO[] dialougeSOs;
+
+    private void OnEnable()
+    {
+        for (int i = 0; i < dialougeSOs.Length; i++)
+        {
+            if (dialougeSOs[i].dialougeDone)
+            {
+                dialougeSOs[i].dialougeDone = false;
+            }
+        }
+    }
+
     private void Awake()
     {
         dialogueTrigger = transform.parent.GetComponent<DialogueTrigger>();
@@ -21,6 +34,15 @@ public class NPCDialougeTrigger : MonoBehaviour
     {
         if (controller.dialougeTriggers.Contains(parent) && Input.GetKeyDown(KeyCode.E))
         {
+            for (int i = 0; i < dialougeSOs.Length; i++)
+            {
+                if (dialougeSOs[i].dialougeDone == false)
+                {
+                    dialogueTrigger.dialougeSO = dialougeSOs[i];
+                    break;
+                }
+            }
+
             dialogueTrigger.TriggerDialogue();
             wasInDialogue = true;
         }

@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
 {
-    public Dialogue dialogue;
-
-    //[SerializeField] DialougeSO[] dialouges;
-
-    //int currentDialougeIndex = 0;
+    //public Dialogue dialogue;
 
     [HideInInspector] public DialougeSO dialougeSO;
 
+    //public void TriggerDialogue()
+    //{
+    //    FindAnyObjectByType<DialogueManager>().StartDialogue(dialogue);
+    //}
+
     public void TriggerDialogue()
     {
-        FindAnyObjectByType<DialogueManager>().StartDialogue(dialogue);
+        FindAnyObjectByType<DialogueManager>().StartDialogue(dialougeSO);
     }
 }

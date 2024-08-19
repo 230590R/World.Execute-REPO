@@ -9,4 +9,6 @@ public class DialougeSO : ScriptableObject
 
     [TextArea(3, 10)]
     public string[] sentences;
+
+    public bool dialougeDone = false;
 }
