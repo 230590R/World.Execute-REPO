@@ -29,8 +29,6 @@ public class EquipController : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("faofnaf");
-
         if (Input.GetKeyDown(KeyCode.L) && equippedItem != null)
         {
             switch (equippedItem.name)
