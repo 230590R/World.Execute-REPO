@@ -32,4 +32,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Final/Energy/Energy Intro.unity
     guid: ec1bc4c97858df4438e28df03787a392
+  - enabled: 1
+    path: Assets/Scenes/Final/Energy/Energy Swap2.unity
+    guid: 9db939250fd38434b80dc4862b321b44
+  - enabled: 1
+    path: Assets/Scenes/Final/Energy/Energy Swap1.unity
+    guid: e89cd56229ba14d4b9aad1694c8ac465
   m_configObjects: {}

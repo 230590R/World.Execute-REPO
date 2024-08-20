@@ -16,6 +16,13 @@ public class PoliceController : IEnemy
     // Update is called once per frame
     void Update()
     {
+        if (m_HealthController.health <= 0)
+        {
+            m_Animator.SetBool("isAlive", false);
+            m_StateMachine.enabled = false;
+            return;
+        }
+
         currentState = m_StateMachine.currentState.stateName;
 
         m_StateMachine.movementMultiplier = 1f;
@@ -42,6 +49,11 @@ public class PoliceController : IEnemy
 
         if(currentState == "Idle"){
             audioHandler.StopPlayingSFX(transform);
+        }
+
+        if(m_HealthController.health <= 0)
+        {
+            m_Animator.SetBool("isAlive", false);
         }
     }
 }
