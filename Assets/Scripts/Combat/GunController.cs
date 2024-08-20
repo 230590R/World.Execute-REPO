@@ -12,6 +12,7 @@ public class GunController : IAttackController
 
     public override void Attack(Vector2 direction)
     {
+        Debug.Log("attacking");
         Vector2 directionToTarget = target.transform.position - transform.position;
         directionToTarget = directionToTarget.normalized;
 
