@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour {
   public PlayerSaveable m_Saveable;
   public bool readData = true;
 
-  static private bool firstLoad = true;
+  [SerializeField] static private bool firstLoad = true;
 
   private float atkCD;
   private float rollCD;
@@ -38,8 +38,16 @@ public class PlayerController : MonoBehaviour {
     m_Rigidbody2D = GetComponent<Rigidbody2D>();
     m_HealthController = GetComponent<HealthController>();
 
-    if (firstLoad) firstLoad = false;
+    if (firstLoad) {
+      firstLoad = false;
+      Debug.Log("asdasd");
+    }
     else m_Saveable.Load(this);
+
+    if (m_HealthController.health <= 0) {
+      m_HealthController.health = m_HealthController.maxHealth;
+    }
+
     InvokeRepeating("Regen", 0, 0.5f);
   }
 
