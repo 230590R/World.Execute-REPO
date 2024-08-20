@@ -8,8 +8,15 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] GameObject inventory;
     public GameObject inventoryItemPrefab;
 
+    public static InventoryManager Instance;
+
     private void Awake()
     {
+        if (Instance != null)
+            Destroy(this);
+        else
+            Instance = this;
+
         inventorySlots = inventory.GetComponentsInChildren<InventorySlot>();
     }
 

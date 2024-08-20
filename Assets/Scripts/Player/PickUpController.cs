@@ -7,6 +7,11 @@ public class PickUpController : MonoBehaviour
 {
     [SerializeField] InventoryManager inventoryManager;
 
+    private void Start()
+    {
+        inventoryManager = InventoryManager.Instance;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         PickUpItem(collision);

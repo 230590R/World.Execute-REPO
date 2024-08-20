@@ -35,6 +35,9 @@ public class OrbInteraction : MonoBehaviour
           timeSwapV2.Scene1 = Scene1;
           timeSwapV2.Scene2 = Scene2;
           timeSwapV2.ReAddPlayer();
+          CineController.Instance.ShakeCamera(10, 2);
+          CineController.Instance.ZoomCamera(1.5f, 1);
+          TimeController.Instance.SlowTime(0.001f, 2);
           this.gameObject.SetActive(false);
         }
     }
