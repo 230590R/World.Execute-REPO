@@ -333,6 +333,7 @@ MonoBehaviour:
   PlayerTag: Player
   objectNamesToKeepActive:
   - Cameras
+  - Orb
   player: {fileID: 0}
 --- !u!114 &41920800
 MonoBehaviour:
@@ -25334,12 +25335,12 @@ SceneRoots:
   m_Roots:
   - {fileID: 1110170035}
   - {fileID: 209562775}
+  - {fileID: 41920801}
   - {fileID: 616928429}
   - {fileID: 615747276}
   - {fileID: 356033401}
   - {fileID: 1880091886}
   - {fileID: 785578149}
-  - {fileID: 41920801}
   - {fileID: 1475720319}
   - {fileID: 6095251830455359432}
   - {fileID: 240539738}

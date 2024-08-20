@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,22 +18,24 @@ public class OrbInteraction : MonoBehaviour
     public string Scene2;  
     private TimeSwapV2 timeSwapV2;
 
+   // public GameObject _gameObject;
+
     private void Start()
     {
         timeSwapV2 = FindAnyObjectByType<TimeSwapV2>();
+        //_gameObject = GetComponent<GameObject>();
     }
 
     void Update()
     {
         if (playerInRange && Input.GetKeyDown(interactionKey))
         {
- 
           objectToActivate.SetActive(true);
           TimeSwapManager.Instance.currentScene = SceneManager.GetActiveScene().name;
           timeSwapV2.Scene1 = Scene1;
           timeSwapV2.Scene2 = Scene2;
           timeSwapV2.ReAddPlayer();
-
+          this.gameObject.SetActive(false);
         }
     }
 
@@ -51,4 +54,5 @@ public class OrbInteraction : MonoBehaviour
             playerInRange = false;
         }
     }
+
 }
