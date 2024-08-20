@@ -16,9 +16,11 @@ public class MerchantShop : MonoBehaviour
 
     public static event System.Action onChangingItemID;
 
-    private void Awake()
+    private void Start()
     {
-        inventorySlots = inventory.GetComponentsInChildren<InventorySlot>();
+    inventoryManager = InventoryManager.Instance;
+    inventory = inventoryManager.inventory;
+    inventorySlots = inventory.GetComponentsInChildren<InventorySlot>();
     }
 
     public void OpenShop()

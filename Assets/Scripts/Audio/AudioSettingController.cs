@@ -46,7 +46,7 @@ public class AudioSettingController : MonoBehaviour
 
     private void Start()
     {
-        LoadVolume();
+         LoadVolume();
         SetVolume();
     }
 
