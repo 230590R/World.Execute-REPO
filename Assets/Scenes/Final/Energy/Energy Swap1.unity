@@ -924,6 +924,10 @@ MonoBehaviour:
   - Cameras
   - Orb
   player: {fileID: 0}
+  ShakeCam_Intense: 20
+  ShakeCam_Time: 0.5
+  ZoomCam_Intense: 0.8
+  ZoomCam_Time: 0.3
 --- !u!114 &276351284
 MonoBehaviour:
   m_ObjectHideFlags: 0
