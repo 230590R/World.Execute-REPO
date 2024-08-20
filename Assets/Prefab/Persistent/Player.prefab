@@ -838,7 +838,7 @@ MonoBehaviour:
   m_Rigidbody2D: {fileID: 8749583360534587837}
   m_Collider: {fileID: 7626655579203368821}
   m_Saveable: {fileID: 11400000, guid: b0af169df4788d94cb373d42ab97d898, type: 2}
-  readData: 1
+  readData: 0
 --- !u!114 &3751180630032210970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -874,8 +874,8 @@ MonoBehaviour:
   m_Animator: {fileID: 0}
   layer:
     serializedVersion: 2
-    m_Bits: 0
-  damage: 0
+    m_Bits: 8192
+  damage: 10
   atkTriggerName: 
   delay: 0
   lastHit: {fileID: 0}
@@ -920,7 +920,7 @@ MonoBehaviour:
   healthBarUI: {fileID: 4200360806511015124}
   health: 100
   maxHealth: 100
-  sliceable: 0
+  isPlayer: 0
 --- !u!114 &4371133625798426234
 MonoBehaviour:
   m_ObjectHideFlags: 0
