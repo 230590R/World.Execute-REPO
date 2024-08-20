@@ -21,7 +21,8 @@ public class SceneSwitcherV2 : MonoBehaviour
                 PlayerPrefs.SetString("LastUsedDoorID", DoorID);
                 PlayerPrefs.Save();
 
-                SceneManager.LoadScene(SceneName);
+                //SceneManager.LoadScene(SceneName);
+                SceneTransition.Instance.SwitchScene(SceneName);
             }
         }
     }
