@@ -5,10 +5,11 @@ using UnityEngine;
 public class InventoryManager : MonoBehaviour
 {
     private InventorySlot[] inventorySlots;
-    [SerializeField] GameObject inventory;
+    public GameObject inventory;
     public GameObject inventoryItemPrefab;
 
     public static InventoryManager Instance;
+
 
     private void Awake()
     {
