@@ -482,8 +482,15 @@ MonoBehaviour:
   switchKey: 103
   PlayerTag: Player
   objectNamesToKeepActive:
-  - Game Manager
+  - Cameras
+  - Orb
+  - Global Light 2D
+  - DebuffManager
   player: {fileID: 0}
+  ShakeCam_Intense: 10
+  ShakeCam_Time: 0.5
+  ZoomCam_Intense: 0.8
+  ZoomCam_Time: 0.3
 --- !u!114 &41920800
 MonoBehaviour:
   m_ObjectHideFlags: 0
