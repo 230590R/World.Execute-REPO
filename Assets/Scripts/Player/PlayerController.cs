@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using ExtensionMethods;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(MovementController))]
 public class PlayerController : MonoBehaviour {
@@ -26,6 +27,8 @@ public class PlayerController : MonoBehaviour {
   private float atkCD;
   private float rollCD;
 
+  private bool dead = false;
+
   // Start is called before the first frame update
   private void Start() {
     m_MovementController = GetComponent<MovementController>();
@@ -46,6 +49,33 @@ public class PlayerController : MonoBehaviour {
 
   // Update is called once per frame
   private void Update() {
+    if (dead) {
+      m_Animator.transform.localPosition = Vector3.Lerp(m_Animator.transform.localPosition, new Vector3(0, -0.2f, 0), Time.deltaTime * 2);
+
+      if (Input.GetKeyDown(KeyCode.E)) {
+        Respawn();
+      }
+      return;
+    }
+
+    // check health
+    if (m_HealthController.health <= 0) {
+      // apply death effects
+      CineController.Instance.ShakeCamera(5, 0.2f);
+      CineController.Instance.ZoomCamera(1.75f, 2f);
+      TimeController.Instance.SlowTime(0.1f, 2f);
+
+
+      m_Animator.SetBool("dead", true);
+      m_Animator.SetBool("grounded", true);
+      m_MovementController.horizontalAxis = 0;
+
+      CancelInvoke();
+
+      dead = true;
+      return;
+    }
+
 
     UpdateStats();
 
@@ -128,5 +158,11 @@ public class PlayerController : MonoBehaviour {
 
   private void Regen() {
     m_HealthController.health += m_Stats.regen;
+  }
+
+
+  private void Respawn() {
+    m_HealthController.health = m_HealthController.maxHealth;
+    SceneManager.LoadScene("HubScene");
   }
 }
