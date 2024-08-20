@@ -13,6 +13,12 @@ public class TimeSwapV2 : MonoBehaviour
     public List<string> objectNamesToKeepActive;
     public GameObject player;
 
+    public float ShakeCam_Intense = 10;
+    public float ShakeCam_Time = 0.5f;
+
+    public float ZoomCam_Intense = 0.8f;
+    public float ZoomCam_Time = 0.3f;
+
     private bool isInTrigger; 
 
     void Start()
@@ -38,7 +44,7 @@ public class TimeSwapV2 : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKeyDown(switchKey) && !isInTrigger)
+        if (Input.GetKeyDown(switchKey))
         {
             TimeSwap();
         }
@@ -47,7 +53,10 @@ public class TimeSwapV2 : MonoBehaviour
     public void TimeSwap()
     {
         if (string.IsNullOrEmpty(Scene1) && string.IsNullOrEmpty(Scene2)) return;
+        if (isInTrigger) return;
 
+        CineController.Instance.ShakeCamera(ShakeCam_Intense, ShakeCam_Time);
+        CineController.Instance.ZoomCamera(ZoomCam_Intense, ZoomCam_Time);
         stateManager.savedPosition = player.transform.position;
 
         string sceneToSwitchTo = (stateManager.currentScene == Scene1) ? Scene2 : Scene1;
