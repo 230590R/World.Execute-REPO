@@ -7,38 +7,34 @@ using UnityEngine.SceneManagement;
 public class OrbInteraction : MonoBehaviour
 {
     public GameObject objectToActivate;
-
     public KeyCode interactionKey = KeyCode.E;
-
     public string playerTag = "Player";
-
+    public string Scene1;
+    public string Scene2;
+    private TimeSwapV2 timeSwapV2;
     private bool playerInRange = false;
 
-    public string Scene1;  
-    public string Scene2;  
-    private TimeSwapV2 timeSwapV2;
-
-   // public GameObject _gameObject;
+    public float fadeTime = 0.5f;  // Duration of the fade-out effect
+    private SpriteRenderer spriteRenderer;
 
     private void Start()
     {
         timeSwapV2 = FindAnyObjectByType<TimeSwapV2>();
-        //_gameObject = GetComponent<GameObject>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
     {
         if (playerInRange && Input.GetKeyDown(interactionKey))
         {
-          objectToActivate.SetActive(true);
-          TimeSwapManager.Instance.currentScene = SceneManager.GetActiveScene().name;
-          timeSwapV2.Scene1 = Scene1;
-          timeSwapV2.Scene2 = Scene2;
-          timeSwapV2.ReAddPlayer();
-          CineController.Instance.ShakeCamera(10, 2);
-          CineController.Instance.ZoomCamera(1.5f, 1);
-          TimeController.Instance.SlowTime(0.001f, 2);
-          this.gameObject.SetActive(false);
+            objectToActivate.SetActive(true);
+            TimeSwapManager.Instance.currentScene = SceneManager.GetActiveScene().name;
+            timeSwapV2.Scene1 = Scene1;
+            timeSwapV2.Scene2 = Scene2;
+            timeSwapV2.ReAddPlayer();
+            CineController.Instance.ShakeCamera(20, 2);
+            TimeController.Instance.SlowTime(0.0001f, 2);
+            StartCoroutine(FadeAndDestroy());
         }
     }
 
@@ -58,4 +54,19 @@ public class OrbInteraction : MonoBehaviour
         }
     }
 
+    private IEnumerator FadeAndDestroy()
+    {
+        float timeElapsed = 0f;
+        Color startColor = spriteRenderer.color;
+
+        while (timeElapsed < fadeTime)
+        {
+            timeElapsed += Time.deltaTime;
+            float alpha = Mathf.Lerp(startColor.a, 0, timeElapsed / fadeTime);
+            spriteRenderer.color = new Color(startColor.r, startColor.g, startColor.b, alpha);
+            yield return null;
+        }
+
+        Destroy(this.gameObject);
+    }
 }
