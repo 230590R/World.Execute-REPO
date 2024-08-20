@@ -538,6 +538,10 @@ PrefabInstance:
       propertyPath: height
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4921963429906703119, guid: cc950b0e4a7ab9a40b8b5201800fb4b6, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6079446307046479113, guid: cc950b0e4a7ab9a40b8b5201800fb4b6, type: 3}
       propertyPath: m_Name
       value: Platform
@@ -23424,6 +23428,10 @@ PrefabInstance:
     - target: {fileID: 4921963429906703119, guid: cc950b0e4a7ab9a40b8b5201800fb4b6, type: 3}
       propertyPath: height
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4921963429906703119, guid: cc950b0e4a7ab9a40b8b5201800fb4b6, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6079446307046479113, guid: cc950b0e4a7ab9a40b8b5201800fb4b6, type: 3}
       propertyPath: m_Name
