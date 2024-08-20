@@ -20,5 +20,6 @@ public class ParryController : MonoBehaviour {
     CineController.Instance.ShakeCamera(5, 1);
     CineController.Instance.ZoomCamera(1.5f, 1);
     TimeController.Instance.SlowTime(0.01f, 0.7f);
+    PostProcessController.Instance.SetChromatic(10);
   }
 }

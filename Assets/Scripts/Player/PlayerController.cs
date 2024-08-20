@@ -112,6 +112,9 @@ public class PlayerController : MonoBehaviour {
       m_SwordController.Slashing = true;
       m_Animator.SetTrigger("attack");
       atkCD = m_Stats.attackCooldown;
+
+      
+
     }
 
     if (Input.GetKeyDown(KeyCode.Space)) {
