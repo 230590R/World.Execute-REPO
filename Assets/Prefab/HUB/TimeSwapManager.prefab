@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8065736410216082703
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 150392852200403479}
+  - component: {fileID: 96602460371931933}
+  - component: {fileID: 3940618943186555332}
+  m_Layer: 0
+  m_Name: TimeSwapManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &150392852200403479
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8065736410216082703}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.1563497, y: -2.9650192, z: -0.36162826}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &96602460371931933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8065736410216082703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d03bdf3c274e578419a134c62f3aaa99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentScene: 
+  previousScene: 
+  savedPosition: {x: 0, y: 0, z: 0}
+  hubSceneName: HubScene
+--- !u!114 &3940618943186555332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8065736410216082703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53c30161d03787448b3c212b632aff56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Scene1: 
+  Scene2: 
+  switchKey: 103
+  PlayerTag: Player
+  objectNamesToKeepActive:
+  - Cameras
+  - Orb
+  - Global Light 2D
+  player: {fileID: 0}
+  ShakeCam_Intense: 10
+  ShakeCam_Time: 0.5
+  ZoomCam_Intense: 0.8
+  ZoomCam_Time: 0.3
