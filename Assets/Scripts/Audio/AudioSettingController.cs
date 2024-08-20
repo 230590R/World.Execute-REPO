@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -27,7 +28,7 @@ public class AudioSettingController : MonoBehaviour
 
     [SerializeField] AudioMixer mixer;
 
-    [SerializeField] TMPro.TextMeshPro textMeshPro;
+    [SerializeField] TMPro.TMP_Text textMeshPro;
 
     int volumeBarsCount = 0;
 
@@ -69,11 +70,6 @@ public class AudioSettingController : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        Debug.Log(volumeBarsCount);
-    }
-
     public void DecreaseVolume()
     {
         if (volumeBarsCount <= -1) return;
@@ -103,6 +99,8 @@ public class AudioSettingController : MonoBehaviour
 
         float volumeCount = (100.0f / volumeBars.Count) * volumeBarsActive;
         float volume = -80.0f + volumeCount;
+
+        textMeshPro.text = (Mathf.RoundToInt((volumeCount / 100.0f) * 100.0f)).ToString() + "%";
 
         switch (volumeType)
         {
