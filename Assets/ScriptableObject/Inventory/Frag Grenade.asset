@@ -16,7 +16,7 @@ MonoBehaviour:
   name: Frag Grenade
   description: afasfasfasda
   cost: 2
-  imageWidth: 150
-  imageHeight: 200
+  imageWidth: 75
+  imageHeight: 100
   stackable: 0
   maxStackCount: 10
