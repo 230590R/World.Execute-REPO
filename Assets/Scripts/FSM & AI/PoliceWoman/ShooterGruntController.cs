@@ -18,6 +18,7 @@ public class ShooterGruntController : IEnemy
         currentState = m_StateMachine.currentState.stateName;
         m_StateMachine.movementMultiplier = 1f;
 
+
         if (currentState == "Patrol")
         {
             m_Animator.SetBool("isWalking", true);
