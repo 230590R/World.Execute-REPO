@@ -10,12 +10,15 @@ public class ParryController : MonoBehaviour {
     if (hit == null) {
       return;
     }
-
-    Debug.Log("PARRY");
+    
     int dir = (transform.position.x > hit.transform.position.x) ? 1 : -1;
     Vector2 knockBackforce = new Vector2(dir * 10, 7.5f);
     if (m_MovementController != null) {
       m_MovementController.KnockBack(knockBackforce);
     }
+
+    CineController.Instance.ShakeCamera(5, 1);
+    CineController.Instance.ZoomCamera(1.5f, 1);
+    TimeController.Instance.SlowTime(0.01f, 0.7f);
   }
 }

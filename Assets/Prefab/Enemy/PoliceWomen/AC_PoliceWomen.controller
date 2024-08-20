@@ -722,6 +722,12 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
+  - m_Name: reloading
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -1098,17 +1104,17 @@ AnimatorStateMachine:
   - {fileID: 1364016070149143270}
   m_EntryTransitions: []
   m_StateMachineTransitions:
-  - first: {fileID: 388706651985694590}
+  - first: {fileID: -7722106870221317706}
     second:
-    - {fileID: -6707093048420605584}
+    - {fileID: -6185783675761552260}
   - first: {fileID: 8750532682930877445}
     second:
     - {fileID: -8719206824175578119}
     - {fileID: 7683956939411402643}
     - {fileID: -5589445763959209763}
-  - first: {fileID: -7722106870221317706}
+  - first: {fileID: 388706651985694590}
     second:
-    - {fileID: -6185783675761552260}
+    - {fileID: -6707093048420605584}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 670, y: 20, z: 0}
   m_EntryPosition: {x: 50, y: 110, z: 0}

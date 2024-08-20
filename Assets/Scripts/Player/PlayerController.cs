@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour {
   public PlayerSaveable m_Saveable;
   public bool readData = true;
 
+  static private bool firstLoad = true;
+
   private float atkCD;
   private float rollCD;
 
@@ -33,15 +35,18 @@ public class PlayerController : MonoBehaviour {
     m_Rigidbody2D = GetComponent<Rigidbody2D>();
     m_HealthController = GetComponent<HealthController>();
 
-    if (readData) {
-      m_Saveable.Load(this);
-    }
+    if (firstLoad) firstLoad = false;
+    else m_Saveable.Load(this);
     InvokeRepeating("Regen", 0, 0.5f);
+  }
+
+  private void OnDestroy() {
+    m_Saveable.Save(this);
   }
 
   // Update is called once per frame
   private void Update() {
-    m_Saveable.Save(this);
+
     UpdateStats();
 
     atkCD = Mathf.Max(0, atkCD - Time.deltaTime);

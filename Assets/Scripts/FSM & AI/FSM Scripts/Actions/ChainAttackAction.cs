@@ -77,6 +77,7 @@ public class ChainAttackAction : IAction {
     controller.atkBuffer = false;
     controller.atkIndex = 0;
     controller.atkSwitchBuffer = true;
+        Debug.Log("IRFANNNNN");
   }
 
 

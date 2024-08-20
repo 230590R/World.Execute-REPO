@@ -20,7 +20,7 @@ public class MerchantUIManager : MonoBehaviour
     private void OnDisable()
     {
         MerchantShop.onChangingItemID -= merchantItemImageUI.ChangeItemImage;
-
+            
         for (int i = 0; i < merchantItemTextUI.Length; i++)
         {
             MerchantShop.onChangingItemID -= merchantItemTextUI[i].ChangeItemText;

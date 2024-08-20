@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UIElements;
 
 public class MeleeController : IAttackController {
+  public static event System.Action MeleeHit;
+
   private Vector2 _attackPoint;
 
   public float distance;
@@ -14,6 +16,7 @@ public class MeleeController : IAttackController {
   public SpriteRenderer ParryIndicator;
 
   private bool parryableState;
+
 
   public Vector2 AttackPoint {
     get { return _attackPoint; }
@@ -41,7 +44,13 @@ public class MeleeController : IAttackController {
 
 
   public Collider2D AttackEnter() {
-    return AttackEnter(damage, radius, _attackPoint);
+    var hit = AttackEnter(damage, radius, _attackPoint);
+    if (hit != null) {
+      MeleeHit?.Invoke();
+      CineController.Instance.ShakeCamera(2, 1);
+      TimeController.Instance.SlowTime(0.01f, 0.1f);
+    }
+    return hit;
   }
 
   public Collider2D AttackEnter(float dmg, float r, Vector2 point) {

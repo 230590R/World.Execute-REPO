@@ -2312,15 +2312,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 511fac184803749448172872a7ae416e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseStats: {fileID: 0}
   debuffs: []
-  base_maxHealth: 100
-  base_movementSpeed: 7.5
-  base_dashSpeed: {x: 15, y: 0}
-  base_wallJumpSpeed: {x: 15, y: 15}
-  base_attackDamage: 10
-  base_attackCooldown: 0.5
-  base_rollCooldown: 0.75
-  base_regen: 0
   maxHealth: 0
   movementSpeed: 0
   dashSpeed: {x: 0, y: 0}
