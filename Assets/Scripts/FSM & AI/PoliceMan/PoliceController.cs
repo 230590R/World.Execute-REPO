@@ -10,7 +10,7 @@ public class PoliceController : IEnemy
     void Start()
     {
         Init();
-        audioHandler = FindObjectOfType<AudioHandlerV2>();
+        //audioHandler = FindObjectOfType<AudioHandlerV2>();
     }
 
     // Update is called once per frame
@@ -29,7 +29,7 @@ public class PoliceController : IEnemy
         if (currentState == "Patrol")
         {
             m_Animator.SetBool("isWalking", true);
-            audioHandler.PlaySFXIfNotPlaying(categoryName, 0, transform);
+           // audioHandler.PlaySFXIfNotPlaying(categoryName, 0, transform);
         }
         else
         {
@@ -40,7 +40,7 @@ public class PoliceController : IEnemy
         {
             m_Animator.SetBool("isRunning", true);
             m_StateMachine.movementMultiplier = stats.runMultiplier;
-            audioHandler.PlaySFXIfNotPlaying(categoryName, 1, transform);
+            //audioHandler.PlaySFXIfNotPlaying(categoryName, 1, transform);
         }
         else
         {
@@ -48,7 +48,7 @@ public class PoliceController : IEnemy
         }
 
         if(currentState == "Idle"){
-            audioHandler.StopPlayingSFX(transform);
+            //audioHandler.StopPlayingSFX(transform);
         }
 
         if(m_HealthController.health <= 0)

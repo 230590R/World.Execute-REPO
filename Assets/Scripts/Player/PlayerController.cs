@@ -113,7 +113,7 @@ public class PlayerController : MonoBehaviour {
       m_Animator.SetTrigger("attack");
       atkCD = m_Stats.attackCooldown;
 
-      
+      PostProcessController.Instance.SetChromatic(5);
 
     }
 
@@ -174,6 +174,6 @@ public class PlayerController : MonoBehaviour {
 
   private void Respawn() {
     m_HealthController.health = m_HealthController.maxHealth;
-    SceneManager.LoadScene("HubScene");
+    SceneTransition.Instance.SwitchScene("HubScene");
   }
 }

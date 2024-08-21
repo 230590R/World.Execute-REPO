@@ -162,7 +162,7 @@ CapsuleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8192
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -197,7 +197,7 @@ MonoBehaviour:
   healthBarUI: {fileID: 7997593153479939287}
   health: 100
   maxHealth: 100
-  sliceable: 0
+  isPlayer: 0
 --- !u!1 &2882075863411790114
 GameObject:
   m_ObjectHideFlags: 0

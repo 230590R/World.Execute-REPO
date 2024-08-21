@@ -64,6 +64,8 @@ public class MeleeController : IAttackController {
     //CinemachineShake.Instance.ShakeCamera(3.5f, 0.5f);
     HealthController health = hit.GetComponent<HealthController>();
 
+    if (health == null) return null;
+
     // calculate ray
     Vector2 dir = (hit.transform.position - transform.position).normalized;
     Ray2D hitRay = new Ray2D(transform.position, dir);
