@@ -15,8 +15,18 @@ public class ShooterGruntController : IEnemy
     // Update is called once per frame
     void Update()
     {
+
+        if (m_HealthController.health <= 0)
+        {
+            m_Animator.SetBool("isAlive", false);
+            m_StateMachine.enabled = false;
+            return;
+        }
+
+
         currentState = m_StateMachine.currentState.stateName;
         m_StateMachine.movementMultiplier = 1f;
+
 
         if (currentState == "Patrol")
         {
@@ -46,6 +56,8 @@ public class ShooterGruntController : IEnemy
         {
             reloadFlag = true;
         }
+
+       
         
     }
 }

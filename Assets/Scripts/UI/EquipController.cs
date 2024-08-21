@@ -19,17 +19,21 @@ public class EquipController : MonoBehaviour
     [SerializeField] GameObject grenadePrefab;
     [SerializeField] Transform firePoint;
 
+    GameObject player;
+
     [SerializeField] HealthController healthController;
 
     private void Awake()
     {
         image = GetComponent<Image>();
         inventorySlots = inventory.GetComponentsInChildren<InventorySlot>();
+
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L) && equippedItem != null)
+        if (Input.GetKeyDown(KeyCode.F) && equippedItem != null)
         {
             switch (equippedItem.name)
             {
@@ -37,7 +41,7 @@ public class EquipController : MonoBehaviour
                     healthController.Heal(10);
                     break;
                 case "Frag Grenade":
-                    Vector2 direction = (-firePoint.position + Input.mousePosition).normalized;
+                    Vector2 direction = (Input.mousePosition - player.transform.position).normalized;
                     GameObject grenade = Instantiate(grenadePrefab, firePoint.position, Quaternion.identity);
                     Rigidbody2D grenadeRigidBody = grenade.GetComponent<Rigidbody2D>();
                     grenadeRigidBody.AddForce(direction * 10.0f, ForceMode2D.Impulse);

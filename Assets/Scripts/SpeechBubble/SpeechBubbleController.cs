@@ -66,49 +66,4 @@ public class SpeechBubbleController : MonoBehaviour
             yield return new WaitForSeconds(letterDelay);
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //IEnumerator DisplaySpeechBubble()
-    //{
-    //    for (int i = 0; i < NPC.speechBubbleSO.speechBubbleText.Length; i++)
-    //    {
-    //        FormatText(NPC.speechBubbleSO.speechBubbleText[i]);
-    //        yield return new WaitForSeconds(NPC.speechBubbleSO.speechBubbleTimer[i]);
-    //    }
-
-    //    gameObject.SetActive(false);
-    //}
-
-    //void FormatText(string text)
-    //{
-    //    var formattedText = new System.Text.StringBuilder();
-    //    char[] characters = text.ToCharArray();
-
-    //    for (int i = 0; i < characters.Length; i++)
-    //    {
-    //        // Create a letter print delay
-
-    //        if (i > 0 && i % newLineLimit == 0 && (characters[i] == ' ' || characters[i] == '.'))
-    //        {
-    //            formattedText.Append(characters[i]);
-    //            formattedText.Append('\n');
-    //            continue;
-    //        }
-
-    //        formattedText.Append(characters[i]);
-    //    }
-    //    m_TextMeshPro.text = formattedText.ToString();
-    //}
 }

@@ -1140,6 +1140,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 186774856983801599, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
+      propertyPath: m_Distance
+      value: 5.824733
+      objectReference: {fileID: 0}
     - target: {fileID: 613156260834361242, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
       propertyPath: m_Layer
       value: 12
@@ -1239,6 +1243,14 @@ PrefabInstance:
     - target: {fileID: 6363169188154241898, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891637755233407980, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
+      propertyPath: damage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891637755233407980, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
+      propertyPath: layer.m_Bits
+      value: 8192
       objectReference: {fileID: 0}
     - target: {fileID: 7641359054973586060, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
       propertyPath: m_Layer
