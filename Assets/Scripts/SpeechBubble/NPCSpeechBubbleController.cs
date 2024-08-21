@@ -5,15 +5,10 @@ using UnityEngine;
 public class NPCSpeechBubbleController : MonoBehaviour
 {
     public SpeechBubbleSO speechBubbleSO;
-    GameObject speechBubble;
+    [HideInInspector] public GameObject speechBubble;
 
     private void Awake()
     {
         speechBubble = transform.GetChild(0).gameObject;
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        speechBubble.SetActive(true);
     }
 }
