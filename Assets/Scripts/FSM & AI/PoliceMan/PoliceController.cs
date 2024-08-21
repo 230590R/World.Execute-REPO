@@ -6,7 +6,7 @@ public class PoliceController : IEnemy
 {
     // Start is called before the first frame update
     private AudioHandlerV2 audioHandler;
-    private string categoryName = "Testing";
+    private string categoryName = "Enemy";
     void Start()
     {
         Init();
@@ -29,7 +29,7 @@ public class PoliceController : IEnemy
         if (currentState == "Patrol")
         {
             m_Animator.SetBool("isWalking", true);
-           // audioHandler.PlaySFXIfNotPlaying(categoryName, 0, transform);
+            //audioHandler.PlaySFXIfNotPlaying(categoryName, 0, transform);
         }
         else
         {
