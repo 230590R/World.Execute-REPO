@@ -16,4 +16,4 @@ MonoBehaviour:
   sentences:
   - " Hey! Congratulations on your promotion, don\u2019t let the title get to your
     head too fast haha!"
-  dialougeDone: 0
+  dialougeDone: 1
