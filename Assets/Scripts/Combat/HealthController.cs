@@ -9,13 +9,15 @@ public class HealthController : MonoBehaviour {
   public float health = 100;
   public float maxHealth = 100;
 
-  public bool sliceable = false;
 
   private float hp1 = 0;
   private float hp2 = 0;
 
   private float speed1 = 10f;
   private float speed2 = 5f;
+
+
+  public bool isPlayer = false;
 
   public Ray2D hitRay;
 
@@ -38,6 +40,10 @@ public class HealthController : MonoBehaviour {
   public void TakeDamage(float damage, Ray2D ray) {
     TakeDamage(damage);
     hitRay = ray;
+    if (isPlayer) {
+      PostProcessController.Instance.SetVignette(0.5f);
+      Debug.Log("sadasd");
+    }
   }
 
   public void Heal(float healingPercentage) {
@@ -46,10 +52,11 @@ public class HealthController : MonoBehaviour {
       health = maxHealth;
   }
 
-    public void SetMaxHealth(float maxhp)
-    {
-        
-        healthBarUI.SetMaxHealth(maxhp);
-        maxHealth = maxhp;
-    }
+  public void SetMaxHealth(float maxhp) {
+
+    healthBarUI.SetMaxHealth(maxhp);
+    maxHealth = maxhp;
+
+
+  }
 }

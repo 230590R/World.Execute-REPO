@@ -8,7 +8,7 @@ public class GunController : IAttackController
     [SerializeField] float bulletAngleOffset;
 
     [SerializeField] GameObject bulletPrefab;
-    [SerializeField] Transform target;
+    public Transform target;
 
     public override void Attack(Vector2 direction)
     {
