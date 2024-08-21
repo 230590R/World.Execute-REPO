@@ -1018,8 +1018,12 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 4877536ad37d4064ca02d89fc4612d03, type: 3}
     - {fileID: 8300000, guid: c0653d758e706db45a73b0d4092118fe, type: 3}
     - {fileID: 8300000, guid: 4877536ad37d4064ca02d89fc4612d03, type: 3}
-  - categoryName: PoliceMen
-    audioClips: []
+  - categoryName: Enemy
+    audioClips:
+    - {fileID: 8300000, guid: 9f80c01d723c494428211f3825493157, type: 3}
+    - {fileID: 8300000, guid: 1a43e40761c72104b93bb6c1e26657f2, type: 3}
+    - {fileID: 8300000, guid: 1a43e40761c72104b93bb6c1e26657f2, type: 3}
+    - {fileID: 8300000, guid: 1a43e40761c72104b93bb6c1e26657f2, type: 3}
 --- !u!4 &277163967
 Transform:
   m_ObjectHideFlags: 0

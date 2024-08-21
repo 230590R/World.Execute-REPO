@@ -149,8 +149,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dc33b219efef724e8b64f6dccda03da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  categoryName: Testing
-  audioIndex: 1
+  categoryName: Enemy
+  audioIndex: 0
   StopSFX: 0
 --- !u!114 &-5699864010915975870
 MonoBehaviour:
@@ -164,8 +164,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dc33b219efef724e8b64f6dccda03da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  categoryName: Testing
-  audioIndex: 0
+  categoryName: Enemy
+  audioIndex: 1
   StopSFX: 0
 --- !u!1101 &-5694701584229981549
 AnimatorStateTransition:
@@ -624,7 +624,8 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 6183338635428310904}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: 5624134133366411952}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -704,7 +705,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   categoryName: 
   audioIndex: 0
-  StopSFX: 1
+  StopSFX: 0
 --- !u!1101 &1290664526402413011
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -942,6 +943,21 @@ AnimatorTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 1
+--- !u!114 &5624134133366411952
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dc33b219efef724e8b64f6dccda03da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  categoryName: Enemy
+  audioIndex: 2
+  StopSFX: 0
 --- !u!1101 &6009965496581989643
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
