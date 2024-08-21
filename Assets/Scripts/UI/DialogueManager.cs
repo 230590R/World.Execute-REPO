@@ -13,7 +13,10 @@ public class DialogueManager : MonoBehaviour
 
     private Queue<string> sentences;
 
-    DialougeSO dialougeSO;
+    [HideInInspector] public DialougeSO dialogueSO;
+
+    public static event System.Action onDialogueEnd;
+
 
     void Start()
     {
@@ -24,7 +27,7 @@ public class DialogueManager : MonoBehaviour
     {
         animator.SetBool("isOpen", true);
 
-        this.dialougeSO = SO;
+        this.dialogueSO = SO;
 
         nameText.text = SO.name;
         sentences.Clear();
@@ -57,7 +60,7 @@ public class DialogueManager : MonoBehaviour
         if (sentences.Count == 0)
         {
             EndDialogue();
-            dialougeSO.dialougeDone = true;
+            dialogueSO.dialougeDone = true;
             return;
         }
 
@@ -68,5 +71,6 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue()
     {
         animator.SetBool("isOpen", false);
+        onDialogueEnd?.Invoke();
     }
 }
