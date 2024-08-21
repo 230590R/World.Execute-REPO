@@ -10,7 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4ad5fb3d380da264a8f1d8d5ac28397b, type: 3}
-  m_Name: New Speech Bubble SO
+  m_Name: After Tutorial
   m_EditorClassIdentifier: 
-  speechBubbleText: []
-  speechBubbleTimer: []
+  speechBubbleText:
+  - This town continues to see an increase of crimes where a majority of the crimes
+    are labelled as acts of terrorism. If this rate continues to rise who knows what
+    will become of us or other towns.
+  speechBubbleTimer:
+  - 2.5
