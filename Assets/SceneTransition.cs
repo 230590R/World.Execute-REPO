@@ -26,7 +26,7 @@ public class SceneTransition : MonoBehaviour {
 
     SceneManager.LoadScene(sceneName);
 
-
+    yield return null;
 
     transition.SetTrigger("End");
   }
