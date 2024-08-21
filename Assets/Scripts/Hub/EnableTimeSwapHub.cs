@@ -10,6 +10,7 @@ public class EnableTimeSwapHub : MonoBehaviour
     public string Scene1;
     public string Scene2;
     private TimeSwapV2 timeSwapV2;
+    private bool Completed;
 
     // Start is called before the first frame update
     void Start()
@@ -22,9 +23,9 @@ public class EnableTimeSwapHub : MonoBehaviour
     void Update()
     {
 
-            if (levelManager.IsLevelComplete("Energy"))
+            if (levelManager.IsLevelComplete("Energy") && !Completed)
             {
-
+                Completed = true;
                 TimeSwapManager.Instance.currentScene = SceneManager.GetActiveScene().name;
                 timeSwapV2.Scene1 = Scene1;
                 timeSwapV2.Scene2 = Scene2;
