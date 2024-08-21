@@ -6,6 +6,9 @@ public class AnimationAudioBehaviorV2 : StateMachineBehaviour
 {
     public string categoryName;
     public int audioIndex;
+
+    public bool StopSFX = false;
+
     private AudioHandlerV2 audioHandler;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
@@ -16,9 +19,13 @@ public class AnimationAudioBehaviorV2 : StateMachineBehaviour
             audioHandler = FindObjectOfType<AudioHandlerV2>();
         }
 
-        if (audioHandler != null && !string.IsNullOrEmpty(categoryName))
+        if (StopSFX)
         {
-            //audioHandler.PlaySFX(categoryName, audioIndex, );
+            audioHandler.StopPlayingSFX(animator.gameObject.transform);
+        }
+        else if (audioHandler != null && !string.IsNullOrEmpty(categoryName))
+        {
+            audioHandler.PlaySFXIfNotPlaying(categoryName, audioIndex, animator.gameObject.transform);
         }
     }
 
