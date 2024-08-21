@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2370927500140526586}
   - component: {fileID: 7451422848820099937}
   - component: {fileID: 6910694578020068063}
+  - component: {fileID: -5566387988578588101}
   m_Layer: 0
   m_Name: Portal
   m_TagString: Untagged
@@ -147,3 +148,16 @@ MonoBehaviour:
   PlayerTag: Player
   InputKey: 101
   DoorID: 
+--- !u!114 &-5566387988578588101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9078040801506004902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4a8c5183908df64db6e09a97127e289, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeSprite: {fileID: 2095109360, guid: 9cecbae547c1e7f41b92243d8e40744a, type: 3}
