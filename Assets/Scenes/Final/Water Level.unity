@@ -1155,22 +1155,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 186774856983801599, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
-      propertyPath: m_Distance
-      value: 0.29698485
-      objectReference: {fileID: 0}
-    - target: {fileID: 186774856983801599, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
-      propertyPath: m_DampingRatio
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1353785236642576968, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
-      propertyPath: health
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 1353785236642576968, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
-      propertyPath: isPlayer
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2119779507055666280, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.21
@@ -1219,10 +1203,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3187310044216713867, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
-      propertyPath: grappleToAll
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5699178580641072300, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1230,10 +1210,6 @@ PrefabInstance:
     - target: {fileID: 5699178580641072300, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6891637755233407980, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
-      propertyPath: damage
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8785274042503888061, guid: 989717c7e03318842b879b2290fbd3d2, type: 3}
       propertyPath: m_Name
