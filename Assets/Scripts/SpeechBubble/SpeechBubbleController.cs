@@ -30,10 +30,12 @@ public class SpeechBubbleController : MonoBehaviour
             string formattedText = FormatText(NPC.speechBubbleSO.speechBubbleText[i]);
             yield return StartCoroutine(DisplayTextWithDelay(formattedText));
 
-            yield return new WaitForSeconds(NPC.speechBubbleSO.speechBubbleTimer[i]);
+            if (NPC.speechBubbleSO.speechBubbleTimer[i] > 0)
+                yield return new WaitForSeconds(NPC.speechBubbleSO.speechBubbleTimer[i]);
         }
 
-        gameObject.SetActive(false);
+        if (NPC.speechBubbleSO.speechBubbleTimer[NPC.speechBubbleSO.speechBubbleText.Length - 1] > 0)
+            gameObject.SetActive(false);
     }
 
     string FormatText(string text)
@@ -43,13 +45,16 @@ public class SpeechBubbleController : MonoBehaviour
 
         for (int i = 0; i < characters.Length; i++)
         {
-            if (i > 0 && i % newLineLimit == 0 && (characters[i] == ' ' || characters[i] == '.'))
+            if (i > 0 && i % newLineLimit == 0)
             {
                 formattedText.Append(characters[i]);
+
+                if (characters[i] != ' ' || characters[i] != '.')
+                    formattedText.Append("-");
+
                 formattedText.Append('\n');
                 continue;
             }
-
             formattedText.Append(characters[i]);
         }
 

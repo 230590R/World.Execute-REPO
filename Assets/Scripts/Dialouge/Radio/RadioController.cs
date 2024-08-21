@@ -10,6 +10,15 @@ public class RadioController : NPCSpeechBubbleController
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        for (int i = LevelManager.Instance.scenes.Count - 1; i >= 0; i--) 
+        {
+            if (LevelManager.Instance.scenes[i].isComplete)
+            {
+                currentSpeechToPlay = i;
+                break;
+            }
+        }
+
         speechBubbleSO = speeches[currentSpeechToPlay];
         speechBubble.SetActive(true);
     }

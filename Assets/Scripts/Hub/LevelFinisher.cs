@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class LevelFinisher : MonoBehaviour
 {
-
     public string Scene;
 
     private void OnTriggerEnter2D(Collider2D other)
