@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2c24e21714d22154fafc9cf0183033f1, type: 3}
-  m_Name: Mechant Testing
+  m_Name: Testing 2
   m_EditorClassIdentifier: 
-  name: Merchant 1
+  name: Testing
   sentences:
-  - Hello traveller
-  - go to the massive computer
+  - mr stonely
   dialougeDone: 0

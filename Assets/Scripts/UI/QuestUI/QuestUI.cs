@@ -34,11 +34,14 @@ public class QuestUI : MonoBehaviour
             }
             taskDescription.text = descriptions;
             questStart();
+            Debug.Log("Anim Start");
         }
         else
         {
             taskDescription.text = "";
             questFinish();
+            Debug.Log("Anim finish");
+
         }
     }
 

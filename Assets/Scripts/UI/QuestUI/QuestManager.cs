@@ -2,11 +2,18 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 using static QuestManager;
+using TMPro;
+using UnityEngine.UI;
 
 public class QuestManager : MonoBehaviour
 {
     public static QuestManager instance;
+
+
     public List<QuestObj> quests = new List<QuestObj>();
+    public TextMeshProUGUI taskDescription;
+    public Animator animator;
+
 
     private void Awake()
     {
@@ -24,11 +31,11 @@ public class QuestManager : MonoBehaviour
     {
         if (!quests.Contains(quest))
         {
+            quest.isComplete = false;
             quests.Add(quest);
             Debug.Log("Quest added: " + quest.questID);
             UpdateQuestUI();
-            // Call the appropriate method based on questType
-            MethodOfCompletion(quest);
+
         }
     }
 
@@ -36,72 +43,40 @@ public class QuestManager : MonoBehaviour
     {
         if (quests.Contains(quest) && quest.isComplete)
         {
-            quests.Remove(quest);
+            //quests.Remove(quest);
             Debug.Log("Quest completed and removed: " + quest.questID);
             UpdateQuestUI();
         }
     }
 
-    public enum Methods
+
+
+    public void UpdateQuestUI()
     {
-        GOTOLOCATION,
-        KILLENEMY,
-        KILLENEMIES,
-        TALKTO,
-        INACTIVE
-    }
-
-    private Methods currentMethod = Methods.INACTIVE;
-
-
-    private void MethodOfCompletion(QuestObj quest)
-    {
-        Methods method;
-        if (Enum.TryParse(quest.questType, out method))
+        if (QuestManager.instance.quests.Count > 0)
         {
-            switch (method)
+            string descriptions = "";
+
+            for (int i = 0; i < QuestManager.instance.quests.Count; i++)
             {
-                case Methods.GOTOLOCATION:
-                    HandleGotoLocation(quest);
-                    break;
-                case Methods.KILLENEMY:
-                    HandleKillEnemy(quest);
-                    break;
-                case Methods.KILLENEMIES:
-                    HandleKillEnemies(quest);
-                    break;
-                case Methods.TALKTO:
-                    HandleTalkTo(quest);
-                    break;
-                case Methods.INACTIVE:
-                    // Handle inactive quests
-                    break;
+                if (!QuestManager.instance.quests[i].isComplete)
+                {
+                    descriptions += QuestManager.instance.quests[i].description + "\n";
+                }
             }
+
+
+            taskDescription.text = descriptions;
+            animator.SetBool("isActive", true);
+            Debug.Log("Anim Start");
+        }
+        else
+        {
+            taskDescription.text = "";
+            animator.SetBool("isActive", false);
+            Debug.Log("Anim finish");
         }
     }
 
-    private void HandleGotoLocation(QuestObj quest)
-    {
-        // Logic for "GOTOLOCATION" quest type
-    }
-
-    private void HandleKillEnemy(QuestObj quest)
-    {
-        // Logic for "KILLENEMY" quest type
-    }
-
-    private void HandleKillEnemies(QuestObj quest)
-    {
-        // Logic for "KILLENEMIES" quest type
-    }
-
-    private void HandleTalkTo(QuestObj quest)
-    {
-        // Logic for "TALKTO" quest type
-    }
-
-    private void UpdateQuestUI()
-    {
-        // Update the quest UI
-    }
+  
 }
