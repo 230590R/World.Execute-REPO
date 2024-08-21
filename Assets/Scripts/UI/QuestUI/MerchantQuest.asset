@@ -9,8 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ad5fb3d380da264a8f1d8d5ac28397b, type: 3}
-  m_Name: New Speech Bubble SO
+  m_Script: {fileID: 11500000, guid: a09ea08c69d12b145963287d7b852b24, type: 3}
+  m_Name: MerchantQuest
   m_EditorClassIdentifier: 
-  speechBubbleText: []
-  speechBubbleTimer: []
+  questID: 1
+  description: Go to the massive computer
+  isComplete: 0
+  targetID: Merchant
+  questType: GOTO

@@ -13,6 +13,8 @@ public class NPCDialougeTrigger : MonoBehaviour
 
     [SerializeField] DialougeSO[] dialougeSOs;
 
+
+
     private void OnEnable()
     {
         for (int i = 0; i < dialougeSOs.Length; i++)

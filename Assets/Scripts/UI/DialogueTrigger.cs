@@ -15,6 +15,7 @@ public class DialogueTrigger : MonoBehaviour
 
     public void TriggerDialogue()
     {
+        Debug.Log("tried to trigger dialogue");
         FindAnyObjectByType<DialogueManager>().StartDialogue(dialougeSO);
     }
 }
