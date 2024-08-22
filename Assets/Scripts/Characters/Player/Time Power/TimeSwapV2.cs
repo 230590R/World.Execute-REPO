@@ -57,6 +57,7 @@ public class TimeSwapV2 : MonoBehaviour
 
         CineController.Instance.ShakeCamera(ShakeCam_Intense, ShakeCam_Time);
         CineController.Instance.ZoomCamera(ZoomCam_Intense, ZoomCam_Time);
+    ReAddPlayer();
         stateManager.savedPosition = player.transform.position;
 
         string sceneToSwitchTo = (stateManager.currentScene == Scene1) ? Scene2 : Scene1;

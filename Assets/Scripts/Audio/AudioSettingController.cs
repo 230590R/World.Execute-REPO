@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Rendering;
@@ -30,6 +31,8 @@ public class AudioSettingController : MonoBehaviour
 
     [SerializeField] TMPro.TMP_Text textMeshPro;
 
+    static bool reset = true;
+
     int volumeBarsCount = 0;
 
     private void Awake()
@@ -46,9 +49,12 @@ public class AudioSettingController : MonoBehaviour
 
     private void Start()
     {
-         LoadVolume();
-        SetVolume();
-    }
+        if (reset)
+          PresetVolume();
+
+          SetVolume();
+          LoadVolume();
+  }
 
     public void IncreaseVolume()
     {
@@ -149,5 +155,25 @@ public class AudioSettingController : MonoBehaviour
         }
 
         volumeBarsCount = volumeBarsActive - 1;
+    }
+
+
+    void PresetVolume() 
+    {
+      reset = false;
+      int amount = (int)(volumeBars.Count / 2.0f);
+
+      switch (volumeType) 
+      {
+        case VOLUME_TYPE.MASTER:
+          PlayerPrefs.SetInt("MasterVolume", amount);
+          break;
+        case VOLUME_TYPE.SFX:
+          PlayerPrefs.SetInt("SFX", amount);
+          break;
+        case VOLUME_TYPE.BGM:
+          PlayerPrefs.SetInt("BGM", amount);
+          break;
+      }
     }
 }

@@ -44,6 +44,10 @@ public class SwordController : MonoBehaviour {
 
       m_MeleeController.Attack(_slashDir);
       _slashBuffer = false;
+
+
+      Vector3 dir = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+      Slice(dir.magnitude);
     }
 
   }

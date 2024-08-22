@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class BGMManager : MonoBehaviour
 {
   public static BGMManager Instance;
+  public bool bossOverride = false;
 
   private void Awake() {
     if (Instance != null)
@@ -20,8 +21,6 @@ public class BGMManager : MonoBehaviour
   }
 
   public void SetBGM() {
-    Debug.Log("Nigger");
-
     string sceneName = SceneManager.GetActiveScene().name;
     switch (sceneName) {
       case "Menu":
@@ -29,13 +28,18 @@ public class BGMManager : MonoBehaviour
         break;
       case "HubScene":
       case "HubSceneFuture":
-        AudioHandlerV2.Instance.PlayBGM("BGM", 2);
+        if (!bossOverride) AudioHandlerV2.Instance.PlayBGM("BGM", 2);
         break;
       case "Tutorial level":
+        AudioHandlerV2.Instance.PlayBGM("BGM", 4);
         break;
       case "Energy Intro":
       case "Energy Swap1":
       case "Energy Swap2":
+        AudioHandlerV2.Instance.PlayBGM("BGM", 1);
+        break;
+      case "Water Level":
+        AudioHandlerV2.Instance.PlayBGM("BGM", 5);
         break;
     }
   }

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 3
   runMultiplier: 1
-  maxHp: 40
+  maxHp: 30
   detectionRange: 5

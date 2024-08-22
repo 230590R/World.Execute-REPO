@@ -1,11 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Profiling.Memory.Experimental;
-using UnityEditor.Search;
 using UnityEngine;
 using Pathfinding;
-using UnityEditor;
 
 public class StateMachine : MonoBehaviour {
   [Serializable] public class AttackKeyValuePair { public string key; public IAttackController value; }

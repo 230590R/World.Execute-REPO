@@ -73,5 +73,7 @@ public class BossController : IEnemy {
     if (!myDialogueTrigger.wasInDialogue) return;
     m_StateMachine.currentState = enterCombatState;
     myDialogueTrigger.enabled = false;
+    BGMManager.Instance.bossOverride = true;
+    AudioHandlerV2.Instance.PlayBGM("BGM", 0);
   }
 }

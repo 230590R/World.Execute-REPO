@@ -3084,8 +3084,8 @@ CanvasGroup:
   m_GameObject: {fileID: 317556598}
   m_Enabled: 1
   m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!114 &317556601
 MonoBehaviour:
@@ -22291,6 +22291,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   postWaterDebuff: {fileID: 11400000, guid: eefbd81a97ee20545905ee4ce77eeb39, type: 2}
   postEnergyDebuff: {fileID: 11400000, guid: f0178bc7f8ff1b746b34a4d77d2c5f58, type: 2}
+  Scene1: HubScene
+  Scene2: HubSceneFuture
 --- !u!1 &1634623365
 GameObject:
   m_ObjectHideFlags: 0
@@ -30947,6 +30949,7 @@ GameObject:
   - component: {fileID: 1986378129}
   - component: {fileID: 1986378128}
   - component: {fileID: 1986378127}
+  - component: {fileID: 1986378130}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -31067,6 +31070,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1986378125}
   m_CullTransparentMesh: 1
+--- !u!114 &1986378130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1986378125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a66237978baed634380c150b3ef3c536, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 1986378127}
+  audioUICanvas: {fileID: 1098189709}
 --- !u!1 &1996946858
 GameObject:
   m_ObjectHideFlags: 0
