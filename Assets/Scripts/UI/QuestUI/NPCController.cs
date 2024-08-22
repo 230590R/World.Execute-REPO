@@ -6,7 +6,7 @@ public class NPCController : MonoBehaviour
 {
     [SerializeField] DialogueManager dialogueManager;
     NPCDialougeTrigger npcDialougeTrigger;
-    public QuestObj waterquest;
+    public QuestObj waterQuest;
     public QuestObj energyquest;
 
     public QuestManager manager;
@@ -26,7 +26,7 @@ public class NPCController : MonoBehaviour
 
     public void OnDialogueExit()
     {
-        manager.AddQuest(quest);
+        manager.AddQuest(waterQuest);
     }
 
 }

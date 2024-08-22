@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Sign
   m_EditorClassIdentifier: 
   speechBubbleText:
-  - testing
+  - Press E to use the lift!
   speechBubbleTimer:
-  - -1
+  - 3

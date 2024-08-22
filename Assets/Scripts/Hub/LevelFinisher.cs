@@ -15,8 +15,11 @@ public class LevelFinisher : MonoBehaviour
     }
     public void FinishLevel(string LockDoor)
     {
-
-        LevelManager.Instance.CompleteLevel(Scene);
+        if(!(Scene == ""))
+        {
+            LevelManager.Instance.CompleteLevel(Scene);
+        }
+ 
         sceneGameManager.SetSceneSwitcherToDisable(LockDoor);
     }
 }

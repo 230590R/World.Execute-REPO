@@ -4025,7 +4025,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueManager: {fileID: 1880091885}
-  quest: {fileID: 11400000, guid: aaa14d551bb09154e97a9baa1b3e314c, type: 2}
+  waterQuest: {fileID: 0}
+  energyquest: {fileID: 0}
   manager: {fileID: 933701179}
 --- !u!114 &581970694
 MonoBehaviour:
@@ -17119,7 +17120,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6910694578020068063, guid: 6ab7a1ce6ea29744e9a5ccc3ba01cc8b, type: 3}
       propertyPath: SceneName
-      value: Sandbox ZB 1
+      value: Tutorial level
       objectReference: {fileID: 0}
     - target: {fileID: 9078040801506004902, guid: 6ab7a1ce6ea29744e9a5ccc3ba01cc8b, type: 3}
       propertyPath: m_Name
