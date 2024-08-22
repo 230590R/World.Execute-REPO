@@ -1612,6 +1612,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 209562775}
+  - component: {fileID: 209562776}
   m_Layer: 0
   m_Name: Scene Manager
   m_TagString: Untagged
@@ -1636,6 +1637,20 @@ Transform:
   - {fileID: 1041491698}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &209562776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 209562774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc3d2485405bbe44fa779860086e58a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Scene1: HubScene
+  Scene2: HubSceneFuture
 --- !u!1 &231516871
 GameObject:
   m_ObjectHideFlags: 0
@@ -3122,6 +3137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneSwitcherToEnableID: 
+  SceneSwitcherToDisableID: 
 --- !u!1 &468880941 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9078040801506004902, guid: 6ab7a1ce6ea29744e9a5ccc3ba01cc8b, type: 3}
@@ -17118,6 +17134,7 @@ GameObject:
   - component: {fileID: 1110170035}
   - component: {fileID: 1110170036}
   - component: {fileID: 1110170037}
+  - component: {fileID: 1110170038}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -17172,6 +17189,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volume: {fileID: 47482592}
+--- !u!114 &1110170038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110170034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8cbd4018e478f8458924b5f8a318d8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timescale: 1
+  slowDuration: 1
+  elapsed: 0
 --- !u!1 &1113307031
 GameObject:
   m_ObjectHideFlags: 0
@@ -19603,6 +19635,7 @@ MonoBehaviour:
   originalSprite: {fileID: 21300000, guid: 26236c8aeaf9734429c596153a5bf860, type: 3}
   grenadePrefab: {fileID: 2267627467612259836, guid: 190aa462083f2c6439e164129a5e473d, type: 3}
   firePoint: {fileID: 2037049584}
+  fireForce: 1
   healthController: {fileID: 2106398490}
 --- !u!114 &1484884029
 MonoBehaviour:
