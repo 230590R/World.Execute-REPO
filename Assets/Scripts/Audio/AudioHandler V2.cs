@@ -120,10 +120,10 @@ public class AudioHandlerV2 : MonoBehaviour
         {
             if (clipIndex >= 0 && clipIndex < clips.Count)
             {
-                // Check if the caller already has an active audio source
+       
                 if (activeAudioSources.ContainsKey(callerTransform))
                 {
-                    // Stop and destroy the existing audio source
+ 
                     Destroy(activeAudioSources[callerTransform].gameObject);
                     activeAudioSources.Remove(callerTransform);
                 }
@@ -142,16 +142,15 @@ public class AudioHandlerV2 : MonoBehaviour
                 tempAudioSource.spread = 60.0f;
 
                 tempAudioSource.clip = clips[clipIndex];
-                tempAudioSource.loop = shouldLoop;  // Set looping based on the bool parameter
+                tempAudioSource.loop = shouldLoop;  
                 tempAudioSource.Play();
 
-                // Attach a follower script to make the audio follow the caller's transform
+ 
                 tempAudio.AddComponent<AudioFollower>().target = callerTransform;
 
-                // Track this audio source as active for this caller
+     
                 activeAudioSources[callerTransform] = tempAudioSource;
 
-                // If not looping, destroy the temporary GameObject after the clip finishes playing
                 if (!shouldLoop)
                 {
                     Destroy(tempAudio, clips[clipIndex].length);
@@ -168,32 +167,84 @@ public class AudioHandlerV2 : MonoBehaviour
         }
     }
 
-  public void PlaySFXIfNotPlaying(string clipCategory, int clipIndex, Transform callerTransform, bool shouldLoop = false, bool overrideAudio = true) {
-    // Check if the caller already has an active audio source
-    if (activeAudioSources.TryGetValue(callerTransform, out AudioSource activeSource)) {
-      // Check if the activeSource has been destroyed
-      if (activeSource == null) {
-        // If the audio source is null (destroyed), remove it from the dictionary
-        activeAudioSources.Remove(callerTransform);
-      }
-      else if (activeSource.clip == audioClipsDict[clipCategory][clipIndex] && activeSource.isPlaying) {
-        // Do nothing if the same clip is already playing and overrideAudio is false
-        if (!overrideAudio) {
-          return;
+    public void PlaySFXIfNotPlaying(string clipCategory, int clipIndex, Transform callerTransform, bool shouldLoop = false, bool overrideAudio = true)
+    {
+
+        if (activeAudioSources.TryGetValue(callerTransform, out AudioSource activeSource))
+        {
+ 
+            if (activeSource == null)
+            {
+ 
+                activeAudioSources.Remove(callerTransform);
+            }
+            else if (activeSource.clip == audioClipsDict[clipCategory][clipIndex] && activeSource.isPlaying)
+            {
+     
+                return;
+            }
+            else if (overrideAudio)
+            {
+
+                Destroy(activeSource.gameObject);
+                activeAudioSources.Remove(callerTransform);
+            }
+            else
+            {
+
+                PlayTempSFX(clipCategory, clipIndex, callerTransform, shouldLoop);
+                return;
+            }
         }
-      }
-      else if (!overrideAudio) {
-        // Stop and destroy the existing audio source if it's a different clip and overrideAudio is false
-        Destroy(activeSource.gameObject);
-        activeAudioSources.Remove(callerTransform);
-      }
+
+
+        PlaySFX(clipCategory, clipIndex, callerTransform, shouldLoop);
     }
 
-    // Play the new clip
-    PlaySFX(clipCategory, clipIndex, callerTransform, shouldLoop);
-  }
 
-  public void PlayBGM(string clipCategory, int clipIndex)
+    private void PlayTempSFX(string clipCategory, int clipIndex, Transform callerTransform, bool shouldLoop)
+    {
+        if (audioClipsDict.TryGetValue(clipCategory, out List<AudioClip> clips))
+        {
+            if (clipIndex >= 0 && clipIndex < clips.Count)
+            {
+                GameObject tempAudio = new GameObject("TempAudio");
+                tempAudio.transform.position = callerTransform.position;
+
+                AudioSource tempAudioSource = tempAudio.AddComponent<AudioSource>();
+
+                tempAudioSource.outputAudioMixerGroup = SFXSource.outputAudioMixerGroup;
+                tempAudioSource.rolloffMode = AudioRolloffMode.Linear;
+                tempAudioSource.spatialBlend = 1.0f;
+                tempAudioSource.minDistance = 0.3f;
+                tempAudioSource.maxDistance = 15.0f;
+                tempAudioSource.dopplerLevel = 0.0f;
+                tempAudioSource.spread = 60.0f;
+
+                tempAudioSource.clip = clips[clipIndex];
+                tempAudioSource.loop = shouldLoop;
+                tempAudioSource.Play();
+
+
+                tempAudio.AddComponent<AudioFollower>().target = callerTransform;
+
+                if (!shouldLoop)
+                {
+                    Destroy(tempAudio, clips[clipIndex].length);
+                }
+            }
+            else
+            {
+                Debug.LogWarning($"Clip index {clipIndex} out of range for category {clipCategory}.");
+            }
+        }
+        else
+        {
+            Debug.LogWarning($"Audio clip category {clipCategory} not found.");
+        }
+    }
+
+    public void PlayBGM(string clipCategory, int clipIndex)
     {
         if (audioClipsDict.TryGetValue(clipCategory, out List<AudioClip> clips))
         {
