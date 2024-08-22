@@ -20,23 +20,25 @@ public class EquipController : MonoBehaviour
     [SerializeField] Transform firePoint;
     [SerializeField] float fireForce = 1.0f;
 
-  GameObject player;
+    GameObject player;
 
     [SerializeField] HealthController healthController;   
 
 
   private void Awake()
-    {
+   {
         image = GetComponent<Image>();
         inventorySlots = inventory.GetComponentsInChildren<InventorySlot>();
 
-    FindPlayerReference();
-    }
+        FindPlayerReference();
+   }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.F) && equippedItem != null)
         {
+            FindPlayerReference();
+
             switch (equippedItem.name)
             {
                 case "Medkit":
