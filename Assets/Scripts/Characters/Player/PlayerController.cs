@@ -160,7 +160,7 @@ public class PlayerController : MonoBehaviour {
       m_MovementController.dash = true;
       m_Animator.SetTrigger("roll");
       rollCD = m_Stats.rollCooldown;
-      AudioHandlerV2.Instance.PlaySFXIfNotPlaying("Player", 3, transform);
+      AudioHandlerV2.Instance.PlaySFXIfNotPlaying("Player", 3, transform,false ,false);
     }
 
     if (m_MovementController.dashing) {
@@ -189,7 +189,7 @@ public class PlayerController : MonoBehaviour {
     if (!axisX.IsZero() && m_MovementController._grounded && footstepTimer <= 0 && !m_MovementController.dashing) {
       footstepIndex++;
       if (footstepIndex > 1) footstepIndex = 0;
-      AudioHandlerV2.Instance.PlaySFXIfNotPlaying("Player", 1 + footstepIndex, transform, false, false);
+      AudioHandlerV2.Instance.PlaySFXIfNotPlaying("Player", 1 + footstepIndex, transform);
       footstepTimer = 0.3f;
     }
 
