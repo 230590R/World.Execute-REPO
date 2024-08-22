@@ -14,7 +14,7 @@ public class RadioController : NPCSpeechBubbleController
         {
             if (LevelManager.Instance.scenes[i].isComplete)
             {
-                currentSpeechToPlay = i;
+                currentSpeechToPlay = i+1;
                 break;
             }
         }

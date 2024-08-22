@@ -27,17 +27,19 @@ public class EquipController : MonoBehaviour
 
   private void Awake()
     {
-        image = GetComponent<Image>();
-        inventorySlots = inventory.GetComponentsInChildren<InventorySlot>();
 
-    FindPlayerReference();
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F) && equippedItem != null)
+
+    if (healthController == null) FindPlayerReference();
+
+    if (Input.GetKeyDown(KeyCode.F) && equippedItem != null)
         {
-            switch (equippedItem.name)
+
+
+      switch (equippedItem.name)
             {
                 case "Medkit":
                     healthController.Heal(25);
