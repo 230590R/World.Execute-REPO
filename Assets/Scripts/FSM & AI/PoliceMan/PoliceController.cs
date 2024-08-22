@@ -7,9 +7,11 @@ public class PoliceController : IEnemy
     // Start is called before the first frame update
     private AudioHandlerV2 audioHandler;
     private string categoryName = "Enemy";
+    private float previousHealth;
     void Start()
     {
         Init();
+        previousHealth = m_HealthController.health;
         //audioHandler = FindObjectOfType<AudioHandlerV2>();
     }
 
@@ -21,6 +23,12 @@ public class PoliceController : IEnemy
             m_Animator.SetBool("isAlive", false);
             m_StateMachine.enabled = false;
             return;
+        }
+
+        if (m_HealthController.health < previousHealth)
+        {
+            m_Animator.SetTrigger("hurt");
+            previousHealth = m_HealthController.health; 
         }
 
         currentState = m_StateMachine.currentState.stateName;

@@ -248,6 +248,7 @@ AnimatorState:
   m_Transitions: []
   m_StateMachineBehaviours:
   - {fileID: -3431682605123161203}
+  - {fileID: -476861460581903524}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -262,6 +263,22 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!114 &-4283076731268203682
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dc33b219efef724e8b64f6dccda03da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  categoryName: Enemy
+  audioIndex: 4
+  StopSFX: 0
+  Loop: 0
 --- !u!1102 &-3982307080159675692
 AnimatorState:
   serializedVersion: 6
@@ -449,6 +466,22 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &-476861460581903524
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dc33b219efef724e8b64f6dccda03da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  categoryName: Enemy
+  audioIndex: 5
+  StopSFX: 0
+  Loop: 0
 --- !u!1102 &-302000649902851278
 AnimatorState:
   serializedVersion: 6
@@ -462,7 +495,8 @@ AnimatorState:
   m_Transitions:
   - {fileID: -5694701584229981549}
   - {fileID: -275564771809747366}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: -4283076731268203682}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -961,7 +995,7 @@ MonoBehaviour:
   categoryName: Enemy
   audioIndex: 2
   StopSFX: 0
-  Loop: 1
+  Loop: 0
 --- !u!1101 &6009965496581989643
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
