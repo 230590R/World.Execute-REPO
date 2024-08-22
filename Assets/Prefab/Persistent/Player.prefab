@@ -328,7 +328,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: 6f7ed0e13009dd94fbc5982d19068352, type: 3}
+  - {fileID: 2100000, guid: 9dbd9bf9dec235041a121c4e6ec5be88, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5789,7 +5789,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 71ec55c408624f047810639ed6b61c23, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dfab948d9599e9743a47cfba5d1ca363, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5947,11 +5947,14 @@ MonoBehaviour:
   m_Animator: {fileID: 4227300352148580469}
   m_SwordController: {fileID: 3751180630032210970}
   m_Rigidbody2D: {fileID: 8749583360534587837}
+  m_SpriteRenderer: {fileID: 0}
   m_Collider: {fileID: 7626655579203368821}
   m_Saveable: {fileID: 11400000, guid: b0af169df4788d94cb373d42ab97d898, type: 2}
   readData: 0
   m_DustTrail: {fileID: 3628018069081302719}
   m_TrailRenderer: {fileID: 8523587741024646763}
+  litDissolveMat: {fileID: -876546973899608171, guid: 6f7ed0e13009dd94fbc5982d19068352, type: 3}
+  unlitDissolveMat: {fileID: 2100000, guid: 9dbd9bf9dec235041a121c4e6ec5be88, type: 2}
 --- !u!114 &3751180630032210970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5966,6 +5969,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SlashAnimator: {fileID: 6898096452593005657}
   m_SpriteRenderer: {fileID: 4156544820445282374}
+  slashSprite: {fileID: 0}
   ProjectedSprite: {fileID: 8879222635091754377}
   _slashBuffer: 0
   _slashing: 0
@@ -6088,6 +6092,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_RigidBody2D: {fileID: 8749583360534587837}
   m_MovementController: {fileID: 4371133625798426234}
+  parried: 0
 --- !u!114 &6690286308430352660
 MonoBehaviour:
   m_ObjectHideFlags: 0

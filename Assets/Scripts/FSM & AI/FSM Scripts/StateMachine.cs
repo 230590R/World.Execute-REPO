@@ -13,6 +13,7 @@ public class StateMachine : MonoBehaviour {
   public Transform Player;
   public Transform Target;
   public Transform AimedTarget;
+  public Vector3 AimedPos;
 
   public Transform[] waypoints;
 

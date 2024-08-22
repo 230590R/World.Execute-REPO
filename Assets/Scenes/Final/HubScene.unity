@@ -16925,6 +16925,8 @@ GameObject:
   - component: {fileID: 1110170035}
   - component: {fileID: 1110170036}
   - component: {fileID: 1110170037}
+  - component: {fileID: 1110170038}
+  - component: {fileID: 1110170039}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -16979,6 +16981,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volume: {fileID: 47482592}
+--- !u!114 &1110170038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110170034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8cbd4018e478f8458924b5f8a318d8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timescale: 1
+  slowDuration: 1
+  elapsed: 0
+--- !u!114 &1110170039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110170034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09a501a77b2255440a8baa0f59aabf81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipController: {fileID: 1484884028}
 --- !u!1 &1113307031
 GameObject:
   m_ObjectHideFlags: 0
@@ -19404,6 +19434,7 @@ MonoBehaviour:
   originalSprite: {fileID: 21300000, guid: 26236c8aeaf9734429c596153a5bf860, type: 3}
   grenadePrefab: {fileID: 2267627467612259836, guid: 190aa462083f2c6439e164129a5e473d, type: 3}
   firePoint: {fileID: 2037049584}
+  fireForce: 25
   healthController: {fileID: 2106398490}
 --- !u!114 &1484884029
 MonoBehaviour:
@@ -21370,6 +21401,9 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 4877536ad37d4064ca02d89fc4612d03, type: 3}
     - {fileID: 8300000, guid: c0653d758e706db45a73b0d4092118fe, type: 3}
     - {fileID: 8300000, guid: 4877536ad37d4064ca02d89fc4612d03, type: 3}
+  - categoryName: Player
+    audioClips:
+    - {fileID: 8300000, guid: fed1f466076cd8b4684f51e2658fc5da, type: 3}
 --- !u!4 &1856824684
 Transform:
   m_ObjectHideFlags: 0

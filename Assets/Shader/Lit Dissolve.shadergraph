@@ -1284,12 +1284,6 @@
 
 {
     "m_SGVersion": 0,
-    "m_Type": "UnityEditor.Rendering.Universal.ShaderGraph.UniversalSpriteCustomLitSubTarget",
-    "m_ObjectId": "47f23c3892404fb6abf19e91252b1157"
-}
-
-{
-    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.DynamicVectorMaterialSlot",
     "m_ObjectId": "48548ddb6d9543d39db3d7642e8d3538",
     "m_Id": 2,
@@ -1721,6 +1715,12 @@
         "m_SerializableColors": []
     },
     "m_SerializedDescriptor": "VertexDescription.Tangent"
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.Rendering.Universal.ShaderGraph.UniversalSpriteLitSubTarget",
+    "m_ObjectId": "6a5bbd355ea64321bbbf2817bda78370"
 }
 
 {
@@ -2529,7 +2529,7 @@
     "m_ObjectId": "b6896bfc0f3845dabef944769982ea63",
     "m_Datas": [],
     "m_ActiveSubTarget": {
-        "m_Id": "47f23c3892404fb6abf19e91252b1157"
+        "m_Id": "6a5bbd355ea64321bbbf2817bda78370"
     },
     "m_AllowMaterialOverride": false,
     "m_SurfaceType": 0,

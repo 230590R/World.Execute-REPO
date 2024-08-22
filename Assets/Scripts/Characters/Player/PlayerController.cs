@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using ExtensionMethods;
 using UnityEngine.SceneManagement;
+using UnityEngine.Experimental.AI;
 
 [RequireComponent(typeof(MovementController))]
 public class PlayerController : MonoBehaviour {
@@ -16,7 +17,7 @@ public class PlayerController : MonoBehaviour {
   private GrapplingGun m_GrapplingGunController;
   private HealthController m_HealthController;
 
-  private SpriteRenderer m_SpriteRenderer;
+  public SpriteRenderer m_SpriteRenderer;
   public Collider2D m_Collider;
 
   public PlayerSaveable m_Saveable;
@@ -26,6 +27,8 @@ public class PlayerController : MonoBehaviour {
   public TrailRenderer m_TrailRenderer;
 
   private Material m_OutlineMaterial;
+
+  private ParryController m_ParryController;
 
   private float outline = 0;
   private float tOutline = 0;
@@ -37,7 +40,8 @@ public class PlayerController : MonoBehaviour {
 
   private bool dead = false;
 
-
+  public Material litDissolveMat;
+  public Material unlitDissolveMat;
 
   // Start is called before the first frame update
   private void Start() {
@@ -47,6 +51,7 @@ public class PlayerController : MonoBehaviour {
     m_GrapplingGunController = GetComponentInChildren<GrapplingGun>();
     m_Rigidbody2D = GetComponent<Rigidbody2D>();
     m_HealthController = GetComponent<HealthController>();
+    m_ParryController = GetComponent<ParryController>();
 
     m_OutlineMaterial = m_SpriteRenderer.material;
 
@@ -128,7 +133,7 @@ public class PlayerController : MonoBehaviour {
       m_Animator.SetTrigger("attack");
       atkCD = m_Stats.attackCooldown;
 
-      PostProcessController.Instance.SetChromatic(5);
+      PostProcessController.Instance.SetChromatic(0.1f);
 
     }
 
@@ -174,15 +179,29 @@ public class PlayerController : MonoBehaviour {
       transform.position = m_SwordController.ProjectedSprite.position;
     }
 
+    // set effects
+
+    SetEffects();
+  }
+
+  private void SetEffects() {
     m_OutlineMaterial.SetFloat("_EffectStrength", outline);
 
     tOutline = 0f;
+    m_TrailRenderer.emitting = false;
     if (m_MovementController.dashing) {
       if (m_MovementController._grounded) m_DustTrail.Play();
+      m_TrailRenderer.material = litDissolveMat;
       m_TrailRenderer.emitting = true;
       tOutline = 1f;
     }
-    else m_TrailRenderer.emitting = false;
+
+
+    if (m_ParryController.parried > 0) {
+      tOutline = 1f;
+      m_TrailRenderer.material = unlitDissolveMat;
+      m_TrailRenderer.emitting = true;
+    }
   }
 
   private void UpdateStats() {
@@ -199,7 +218,11 @@ public class PlayerController : MonoBehaviour {
 
 
   private void Respawn() {
-    m_HealthController.health = m_HealthController.maxHealth;
+    Invoke("HealToFull", 1.1f);
     SceneTransition.Instance.SwitchScene("HubScene");
+  }
+
+  private void HealToFull() {
+    m_HealthController.health = m_HealthController.maxHealth;
   }
 }

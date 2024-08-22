@@ -41,6 +41,8 @@ public class ChainAttackAction : IAction {
     //ChargeUpAttack(controller, ChainAttacks[index].atkName);
     // attack
     if (controller.atkBuffer) {
+
+
       Attack(controller, ChainAttacks[index].atkName);
       controller.atkBuffer = false;
       //Debug.Log(string.Format("atk: {0}, elapsed: {1}", atkTimestamp, controller.elapsedTime));
@@ -62,12 +64,15 @@ public class ChainAttackAction : IAction {
   private void Attack(StateMachine controller, string atkName) {
     var atkController = controller.GetAttackController(atkName);
     if (atkController == null) return;
-    Vector2 dir = (controller.AimedTarget.position - atkController.transform.position).normalized;
+    Vector2 dir = (controller.AimedPos - atkController.transform.position).normalized;
     atkController.Attack(dir);
   }
   private void ChargeUpAttack(StateMachine controller, string atkName) {
     var atkController = controller.GetAttackController(atkName);
     if (atkController == null) return;
+    controller.AimedPos = controller.AimedTarget.position;
+    float distX = controller.AimedPos.x - atkController.transform.position.x;
+    controller.m_SpriteRenderer.flipX = (distX < 0);
     Vector2 dir = (controller.AimedTarget.position - atkController.transform.position).normalized;
     atkController.ChargeUp(dir);
   }
