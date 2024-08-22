@@ -62,7 +62,6 @@ public class PlayerController : MonoBehaviour {
 
     if (firstLoad) {
       firstLoad = false;
-      Debug.Log("asdasd");
     }
     else m_Saveable.Load(this);
 
