@@ -5483,7 +5483,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grappleRope: {fileID: 988837954635472032}
-  grappleToAll: 1
+  grappleToAll: 0
   grappableLayerNumber: 9
   gunHolder: {fileID: 2119779507055666280}
   gunPivot: {fileID: 7968452810146853671}

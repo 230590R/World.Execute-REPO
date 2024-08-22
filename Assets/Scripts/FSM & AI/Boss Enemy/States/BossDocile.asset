@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a09ea08c69d12b145963287d7b852b24, type: 3}
-  m_Name: waterQuest
+  m_Script: {fileID: 11500000, guid: c22fb22975c10dd43a046c0e51dfa870, type: 3}
+  m_Name: BossDocile
   m_EditorClassIdentifier: 
-  questID: 1
-  description: Go to the water level
-  isComplete: 1
-  targetID: 
-  questType: GOTO
+  stateName: Docile
+  actions: []
+  transitions: []
+  stateExitTime: -1
+  timeoutState: {fileID: 0}

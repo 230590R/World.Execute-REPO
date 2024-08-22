@@ -9,11 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a09ea08c69d12b145963287d7b852b24, type: 3}
-  m_Name: waterQuest
+  m_Script: {fileID: 11500000, guid: 9f78be12ba0a2454aa37cb32bfa796d5, type: 3}
+  m_Name: WaterDebuff
   m_EditorClassIdentifier: 
-  questID: 1
-  description: Go to the water level
-  isComplete: 1
-  targetID: 
-  questType: GOTO
