@@ -18,17 +18,19 @@ public class EquipController : MonoBehaviour
 
     [SerializeField] GameObject grenadePrefab;
     [SerializeField] Transform firePoint;
+    [SerializeField] float fireForce = 1.0f;
 
-    GameObject player;
+  GameObject player;
 
-    [SerializeField] HealthController healthController;
+    [SerializeField] HealthController healthController;   
 
-    private void Awake()
+
+  private void Awake()
     {
         image = GetComponent<Image>();
         inventorySlots = inventory.GetComponentsInChildren<InventorySlot>();
 
-        player = GameObject.FindGameObjectWithTag("Player");
+    FindPlayerReference();
     }
 
     private void Update()
@@ -38,17 +40,19 @@ public class EquipController : MonoBehaviour
             switch (equippedItem.name)
             {
                 case "Medkit":
-                    healthController.Heal(10);
+                    healthController.Heal(25);
                     break;
                 case "Frag Grenade":
-                    Vector2 direction = (Input.mousePosition - player.transform.position).normalized;
+                    Vector3 mouseToWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+                    Vector2 direction = (mouseToWorld - player.transform.position).normalized;
                     GameObject grenade = Instantiate(grenadePrefab, firePoint.position, Quaternion.identity);
                     Rigidbody2D grenadeRigidBody = grenade.GetComponent<Rigidbody2D>();
-                    grenadeRigidBody.AddForce(direction * 10.0f, ForceMode2D.Impulse);
+                    grenadeRigidBody.AddForce(direction * fireForce, ForceMode2D.Impulse);
                     break;
             }
 
-            Destroy(inventorySlots[selectedSlotIndex].gameObject);
+            Destroy(inventorySlots[selectedSlotIndex].transform.GetChild(0).gameObject);
             equippedItem = null;
             image.sprite = originalSprite;
         }
@@ -65,4 +69,11 @@ public class EquipController : MonoBehaviour
             image.sprite = equippedItem.image;
         }
     }
+
+  public void FindPlayerReference() {
+    player = GameObject.FindGameObjectWithTag("Player");
+
+    healthController = player.GetComponent<HealthController>();
+    firePoint = player.transform.GetChild(3).GetChild(0).GetChild(0);
+  }
 }

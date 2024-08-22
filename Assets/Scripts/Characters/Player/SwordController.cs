@@ -7,6 +7,8 @@ public class SwordController : MonoBehaviour {
 
   public Animator m_SlashAnimator;
   public SpriteRenderer m_SpriteRenderer;
+  [HideInInspector] public SpriteRenderer slashSprite;
+
   public Transform ProjectedSprite;
   private MovementController m_MovementController;
   private MeleeController m_MeleeController;
@@ -31,6 +33,7 @@ public class SwordController : MonoBehaviour {
   private void Start() {
     m_MovementController = GetComponent<MovementController>();
     m_MeleeController = GetComponent<MeleeController>();
+    slashSprite = m_SlashAnimator.GetComponent<SpriteRenderer>();
   }
 
   // Update is called once per frame

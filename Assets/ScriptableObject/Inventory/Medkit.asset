@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: 00f8865eac346c04d86e21fc036c33a5, type: 3}
   name: Medkit
-  description: fafasfadfdafa
+  description: 'Heals 25HP. '
   cost: 1
   imageWidth: 250
   imageHeight: 250

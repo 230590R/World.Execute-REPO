@@ -7,6 +7,7 @@ public class SceneTransition : MonoBehaviour {
   public static SceneTransition Instance;
   public Animator transition;
 
+  public static event System.Action OnTransition;
 
   private void Awake() {
     if (Instance == null) Instance = this;
@@ -29,5 +30,6 @@ public class SceneTransition : MonoBehaviour {
     yield return null;
 
     transition.SetTrigger("End");
+    OnTransition?.Invoke();
   }
 }

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: -781014465, guid: a88b9022e0e8b314085e10678d022602, type: 3}
   name: Frag Grenade
-  description: afasfasfasda
+  description: Deals AOE damage in a radius - use with caution
   cost: 2
   imageWidth: 75
   imageHeight: 100

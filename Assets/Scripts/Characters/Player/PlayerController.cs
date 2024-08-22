@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using ExtensionMethods;
 using UnityEngine.SceneManagement;
+using UnityEngine.Experimental.AI;
 
 [RequireComponent(typeof(MovementController))]
 public class PlayerController : MonoBehaviour {
@@ -16,11 +17,21 @@ public class PlayerController : MonoBehaviour {
   private GrapplingGun m_GrapplingGunController;
   private HealthController m_HealthController;
 
-  private SpriteRenderer m_SpriteRenderer;
+  public SpriteRenderer m_SpriteRenderer;
   public Collider2D m_Collider;
 
   public PlayerSaveable m_Saveable;
   public bool readData = true;
+
+  public ParticleSystem m_DustTrail;
+  public TrailRenderer m_TrailRenderer;
+
+  private Material m_OutlineMaterial;
+
+  private ParryController m_ParryController;
+
+  private float outline = 0;
+  private float tOutline = 0;
 
   [SerializeField] static private bool firstLoad = true;
 
@@ -28,6 +39,14 @@ public class PlayerController : MonoBehaviour {
   private float rollCD;
 
   private bool dead = false;
+
+  public Material litDissolveMat;
+  public Material unlitDissolveMat;
+
+
+  private float footstepTimer = 0;
+  private int footstepIndex = 0;
+
 
   // Start is called before the first frame update
   private void Start() {
@@ -37,6 +56,9 @@ public class PlayerController : MonoBehaviour {
     m_GrapplingGunController = GetComponentInChildren<GrapplingGun>();
     m_Rigidbody2D = GetComponent<Rigidbody2D>();
     m_HealthController = GetComponent<HealthController>();
+    m_ParryController = GetComponent<ParryController>();
+
+    m_OutlineMaterial = m_SpriteRenderer.material;
 
     if (firstLoad) {
       firstLoad = false;
@@ -84,11 +106,11 @@ public class PlayerController : MonoBehaviour {
       return;
     }
 
-
     UpdateStats();
 
     atkCD = Mathf.Max(0, atkCD - Time.deltaTime);
     rollCD = Mathf.Max(0, rollCD - Time.deltaTime);
+    outline += (tOutline - outline) * Time.deltaTime * 5f;
 
     Vector2 mouse_pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
@@ -100,8 +122,12 @@ public class PlayerController : MonoBehaviour {
     m_Animator.SetFloat("inputX", Mathf.Abs(axisX));
 
 
-    if (!axisX.IsZero()) 
+
+    if (!axisX.IsZero()) {
+      if (m_SpriteRenderer.flipX != (axisX < 0)) m_DustTrail.Play();
       m_SpriteRenderer.flipX = (axisX < 0);
+
+    }
 
 
     m_MovementController.flipX = m_SpriteRenderer.flipX;
@@ -113,12 +139,13 @@ public class PlayerController : MonoBehaviour {
       m_Animator.SetTrigger("attack");
       atkCD = m_Stats.attackCooldown;
 
-      PostProcessController.Instance.SetChromatic(5);
+      PostProcessController.Instance.SetChromatic(0.1f);
 
     }
 
     if (Input.GetKeyDown(KeyCode.Space)) {
       m_MovementController.jump = true;
+      if (m_MovementController._grounded) m_DustTrail.Play();
     }
 
     bool crouch = false;
@@ -134,11 +161,11 @@ public class PlayerController : MonoBehaviour {
       m_MovementController.dash = true;
       m_Animator.SetTrigger("roll");
       rollCD = m_Stats.rollCooldown;
+      AudioHandlerV2.Instance.PlaySFXIfNotPlaying("Player", 3, transform);
     }
 
     if (m_MovementController.dashing) {
       m_Collider.excludeLayers = LayerMask.GetMask("Enemy");
-      Debug.Log("DASHING");
     }
     else {
       m_Collider.excludeLayers = LayerMask.GetMask("Nothing");
@@ -157,6 +184,38 @@ public class PlayerController : MonoBehaviour {
       m_SwordController.ReleaseSlice();
       transform.position = m_SwordController.ProjectedSprite.position;
     }
+
+    // audio effect
+    footstepTimer -= Time.deltaTime;
+    if (!axisX.IsZero() && m_MovementController._grounded && footstepTimer <= 0 && !m_MovementController.dashing) {
+      footstepIndex++;
+      if (footstepIndex > 1) footstepIndex = 0;
+      AudioHandlerV2.Instance.PlaySFXIfNotPlaying("Player", 1 + footstepIndex, transform, false, false);
+      footstepTimer = 0.3f;
+    }
+
+
+    SetEffects();
+  }
+
+  private void SetEffects() {
+    m_OutlineMaterial.SetFloat("_EffectStrength", outline);
+
+    tOutline = 0f;
+    m_TrailRenderer.emitting = false;
+    if (m_MovementController.dashing) {
+      if (m_MovementController._grounded) m_DustTrail.Play();
+      m_TrailRenderer.material = litDissolveMat;
+      m_TrailRenderer.emitting = true;
+      tOutline = 1f;
+    }
+
+
+    if (m_ParryController.parried > 0) {
+      tOutline = 1f;
+      m_TrailRenderer.material = unlitDissolveMat;
+      m_TrailRenderer.emitting = true;
+    }
   }
 
   private void UpdateStats() {
@@ -173,7 +232,11 @@ public class PlayerController : MonoBehaviour {
 
 
   private void Respawn() {
-    m_HealthController.health = m_HealthController.maxHealth;
+    Invoke("HealToFull", 1.1f);
     SceneTransition.Instance.SwitchScene("HubScene");
+  }
+
+  private void HealToFull() {
+    m_HealthController.health = m_HealthController.maxHealth;
   }
 }

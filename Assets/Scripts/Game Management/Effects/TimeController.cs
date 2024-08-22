@@ -7,12 +7,15 @@ public class TimeController : MonoBehaviour {
 
   [SerializeField] private float timescale = 1f;
   [SerializeField] private float slowDuration = 1f;
-  [SerializeField] private float elapsed;
+  [SerializeField] private float elapsed = 0;
 
   private void Awake() {
-    Instance = this; // singleton
+    if (Instance == null) Instance = this;
+    else Destroy(this);
+
   }
   public void SlowTime(float factor, float duration) {
+
     timescale = factor;
     slowDuration = duration;
     elapsed = duration;

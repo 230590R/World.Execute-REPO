@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UIElements;
 
 public class MeleeController : IAttackController {
-  public static event System.Action MeleeHit;
 
   private Vector2 _attackPoint;
 
@@ -46,9 +45,9 @@ public class MeleeController : IAttackController {
   public Collider2D AttackEnter() {
     var hit = AttackEnter(damage, radius, _attackPoint);
     if (hit != null) {
-      MeleeHit?.Invoke();
-      CineController.Instance.ShakeCamera(2, 1);
-      TimeController.Instance.SlowTime(0.01f, 0.1f);
+      //MeleeHit?.Invoke();
+      //CineController.Instance.ShakeCamera(2, 1);
+      //TimeController.Instance.SlowTime(0.01f, 0.1f);
     }
     return hit;
   }
