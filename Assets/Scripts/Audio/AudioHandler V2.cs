@@ -168,7 +168,7 @@ public class AudioHandlerV2 : MonoBehaviour
         }
     }
 
-    public void PlaySFXIfNotPlaying(string clipCategory, int clipIndex, Transform callerTransform, bool shouldLoop = false)
+    public void PlaySFXIfNotPlaying(string clipCategory, int clipIndex, Transform callerTransform, bool shouldLoop = false, bool overrideAudio = true)
     {
         // Check if the caller already has an active audio source
         if (activeAudioSources.TryGetValue(callerTransform, out AudioSource activeSource))
