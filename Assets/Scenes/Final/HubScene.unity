@@ -312,7 +312,7 @@ MonoBehaviour:
   - Orb
   - Global Light 2D
   - DebuffManager
-  player: {fileID: 0}
+  player: {fileID: 1564050689}
   ShakeCam_Intense: 10
   ShakeCam_Time: 0.5
   ZoomCam_Intense: 0.8
@@ -15265,6 +15265,10 @@ PrefabInstance:
       propertyPath: controller
       value: 
       objectReference: {fileID: 1124826792}
+    - target: {fileID: 1892841646025078210, guid: 977273c88012e934089a3f0b30366639, type: 3}
+      propertyPath: dialougeSOs.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 095d5697e3a852f4099971ac554fec2d, type: 2}
     - target: {fileID: 2001301710411768906, guid: 977273c88012e934089a3f0b30366639, type: 3}
       propertyPath: Player
       value: 
@@ -15307,11 +15311,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6928845971014680448, guid: 977273c88012e934089a3f0b30366639, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 42.542084
+      value: 47.03
       objectReference: {fileID: 0}
     - target: {fileID: 6928845971014680448, guid: 977273c88012e934089a3f0b30366639, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.178571
+      value: -2.36
       objectReference: {fileID: 0}
     - target: {fileID: 6928845971014680448, guid: 977273c88012e934089a3f0b30366639, type: 3}
       propertyPath: m_LocalPosition.z
@@ -18214,6 +18218,7 @@ GameObject:
   - component: {fileID: 1110170036}
   - component: {fileID: 1110170037}
   - component: {fileID: 1110170038}
+  - component: {fileID: 1110170039}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -18283,6 +18288,21 @@ MonoBehaviour:
   timescale: 1
   slowDuration: 1
   elapsed: 0
+--- !u!114 &1110170039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110170034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63e34ad425ea99e48909df18274ab3c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quests:
+  - {fileID: 11400000, guid: aaa14d551bb09154e97a9baa1b3e314c, type: 2}
+  - {fileID: 11400000, guid: 2ce7520c63657ff42bce2d991b182257, type: 2}
 --- !u!1 &1113307031
 GameObject:
   m_ObjectHideFlags: 0
@@ -21389,6 +21409,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7889844d3987a4446a6e4b8de3526b6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  postWaterDebuff: {fileID: 11400000, guid: eefbd81a97ee20545905ee4ce77eeb39, type: 2}
+  postEnergyDebuff: {fileID: 11400000, guid: f0178bc7f8ff1b746b34a4d77d2c5f58, type: 2}
 --- !u!1 &1634623365
 GameObject:
   m_ObjectHideFlags: 0

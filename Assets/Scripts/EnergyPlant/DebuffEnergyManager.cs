@@ -15,6 +15,7 @@ public class DebuffEnergyManager : MonoBehaviour
     private void Start()
     {
         playerStats = FindObjectOfType<PlayerStats>();
+        
     }
 
     private void Update()

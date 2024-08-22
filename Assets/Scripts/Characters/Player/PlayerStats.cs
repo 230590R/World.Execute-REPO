@@ -32,4 +32,16 @@ public class PlayerStats : MonoBehaviour {
     }
 
   }
+
+  public void AddDebuff(IDebuff debuff) {
+    bool alreadyHasDebuff = false;
+    foreach (var d in debuffs) {
+      if (d == debuff) alreadyHasDebuff = true;
+    }
+    if (alreadyHasDebuff) return;
+    
+
+    debuffs.Add(debuff);
+  }
+
 }
