@@ -2325,6 +2325,10 @@ PrefabInstance:
       propertyPath: SceneName
       value: HubScene
       objectReference: {fileID: 0}
+    - target: {fileID: 6910694578020068063, guid: 6ab7a1ce6ea29744e9a5ccc3ba01cc8b, type: 3}
+      propertyPath: isLevelFinisher
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9078040801506004902, guid: 6ab7a1ce6ea29744e9a5ccc3ba01cc8b, type: 3}
       propertyPath: m_Name
       value: Portal

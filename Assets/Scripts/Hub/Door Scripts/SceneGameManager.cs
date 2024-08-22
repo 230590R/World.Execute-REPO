@@ -7,6 +7,7 @@ public class SceneGameManager : MonoBehaviour
     public static SceneGameManager Instance { get; private set; }
 
     public string SceneSwitcherToEnableID;
+    public string SceneSwitcherToDisableID;
 
     private void Awake()
     {
@@ -24,6 +25,11 @@ public class SceneGameManager : MonoBehaviour
     public void SetSceneSwitcherToEnable(string doorID)
     {
         SceneSwitcherToEnableID = doorID;
+    }
+
+    public void SetSceneSwitcherToDisable(string doorID)
+    {
+        SceneSwitcherToDisableID = doorID;
     }
 
     void OnApplicationQuit()

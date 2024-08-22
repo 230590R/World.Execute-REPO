@@ -7,11 +7,16 @@ public class LevelFinisher : MonoBehaviour
 {
     public string Scene;
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private SceneGameManager sceneGameManager;
+
+    public void Start()
     {
-        if (other.CompareTag("Player"))
-        {
-            LevelManager.Instance.CompleteLevel(Scene);
-        }
+        sceneGameManager = FindAnyObjectByType<SceneGameManager>();
+    }
+    public void FinishLevel(string LockDoor)
+    {
+
+        LevelManager.Instance.CompleteLevel(Scene);
+        sceneGameManager.SetSceneSwitcherToDisable(LockDoor);
     }
 }
