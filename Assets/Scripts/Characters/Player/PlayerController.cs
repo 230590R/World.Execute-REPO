@@ -43,6 +43,11 @@ public class PlayerController : MonoBehaviour {
   public Material litDissolveMat;
   public Material unlitDissolveMat;
 
+
+  private float footstepTimer = 0;
+  private int footstepIndex = 0;
+
+
   // Start is called before the first frame update
   private void Start() {
     m_MovementController = GetComponent<MovementController>();
@@ -121,6 +126,7 @@ public class PlayerController : MonoBehaviour {
     if (!axisX.IsZero()) {
       if (m_SpriteRenderer.flipX != (axisX < 0)) m_DustTrail.Play();
       m_SpriteRenderer.flipX = (axisX < 0);
+
     }
 
 
@@ -155,11 +161,11 @@ public class PlayerController : MonoBehaviour {
       m_MovementController.dash = true;
       m_Animator.SetTrigger("roll");
       rollCD = m_Stats.rollCooldown;
+      AudioHandlerV2.Instance.PlaySFXIfNotPlaying("Player", 3, transform);
     }
 
     if (m_MovementController.dashing) {
       m_Collider.excludeLayers = LayerMask.GetMask("Enemy");
-      Debug.Log("DASHING");
     }
     else {
       m_Collider.excludeLayers = LayerMask.GetMask("Nothing");
@@ -179,7 +185,15 @@ public class PlayerController : MonoBehaviour {
       transform.position = m_SwordController.ProjectedSprite.position;
     }
 
-    // set effects
+    // audio effect
+    footstepTimer -= Time.deltaTime;
+    if (!axisX.IsZero() && m_MovementController._grounded && footstepTimer <= 0 && !m_MovementController.dashing) {
+      footstepIndex++;
+      if (footstepIndex > 1) footstepIndex = 0;
+      AudioHandlerV2.Instance.PlaySFXIfNotPlaying("Player", 1 + footstepIndex, transform, false, false);
+      footstepTimer = 0.3f;
+    }
+
 
     SetEffects();
   }

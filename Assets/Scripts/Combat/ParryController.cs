@@ -22,7 +22,7 @@ public class ParryController : MonoBehaviour {
     CineController.Instance.ZoomCamera(1.5f, 1);
     TimeController.Instance.SlowTime(0.0000000001f, 0.8f);
     PostProcessController.Instance.SetChromatic(10);
-    AudioHandlerV2.Instance.PlaySFXAtPosition("Player", 0, transform.position);
+    AudioHandlerV2.Instance.PlaySFXIfNotPlaying("Player", 0, transform);
     parried = 1f;
   }
 
