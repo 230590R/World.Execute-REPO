@@ -180,9 +180,12 @@ MonoBehaviour:
   audioClipCategories:
   - categoryName: BGM
     audioClips:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
+    - {fileID: 8300000, guid: 80d018be88f1786409d19036d02f62c2, type: 3}
+    - {fileID: 8300000, guid: cc1bf7347e42cb94da4ec8f5af6c8b12, type: 3}
+    - {fileID: 8300000, guid: d65a2765bd3ca2d43bfc90d0bb0d6713, type: 3}
+    - {fileID: 8300000, guid: 5d1e803df73158341890a442a3b13ed3, type: 3}
+    - {fileID: 8300000, guid: 1905e837ed4378447b5a6cdde3712331, type: 3}
+    - {fileID: 8300000, guid: 9849b4bd5db27f3459399049fa60f678, type: 3}
   - categoryName: Enemy
     audioClips:
     - {fileID: 8300000, guid: e21c9f60ebcabed4bb1a0bef24e34f98, type: 3}

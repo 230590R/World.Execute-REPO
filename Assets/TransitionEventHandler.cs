@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class TransitionEventHandler : MonoBehaviour
 {
-  [SerializeField] EquipController equipController;
 
   private void OnEnable() {
-    SceneTransition.OnTransition += equipController.FindPlayerReference;
+    BGMManager.Instance.SetBGM();
+    SceneTransition.OnTransition += BGMManager.Instance.SetBGM;
   }
 
   private void OnDisable() {
 
-    SceneTransition.OnTransition -= equipController.FindPlayerReference;
+    SceneTransition.OnTransition -= BGMManager.Instance.SetBGM;
   }
 }

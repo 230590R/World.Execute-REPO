@@ -17896,7 +17896,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6910694578020068063, guid: 6ab7a1ce6ea29744e9a5ccc3ba01cc8b, type: 3}
       propertyPath: SceneName
-      value: Sandbox ZB 1
+      value: Tutorial level
       objectReference: {fileID: 0}
     - target: {fileID: 9078040801506004902, guid: 6ab7a1ce6ea29744e9a5ccc3ba01cc8b, type: 3}
       propertyPath: m_Name
@@ -20276,6 +20276,7 @@ GameObject:
   - component: {fileID: 1292060888}
   - component: {fileID: 1292060887}
   - component: {fileID: 1292060890}
+  - component: {fileID: 1292060891}
   m_Layer: 0
   m_Name: Transition
   m_TagString: Untagged
@@ -20379,6 +20380,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transition: {fileID: 317556603}
+--- !u!114 &1292060891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1292060885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09a501a77b2255440a8baa0f59aabf81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1301156058
 GameObject:
   m_ObjectHideFlags: 0
@@ -22246,9 +22259,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scenes:
   - sceneName: Water
-    isComplete: 1
+    isComplete: 0
   - sceneName: Energy
-    isComplete: 1
+    isComplete: 0
 --- !u!4 &1609676327
 Transform:
   m_ObjectHideFlags: 0
