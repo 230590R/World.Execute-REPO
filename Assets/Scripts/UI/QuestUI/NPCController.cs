@@ -26,7 +26,7 @@ public class NPCController : MonoBehaviour
 
     public void OnDialogueExit()
     {
-        manager.AddQuest(quest);
+        manager.AddQuest(waterquest);
     }
 
 }
