@@ -22,12 +22,22 @@ public class PlayerController : MonoBehaviour {
   public PlayerSaveable m_Saveable;
   public bool readData = true;
 
+  public ParticleSystem m_DustTrail;
+  public TrailRenderer m_TrailRenderer;
+
+  private Material m_OutlineMaterial;
+
+  private float outline = 0;
+  private float tOutline = 0;
+
   [SerializeField] static private bool firstLoad = true;
 
   private float atkCD;
   private float rollCD;
 
   private bool dead = false;
+
+
 
   // Start is called before the first frame update
   private void Start() {
@@ -37,6 +47,8 @@ public class PlayerController : MonoBehaviour {
     m_GrapplingGunController = GetComponentInChildren<GrapplingGun>();
     m_Rigidbody2D = GetComponent<Rigidbody2D>();
     m_HealthController = GetComponent<HealthController>();
+
+    m_OutlineMaterial = m_SpriteRenderer.material;
 
     if (firstLoad) {
       firstLoad = false;
@@ -84,11 +96,11 @@ public class PlayerController : MonoBehaviour {
       return;
     }
 
-
     UpdateStats();
 
     atkCD = Mathf.Max(0, atkCD - Time.deltaTime);
     rollCD = Mathf.Max(0, rollCD - Time.deltaTime);
+    outline += (tOutline - outline) * Time.deltaTime * 5f;
 
     Vector2 mouse_pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
@@ -100,8 +112,11 @@ public class PlayerController : MonoBehaviour {
     m_Animator.SetFloat("inputX", Mathf.Abs(axisX));
 
 
-    if (!axisX.IsZero()) 
+
+    if (!axisX.IsZero()) {
+      if (m_SpriteRenderer.flipX != (axisX < 0)) m_DustTrail.Play();
       m_SpriteRenderer.flipX = (axisX < 0);
+    }
 
 
     m_MovementController.flipX = m_SpriteRenderer.flipX;
@@ -119,6 +134,7 @@ public class PlayerController : MonoBehaviour {
 
     if (Input.GetKeyDown(KeyCode.Space)) {
       m_MovementController.jump = true;
+      if (m_MovementController._grounded) m_DustTrail.Play();
     }
 
     bool crouch = false;
@@ -157,6 +173,16 @@ public class PlayerController : MonoBehaviour {
       m_SwordController.ReleaseSlice();
       transform.position = m_SwordController.ProjectedSprite.position;
     }
+
+    m_OutlineMaterial.SetFloat("_EffectStrength", outline);
+
+    tOutline = 0f;
+    if (m_MovementController.dashing) {
+      if (m_MovementController._grounded) m_DustTrail.Play();
+      m_TrailRenderer.emitting = true;
+      tOutline = 1f;
+    }
+    else m_TrailRenderer.emitting = false;
   }
 
   private void UpdateStats() {
