@@ -31,7 +31,7 @@ public class QuestManager : MonoBehaviour
     {
         if (!quests.Contains(quest))
         {
-            quest.isComplete = false;
+            //quest.isComplete = false;
             quests.Add(quest);
             Debug.Log("Quest added: " + quest.questID);
             UpdateQuestUI();

@@ -10,14 +10,17 @@ public class SceneSwitcherV2 : MonoBehaviour
     public KeyCode InputKey = KeyCode.E;
     public string DoorID; 
 
-    private bool isPlayerInTrigger = false;
+    [SerializeField] private bool isPlayerInTrigger = false;
 
     void Update()
     {
         if (isPlayerInTrigger && Input.GetKeyDown(InputKey))
         {
+
+
             if (!string.IsNullOrEmpty(SceneName))
             {
+                Debug.Log("Enter");
                 PlayerPrefs.SetString("LastUsedDoorID", DoorID);
                 PlayerPrefs.Save();
 
@@ -29,7 +32,7 @@ public class SceneSwitcherV2 : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Enter");
+
         if (collision.CompareTag(PlayerTag))
         {
             isPlayerInTrigger = true;

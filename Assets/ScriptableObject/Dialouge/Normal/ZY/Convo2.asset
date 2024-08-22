@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c24e21714d22154fafc9cf0183033f1, type: 3}
+  m_Name: Convo2
+  m_EditorClassIdentifier: 
+  name: Zhen Yi
+  sentences:
+  - "Ugh, I feel like crap ever since the last mission\u2026"
+  - "Boss would never hurt us though, right? Cus\u2019 I\u2019m starting to doubt
+    boss\u2019 judgement on the plan, my kid is seriously sick!"
+  - He laughed and said something about how it builds character?? She is burning
+    up!
+  dialougeDone: 0
