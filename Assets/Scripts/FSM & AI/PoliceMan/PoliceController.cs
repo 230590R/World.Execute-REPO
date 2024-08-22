@@ -6,10 +6,12 @@ public class PoliceController : IEnemy
 {
     // Start is called before the first frame update
     private AudioHandlerV2 audioHandler;
-    private string categoryName = "Testing";
+    private string categoryName = "Enemy";
+    private float previousHealth;
     void Start()
     {
         Init();
+        previousHealth = m_HealthController.health;
         //audioHandler = FindObjectOfType<AudioHandlerV2>();
     }
 
@@ -23,13 +25,19 @@ public class PoliceController : IEnemy
             return;
         }
 
+        if (m_HealthController.health < previousHealth)
+        {
+            m_Animator.SetTrigger("hurt");
+            previousHealth = m_HealthController.health; 
+        }
+
         currentState = m_StateMachine.currentState.stateName;
 
         m_StateMachine.movementMultiplier = 1f;
         if (currentState == "Patrol")
         {
             m_Animator.SetBool("isWalking", true);
-           // audioHandler.PlaySFXIfNotPlaying(categoryName, 0, transform);
+            //audioHandler.PlaySFXIfNotPlaying(categoryName, 0, transform);
         }
         else
         {

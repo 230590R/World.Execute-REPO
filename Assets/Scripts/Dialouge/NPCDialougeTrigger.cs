@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class NPCDialougeTrigger : MonoBehaviour
@@ -11,20 +12,7 @@ public class NPCDialougeTrigger : MonoBehaviour
 
     [HideInInspector] public bool wasInDialogue = false;
 
-    [SerializeField] DialougeSO[] dialougeSOs;
-
-
-
-    private void OnEnable()
-    {
-        for (int i = 0; i < dialougeSOs.Length; i++)
-        {
-            if (dialougeSOs[i].dialougeDone)
-            {
-                dialougeSOs[i].dialougeDone = false;
-            }
-        }
-    }
+    public DialougeSO[] dialougeSOs;
 
     private void Awake()
     {

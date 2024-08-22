@@ -8,28 +8,39 @@ public class SceneSwitcherV2 : MonoBehaviour
     public string SceneName;
     public string PlayerTag = "Player";
     public KeyCode InputKey = KeyCode.E;
-    public string DoorID; 
+    public string DoorID;
+    public bool isLevelFinisher = false;
 
-    private bool isPlayerInTrigger = false;
+    [SerializeField] private bool isPlayerInTrigger = false;
 
     void Update()
     {
         if (isPlayerInTrigger && Input.GetKeyDown(InputKey))
         {
+
+
             if (!string.IsNullOrEmpty(SceneName))
             {
+                Debug.Log("Enter");
                 PlayerPrefs.SetString("LastUsedDoorID", DoorID);
                 PlayerPrefs.Save();
 
+                if (isLevelFinisher)
+                {
+                    GetComponent<LevelFinisher>().FinishLevel(DoorID);
+                }
+
                 //SceneManager.LoadScene(SceneName);
                 SceneTransition.Instance.SwitchScene(SceneName);
+
+
             }
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Enter");
+
         if (collision.CompareTag(PlayerTag))
         {
             isPlayerInTrigger = true;

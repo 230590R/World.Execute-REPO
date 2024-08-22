@@ -114,7 +114,7 @@ public class AudioHandlerV2 : MonoBehaviour
     //    }
     //}
 
-    public void PlaySFX(string clipCategory, int clipIndex, Transform callerTransform)
+    public void PlaySFX(string clipCategory, int clipIndex, Transform callerTransform, bool shouldLoop = false)
     {
         if (audioClipsDict.TryGetValue(clipCategory, out List<AudioClip> clips))
         {
@@ -142,6 +142,7 @@ public class AudioHandlerV2 : MonoBehaviour
                 tempAudioSource.spread = 60.0f;
 
                 tempAudioSource.clip = clips[clipIndex];
+                tempAudioSource.loop = shouldLoop;  // Set looping based on the bool parameter
                 tempAudioSource.Play();
 
                 // Attach a follower script to make the audio follow the caller's transform
@@ -150,8 +151,11 @@ public class AudioHandlerV2 : MonoBehaviour
                 // Track this audio source as active for this caller
                 activeAudioSources[callerTransform] = tempAudioSource;
 
-                // Destroy the temporary GameObject after the clip finishes playing
-                Destroy(tempAudio, clips[clipIndex].length);
+                // If not looping, destroy the temporary GameObject after the clip finishes playing
+                if (!shouldLoop)
+                {
+                    Destroy(tempAudio, clips[clipIndex].length);
+                }
             }
             else
             {
@@ -164,13 +168,18 @@ public class AudioHandlerV2 : MonoBehaviour
         }
     }
 
-    public void PlaySFXIfNotPlaying(string clipCategory, int clipIndex, Transform callerTransform)
+    public void PlaySFXIfNotPlaying(string clipCategory, int clipIndex, Transform callerTransform, bool shouldLoop = false)
     {
         // Check if the caller already has an active audio source
         if (activeAudioSources.TryGetValue(callerTransform, out AudioSource activeSource))
         {
-            // Check if the specific clip is already playing
-            if (activeSource.clip == audioClipsDict[clipCategory][clipIndex] && activeSource.isPlaying)
+            // Check if the activeSource has been destroyed
+            if (activeSource == null)
+            {
+                // If the audio source is null (destroyed), remove it from the dictionary
+                activeAudioSources.Remove(callerTransform);
+            }
+            else if (activeSource.clip == audioClipsDict[clipCategory][clipIndex] && activeSource.isPlaying)
             {
                 // Do nothing if the same clip is already playing
                 return;
@@ -184,7 +193,7 @@ public class AudioHandlerV2 : MonoBehaviour
         }
 
         // Play the new clip
-        PlaySFX(clipCategory, clipIndex, callerTransform);
+        PlaySFX(clipCategory, clipIndex, callerTransform, shouldLoop);
     }
 
     public void PlayBGM(string clipCategory, int clipIndex)

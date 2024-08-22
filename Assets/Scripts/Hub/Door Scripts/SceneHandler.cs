@@ -30,22 +30,40 @@ public class SceneHandler : MonoBehaviour
         }
 
 
-        string targetDoorID = SceneGameManager.Instance.SceneSwitcherToEnableID;
+        string EnableTargetDoorID = SceneGameManager.Instance.SceneSwitcherToEnableID;
 
-        if (!string.IsNullOrEmpty(targetDoorID))
+        if (!string.IsNullOrEmpty(EnableTargetDoorID))
         {
             foreach (GameObject sceneSwitcherObject in SceneSwitchers)
             {
                 SceneSwitcherV2 sceneSwitcher = sceneSwitcherObject.GetComponent<SceneSwitcherV2>();
 
-                if (sceneSwitcher != null && sceneSwitcher.DoorID == targetDoorID)
+                if (sceneSwitcher != null && sceneSwitcher.DoorID == EnableTargetDoorID)
                 {
                     sceneSwitcher.enabled = true;
-                    Debug.Log($"Enable SceneSwitcher: {targetDoorID}");
+                    Debug.Log($"Enable SceneSwitcher: {EnableTargetDoorID}");
                     break;
                 }
             }
         }
+
+        string DisableTargetDoorID = SceneGameManager.Instance.SceneSwitcherToDisableID;
+
+        if (!string.IsNullOrEmpty(DisableTargetDoorID))
+        {
+            foreach (GameObject sceneSwitcherObject in SceneSwitchers)
+            {
+                SceneSwitcherV2 sceneSwitcher = sceneSwitcherObject.GetComponent<SceneSwitcherV2>();
+
+                if (sceneSwitcher != null && sceneSwitcher.DoorID == DisableTargetDoorID)
+                {
+                    sceneSwitcher.enabled = false;
+                    Debug.Log($"Disabled SceneSwitcher: {DisableTargetDoorID}");
+                    break;
+                }
+            }
+        }
+
     }
 
 

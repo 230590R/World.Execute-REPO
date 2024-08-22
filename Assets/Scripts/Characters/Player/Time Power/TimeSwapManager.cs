@@ -7,6 +7,7 @@ public class TimeSwapManager : MonoBehaviour
 {
     public static TimeSwapManager Instance;
 
+    private LevelManager levelManager;
     public string currentScene;
     public string previousScene;
     public Vector3 savedPosition;
@@ -29,11 +30,12 @@ public class TimeSwapManager : MonoBehaviour
     private void Start()
     {
         timeSwapV2 = GetComponent<TimeSwapV2>();
+        levelManager = FindAnyObjectByType<LevelManager>();
     }
 
     private void Update()
     {
-        if (SceneManager.GetActiveScene().name == hubSceneName)
+        if (SceneManager.GetActiveScene().name == hubSceneName && !levelManager.IsLevelComplete("Energy"))
         {
             savedPosition = Vector3.zero;
             currentScene = previousScene = timeSwapV2.Scene1 = timeSwapV2.Scene2 = "";
