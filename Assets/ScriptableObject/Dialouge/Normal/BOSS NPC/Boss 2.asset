@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c24e21714d22154fafc9cf0183033f1, type: 3}
+  m_Name: Boss 2
+  m_EditorClassIdentifier: 
+  name: Ian Chin
+  sentences:
+  - Excellent work on your last mission! Everything is falling into place. Keep following
+    my orders, and we'll transform this town into a utopia.
+  - "Anyway, your next mission is head down to the power-plant facility and take
+    the power core from the machine. You can\u2019t miss it. "
+  - The power-plant has ruined the place economically and environmentally. If we
+    help the people of the community we might get more people to help us and our
+    cause.
+  - "I know it feels like the last mission didn\u2019t help much but all it is now
+    is just dirty water rather than being poisoned to a slow death. You did the right
+    thing following my orders."
+  dialougeDone: 0

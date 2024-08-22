@@ -10,14 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2c24e21714d22154fafc9cf0183033f1, type: 3}
-  m_Name: Convo1
+  m_Name: Boss 3
   m_EditorClassIdentifier: 
-  name: Zhen Yi
+  name: Ian Chin
   sentences:
-  - " Hey! Congratulations on your promotion, don\u2019t let the title get to your
-    head too fast haha!"
-  - i heard that you're going to be the lead in the next few projects, just some
-    advice before you start...
-  - You can head to the first door on the right on the first floor to practice and
-    test yourself, knock yourself out!
+  - We need to take it into our own hands to eradicate weeds that grow too long and
+    astray, your friends were not loyal.
+  - "Anyway, look at what you\u2019ve help me create, what WE have created. This
+    is going to help everyone"
   dialougeDone: 0

@@ -10,14 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2c24e21714d22154fafc9cf0183033f1, type: 3}
-  m_Name: Convo1
+  m_Name: Player
   m_EditorClassIdentifier: 
-  name: Zhen Yi
+  name: You
   sentences:
-  - " Hey! Congratulations on your promotion, don\u2019t let the title get to your
-    head too fast haha!"
-  - i heard that you're going to be the lead in the next few projects, just some
-    advice before you start...
-  - You can head to the first door on the right on the first floor to practice and
-    test yourself, knock yourself out!
+  - I should talk to boss; he says he has something he wants to tell me. Although
+    I am a little scared, am I going to be let go? I just got this position.
   dialougeDone: 0

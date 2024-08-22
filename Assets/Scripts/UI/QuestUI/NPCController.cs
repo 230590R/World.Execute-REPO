@@ -6,7 +6,9 @@ public class NPCController : MonoBehaviour
 {
     [SerializeField] DialogueManager dialogueManager;
     NPCDialougeTrigger npcDialougeTrigger;
-    public QuestObj quest;
+    public QuestObj waterquest;
+    public QuestObj energyquest;
+
     public QuestManager manager;
 
     private void Awake()
