@@ -8,7 +8,8 @@ public class SceneSwitcherV2 : MonoBehaviour
     public string SceneName;
     public string PlayerTag = "Player";
     public KeyCode InputKey = KeyCode.E;
-    public string DoorID; 
+    public string DoorID;
+    public bool isLevelFinisher = false;
 
     [SerializeField] private bool isPlayerInTrigger = false;
 
@@ -24,8 +25,15 @@ public class SceneSwitcherV2 : MonoBehaviour
                 PlayerPrefs.SetString("LastUsedDoorID", DoorID);
                 PlayerPrefs.Save();
 
+                if (isLevelFinisher)
+                {
+                    GetComponent<LevelFinisher>().FinishLevel(DoorID);
+                }
+
                 //SceneManager.LoadScene(SceneName);
                 SceneTransition.Instance.SwitchScene(SceneName);
+
+
             }
         }
     }

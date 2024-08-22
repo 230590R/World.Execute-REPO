@@ -7,9 +7,12 @@ public class ShooterGruntController : IEnemy
     // Start is called before the first frame update
 
     bool reloadFlag = false;
+
+    private float previousHealth;
     void Start()
     {
         Init();
+        previousHealth = m_HealthController.health;
     }
 
     // Update is called once per frame
@@ -21,6 +24,12 @@ public class ShooterGruntController : IEnemy
             m_Animator.SetBool("isAlive", false);
             m_StateMachine.enabled = false;
             return;
+        }
+
+        if (m_HealthController.health < previousHealth)
+        {
+            m_Animator.SetTrigger("hurt");
+            previousHealth = m_HealthController.health;
         }
 
 
