@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c22fb22975c10dd43a046c0e51dfa870, type: 3}
-  m_Name: BossChase
+  m_Name: BossReturn
   m_EditorClassIdentifier: 
-  stateName: Chase
+  stateName: Patrol
   actions:
-  - {fileID: 11400000, guid: b7331d66c6444da4e965aabe5b01cc71, type: 2}
+  - {fileID: 11400000, guid: 21880bb2dcd76e845b7caeb9eb680604, type: 2}
   - {fileID: 11400000, guid: 46797e7b54acaba4ba9c57b934c522ff, type: 2}
   transitions:
-  - decision: {fileID: 11400000, guid: 695d4fdd01283964c95e6fe955147314, type: 2}
-    trueState: {fileID: 11400000, guid: 50b3fc8c00995cb48a48492e6b516d76, type: 2}
+  - decision: {fileID: 11400000, guid: 3f7fb3e09eceba84eb695bbee52b6659, type: 2}
+    trueState: {fileID: 11400000, guid: 0e8aa6e2044e8de48a124538c25fc92c, type: 2}
     falseState: {fileID: 11400000, guid: 2ba8e919aca54054aa55e7d1d4380702, type: 2}
-  stateExitTime: 1
-  timeoutState: {fileID: 11400000, guid: 234bfa211a0810a4cba148a867b9f660, type: 2}
+  stateExitTime: -1
+  timeoutState: {fileID: 11400000, guid: 50b3fc8c00995cb48a48492e6b516d76, type: 2}

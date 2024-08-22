@@ -9,6 +9,7 @@ public class AnimationAudioBehaviorV2 : StateMachineBehaviour
 
     public bool StopSFX = false;
     public bool Loop = true;
+    public bool OverrideAudio = true;
 
     private AudioHandlerV2 audioHandler;
 
@@ -26,7 +27,7 @@ public class AnimationAudioBehaviorV2 : StateMachineBehaviour
         }
         else if (audioHandler != null && !string.IsNullOrEmpty(categoryName))
         {
-            audioHandler.PlaySFXIfNotPlaying(categoryName, audioIndex, animator.gameObject.transform,Loop);
+            audioHandler.PlaySFXIfNotPlaying(categoryName, audioIndex, animator.gameObject.transform,Loop, OverrideAudio);
         }
     }
 

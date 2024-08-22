@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c22fb22975c10dd43a046c0e51dfa870, type: 3}
-  m_Name: BossIdle
+  m_Name: BossRanged
   m_EditorClassIdentifier: 
-  stateName: Idle
-  actions: []
+  stateName: Attack1
+  actions:
+  - {fileID: 11400000, guid: 6fb99c872b5f355489e84052e69627bf, type: 2}
   transitions: []
   stateExitTime: 1
   timeoutState: {fileID: 11400000, guid: 759702d4a685f7d4cbd9a0bd30b84426, type: 2}

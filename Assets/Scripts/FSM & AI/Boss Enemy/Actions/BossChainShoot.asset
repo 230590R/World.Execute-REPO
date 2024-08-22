@@ -10,18 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13c77c1d8e31d5b4496b0fe39ceb944d, type: 3}
-  m_Name: BossPunchShootPunch
+  m_Name: BossChainShoot
   m_EditorClassIdentifier: 
   ChainAttacks:
-  - atkName: Punch
+  - atkName: Shoot
     atkLeadupTime: 1
     parriableDuration: 0.4
   - atkName: Shoot
-    atkLeadupTime: 1
+    atkLeadupTime: 0.7
     parriableDuration: 0
   - atkName: Shoot
-    atkLeadupTime: 1
+    atkLeadupTime: 0.7
     parriableDuration: 0
-  - atkName: Punch
-    atkLeadupTime: 1
-    parriableDuration: 0.7
+  - atkName: Shoot
+    atkLeadupTime: 0.7
+    parriableDuration: 0
+  - atkName: Shoot
+    atkLeadupTime: 0.7
+    parriableDuration: 0
+  - atkName: Shoot
+    atkLeadupTime: 0.7
+    parriableDuration: 0
