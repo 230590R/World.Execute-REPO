@@ -168,35 +168,32 @@ public class AudioHandlerV2 : MonoBehaviour
         }
     }
 
-    public void PlaySFXIfNotPlaying(string clipCategory, int clipIndex, Transform callerTransform, bool shouldLoop = false)
-    {
-        // Check if the caller already has an active audio source
-        if (activeAudioSources.TryGetValue(callerTransform, out AudioSource activeSource))
-        {
-            // Check if the activeSource has been destroyed
-            if (activeSource == null)
-            {
-                // If the audio source is null (destroyed), remove it from the dictionary
-                activeAudioSources.Remove(callerTransform);
-            }
-            else if (activeSource.clip == audioClipsDict[clipCategory][clipIndex] && activeSource.isPlaying)
-            {
-                // Do nothing if the same clip is already playing
-                return;
-            }
-            else
-            {
-                // Stop and destroy the existing audio source if it's a different clip
-                Destroy(activeSource.gameObject);
-                activeAudioSources.Remove(callerTransform);
-            }
+  public void PlaySFXIfNotPlaying(string clipCategory, int clipIndex, Transform callerTransform, bool shouldLoop = false, bool overrideAudio = true) {
+    // Check if the caller already has an active audio source
+    if (activeAudioSources.TryGetValue(callerTransform, out AudioSource activeSource)) {
+      // Check if the activeSource has been destroyed
+      if (activeSource == null) {
+        // If the audio source is null (destroyed), remove it from the dictionary
+        activeAudioSources.Remove(callerTransform);
+      }
+      else if (activeSource.clip == audioClipsDict[clipCategory][clipIndex] && activeSource.isPlaying) {
+        // Do nothing if the same clip is already playing and overrideAudio is false
+        if (!overrideAudio) {
+          return;
         }
-
-        // Play the new clip
-        PlaySFX(clipCategory, clipIndex, callerTransform, shouldLoop);
+      }
+      else if (!overrideAudio) {
+        // Stop and destroy the existing audio source if it's a different clip and overrideAudio is false
+        Destroy(activeSource.gameObject);
+        activeAudioSources.Remove(callerTransform);
+      }
     }
 
-    public void PlayBGM(string clipCategory, int clipIndex)
+    // Play the new clip
+    PlaySFX(clipCategory, clipIndex, callerTransform, shouldLoop);
+  }
+
+  public void PlayBGM(string clipCategory, int clipIndex)
     {
         if (audioClipsDict.TryGetValue(clipCategory, out List<AudioClip> clips))
         {

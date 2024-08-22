@@ -154,7 +154,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2959472283529772310}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 14.320315, y: -1.6213888, z: 162.7185}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -192,6 +192,12 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 2d04bd5c6e9c6094cb5bc881e1267d87, type: 3}
     - {fileID: 8300000, guid: fb94910461a29f949bc30a7384c86097, type: 3}
     - {fileID: 8300000, guid: 3d5a78dda9d55264db6b5835467e75d0, type: 3}
+  - categoryName: Player
+    audioClips:
+    - {fileID: 8300000, guid: fed1f466076cd8b4684f51e2658fc5da, type: 3}
+    - {fileID: 8300000, guid: 5cf3519f52e69044a89549d50ad5a781, type: 3}
+    - {fileID: 8300000, guid: a1bc363fd300ec549b039366abff3833, type: 3}
+    - {fileID: 8300000, guid: 4c83d5885cdaff443bec6b101c511e11, type: 3}
 --- !u!114 &1467275316771017912
 MonoBehaviour:
   m_ObjectHideFlags: 0
